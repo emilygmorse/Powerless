@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://buflia8ra0dlb"]
+
+[ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_2q36i"]
+
+[node name="LightSource" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.187176, 0.187176, 0.187176, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(582, 321)
+scale = Vector2(2, 2)
+texture = ExtResource("1_2q36i")
