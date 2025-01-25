@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c4318dcf36ewv" path="res://test_files/child.png" id="1_k5rfq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_igd3e"]
-radius = 7.0
+radius = 13.0384
 
 [node name="Kid" type="CharacterBody2D"]
 motion_mode = 1
@@ -16,5 +16,6 @@ position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_igd3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -3)
+position = Vector2(4, -15)
+scale = Vector2(2, 2)
 texture = ExtResource("1_k5rfq")
