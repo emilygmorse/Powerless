@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Powerless"
-run/main_scene="res://light_source/light_source.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_render/layer_1="Player"
+2d_render/layer_2="Teddy"
+2d_render/layer_3="Enemy"
+2d_render/layer_4="Light"
 
 [rendering]
 
