@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://drre1mfap871y"]
+[gd_scene load_steps=3 format=3 uid="uid://cqoo7s4i5i2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dib31"]
 size = Vector2(1, 1)
@@ -7,6 +7,7 @@ size = Vector2(1, 1)
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 
 [node name="Wall" type="StaticBody2D"]
+position = Vector2(1, 1)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,4 +20,4 @@ occluder = SubResource("OccluderPolygon2D_q4p7f")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1.0
 offset_bottom = 1.0
-color = Color(0, 0, 0, 1)
+color = Color(0.486275, 0, 0, 1)
