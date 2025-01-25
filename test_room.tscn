@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3xbkorbvl30s"]
+[gd_scene load_steps=5 format=3 uid="uid://d3xbkorbvl30s"]
 
 [ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_hllbd"]
 [ext_resource type="PackedScene" uid="uid://4sdm0dyx61ve" path="res://kid.tscn" id="2_eheyg"]
+[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_euele"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6luhj"]
 size = Vector2(1500, 20)
@@ -27,3 +28,5 @@ shape = SubResource("RectangleShape2D_6luhj")
 
 [node name="Kid" parent="." instance=ExtResource("2_eheyg")]
 position = Vector2(573, 435)
+
+[node name="dark_canvas" parent="." instance=ExtResource("3_euele")]
