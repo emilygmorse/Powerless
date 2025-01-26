@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj0vs8rblk4xl"]
+[gd_scene load_steps=8 format=3 uid="uid://bj0vs8rblk4xl"]
 
 [ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_4tcny"]
+[ext_resource type="Script" path="res://test_files/test_room.gd" id="1_bjdql"]
 [ext_resource type="PackedScene" uid="uid://cwrpl8oouhow1" path="res://kid.tscn" id="2_cthb7"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_5fkdu"]
 [ext_resource type="PackedScene" uid="uid://by6dppcxytoiy" path="res://door.tscn" id="4_fail3"]
@@ -12,6 +13,7 @@ size = Vector2(1500, 20)
 polygon = PackedVector2Array(218, 221, 190, 217, 189, 200, 207, 185, 233, 181, 245, 199)
 
 [node name="TestRoom" type="Node2D"]
+script = ExtResource("1_bjdql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(575.704, 307)
@@ -32,7 +34,7 @@ position = Vector2(610, 623)
 shape = SubResource("RectangleShape2D_6luhj")
 
 [node name="Kid" parent="." instance=ExtResource("2_cthb7")]
-position = Vector2(573, 435)
+position = Vector2(254, 415)
 collision_mask = 30
 
 [node name="dark_canvas" parent="." instance=ExtResource("3_5fkdu")]
@@ -44,3 +46,5 @@ occluder = SubResource("OccluderPolygon2D_lsm3t")
 [node name="Door" parent="." instance=ExtResource("4_fail3")]
 z_index = 1
 position = Vector2(101, 427)
+
+[connection signal="door_used" from="Door" to="." method="_on_door_door_used"]
