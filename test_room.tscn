@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj0vs8rblk4xl"]
+
+[ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_hllbd"]
+[ext_resource type="PackedScene" path="res://kid.tscn" id="2_eheyg"]
+[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_euele"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6luhj"]
+size = Vector2(1500, 20)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsm3t"]
+polygon = PackedVector2Array(218, 221, 190, 217, 189, 200, 207, 185, 233, 181, 245, 199)
+
+[node name="TestRoom" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.704, 307)
+scale = Vector2(2.456, 2.456)
+texture = ExtResource("1_hllbd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1, 612, 0, 518, 174, 344, 501, 340, 529, 305, 580, 307, 585, 346, 655, 344, 669, 307, 730, 305, 747, 342, 779, 340, 794, 307, 819, 329, 800, 357, 800, 392, 868, 467, 991, 463, 1145, 616, 1215, 614, 1205, -43, -45, -47, -55, 610)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(297, 565, 297, 517, 353, 516, 466, 490, 484, 527, 444, 567)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(610, 623)
+shape = SubResource("RectangleShape2D_6luhj")
+
+[node name="Kid" parent="." instance=ExtResource("2_eheyg")]
+position = Vector2(573, 435)
+
+[node name="dark_canvas" parent="." instance=ExtResource("3_euele")]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(110, 334)
+occluder = SubResource("OccluderPolygon2D_lsm3t")
