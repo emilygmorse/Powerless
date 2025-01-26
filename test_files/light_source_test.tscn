@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://buflia8ra0dlb"]
+[gd_scene load_steps=7 format=3 uid="uid://buflia8ra0dlb"]
 
-[ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_c773m"]
+[ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_sb6p7"]
+[ext_resource type="PackedScene" uid="uid://ywgyqx2yggbd" path="res://enemy/enemy_shadow.tscn" id="2_6ilxf"]
 
 [sub_resource type="Gradient" id="Gradient_vsivc"]
 interpolation_mode = 2
@@ -18,15 +19,22 @@ metadata/_snap_enabled = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn5i0"]
 radius = 52.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_05p08"]
+blend_mode = 3
+
 [node name="LightSourceCircle" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+top_level = true
+light_mask = 0
+visibility_layer = 0
 color = Color(0.187176, 0.187176, 0.187176, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(582, 321)
 scale = Vector2(2, 2)
-texture = ExtResource("1_c773m")
+texture = ExtResource("1_sb6p7")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(734, 254)
@@ -40,3 +48,12 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
 shape = SubResource("CircleShape2D_mn5i0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EnemyShadow" parent="CanvasLayer" instance=ExtResource("2_6ilxf")]
+material = SubResource("CanvasItemMaterial_05p08")
+position = Vector2(600, 465)
+scale = Vector2(0.4, 0.4)
+
+[editable path="CanvasLayer/EnemyShadow"]
