@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://13h8arm02uci"]
+[gd_scene load_steps=10 format=3 uid="uid://13h8arm02uci"]
 
 [ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_4tcny"]
 [ext_resource type="Script" path="res://test_files/test_room.gd" id="1_bjdql"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_5fkdu"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://door.tscn" id="4_fail3"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="6_34kn5"]
+[ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://teddy.tscn" id="7_81dcr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6luhj"]
 size = Vector2(1500, 20)
@@ -49,24 +50,18 @@ occluder = SubResource("OccluderPolygon2D_lsm3t")
 
 [node name="Door" parent="." instance=ExtResource("4_fail3")]
 z_index = 1
-position = Vector2(101, 427)
+position = Vector2(100, 420)
 
 [node name="InteractArea" parent="." instance=ExtResource("6_34kn5")]
-position = Vector2(122, 365)
+position = Vector2(422, 507)
+scale = Vector2(4, 4)
 interact_label = "Interact with table"
 interact_type = "print_text"
 interact_value = "Yay it worked!"
 
-[node name="InteractArea2" parent="." instance=ExtResource("6_34kn5")]
-position = Vector2(180, 80)
-interact_label = "Interact with table"
-interact_type = "print_text"
-interact_value = "Yay it worked!"
-
-[node name="InteractArea3" parent="." instance=ExtResource("6_34kn5")]
-position = Vector2(586, 223)
-interact_label = "Interact with table"
-interact_type = "print_text"
-interact_value = "Yay it worked!"
+[node name="Teddy" parent="." instance=ExtResource("7_81dcr")]
+position = Vector2(813, 506)
 
 [connection signal="door_used" from="Door" to="." method="_on_door_door_used"]
+
+[editable path="InteractArea"]

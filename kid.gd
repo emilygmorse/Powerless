@@ -5,7 +5,6 @@ const SPEED = 150.0
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 
-signal pick_up_teddy
 
 func _ready() -> void:
 	hide_prompt()
@@ -52,4 +51,10 @@ func execute_interaction():
 	if all_interactions:
 		var cur_interactions = all_interactions[0]
 		match cur_interactions.interact_type:
-			"print_text" : print(cur_interactions.interact_value)
+			"print_text": 
+				print(cur_interactions.interact_value)
+			"pick_up":
+				#print(cur_interactions.interact_value)
+				cur_interactions._emit_pick_up_teddy_signal()
+				_on_interaction_area_area_exited(cur_interactions)
+				#pick_up_teddy.emit()
