@@ -5,11 +5,10 @@ const SPEED = 150.0
 
 
 func _physics_process(_delta: float) -> void:
-	# Get the input direction and handle the movement/deceleration.
-	var x_direction := Input.get_axis("move_left", "move_right")
-	var y_direction := Input.get_axis("move_up", "move_down")
+	# Get the input direction and handle the movement
+	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	velocity = Vector2(x_direction,y_direction).normalized() * SPEED
+	velocity = input_dir * SPEED
 	
 	#move_and_collide(velocity * delta)
 	move_and_slide()
