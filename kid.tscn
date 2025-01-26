@@ -1,51 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://radqdi6lmlic"]
+[gd_scene load_steps=5 format=3 uid="uid://cwrpl8oouhow1"]
 
-[ext_resource type="Texture2D" uid="uid://dlvnmuue8r4ij" path="res://art/playerGrey_walk1.png" id="1_dyg05"]
-[ext_resource type="Script" path="res://kid.gd" id="2_4d0j1"]
-[ext_resource type="Texture2D" uid="uid://cid58kumveq02" path="res://art/playerGrey_walk2.png" id="2_n22dm"]
-[ext_resource type="Texture2D" uid="uid://ef74m6mqjext" path="res://art/playerGrey_up1.png" id="2_sl6ob"]
-[ext_resource type="Texture2D" uid="uid://dj104fsx0dw13" path="res://art/playerGrey_up2.png" id="3_0adc1"]
+[ext_resource type="Script" path="res://kid.gd" id="1_4h2o2"]
+[ext_resource type="Texture2D" uid="uid://c4318dcf36ewv" path="res://test_files/child.png" id="1_k5rfq"]
+[ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="3_ex2ig"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mch86"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_sl6ob")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_0adc1")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_dyg05")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_n22dm")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_igd3e"]
+radius = 13.0384
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_loxbs"]
-radius = 28.0
-height = 70.0
-
-[node name="Kid" type="Area2D"]
-position = Vector2(576, 271)
-script = ExtResource("2_4d0j1")
+[node name="Kid" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_4h2o2")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_mch86")
-animation = &"up"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_loxbs")
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_igd3e")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -15)
+scale = Vector2(2, 2)
+texture = ExtResource("1_k5rfq")
+
+[node name="LightSourceCircle" parent="." instance=ExtResource("3_ex2ig")]
+position = Vector2(0, 9)
+scale = Vector2(1.575, 1.575)
