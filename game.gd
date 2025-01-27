@@ -1,8 +1,10 @@
 extends Node2D
 
-# The purpose of this Scene is to actually play the game.
+## The purpose of this Scene is to actually play the game.
 # It should load rooms and transition between them,
 # bringing along the player and teddy.
+
+## There should be a starting room scene as the bottommost child node of this scene.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,8 +26,9 @@ func _on_kid_opens_door(door_info: String) -> void:
 	if not scene_filepath:
 		push_error("No Scene Filepath from door")
 	else:
+		var load_status = ResourceLoader.load_threaded_get_status(scene_filepath)
 		# If the room has finished loading
-		if ResourceLoader.load_threaded_get_status(scene_filepath) == 3:
+		if load_status == 3:
 			# Delete the current room and disconnect from it
 			var current_room = self.get_child(-1) # Make sure the starting room is always the bottom node
 			self.remove_child(current_room)
@@ -36,5 +39,5 @@ func _on_kid_opens_door(door_info: String) -> void:
 			# Update Kid Position
 			$Kid.position = target_position
 		else:
-			print("not loaded. loader status: ",ResourceLoader.load_threaded_get_status(scene_filepath))
+			print("not loaded. loader status: ",load_status)
 			#TODO: Implement a loading screen here instead if necessary
