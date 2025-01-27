@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
+const SPEED = 300.0
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 
 signal pick_up_teddy
+signal door(door_info: String)
 
 func _ready() -> void:
 	hide_prompt()
@@ -20,7 +21,10 @@ func _physics_process(_delta: float) -> void:
 	
 	#move_and_collide(velocity * delta)
 	move_and_slide()
-	if Input.is_action_just_pressed("interact"):
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
 		execute_interaction()
 
 
@@ -53,3 +57,4 @@ func execute_interaction():
 		var cur_interactions = all_interactions[0]
 		match cur_interactions.interact_type:
 			"print_text" : print(cur_interactions.interact_value)
+			"door" : door.emit(cur_interactions.interact_value)
