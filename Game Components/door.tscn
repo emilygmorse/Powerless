@@ -1,25 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://by6dppcxytoiy"]
+[gd_scene load_steps=3 format=3 uid="uid://lo5o10fslxac"]
 
-[ext_resource type="Script" path="res://door.gd" id="1_l7ats"]
+[ext_resource type="Script" path="res://Game Components/door.gd" id="1_l7ats"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6a5n"]
 radius = 30.0
 
 [node name="Door" type="Area2D"]
-collision_layer = 0
+collision_layer = 32
 script = ExtResource("1_l7ats")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j6a5n")
-
-[node name="Prompt" type="Label" parent="."]
-z_index = 1
-offset_left = -28.0
-offset_top = -82.0
-offset_right = 27.0
-offset_bottom = -59.0
-text = "Press E"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

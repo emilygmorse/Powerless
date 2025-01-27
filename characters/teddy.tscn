@@ -1,0 +1,233 @@
+[gd_scene load_steps=27 format=3 uid="uid://bdngx7orlcqdx"]
+
+[ext_resource type="Texture2D" uid="uid://dr7g0p5j8iepv" path="res://images/bearsheet.png" id="1_7tui4"]
+[ext_resource type="Script" path="res://characters/teddy.gd" id="1_bee5m"]
+[ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="3_t4a6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlwyy"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(1, 1, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr3q5"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(20, 1, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ockjc"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(39, 1, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg04t"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(58, 1, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1oof"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(1, 30, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggrmt"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(20, 30, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jleuw"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(39, 30, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0ipe"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(58, 30, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t41q8"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(1, 59, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds663"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(19, 59, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2fg0"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(38, 59, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vfto"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(57, 59, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx1oy"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(2, 117, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpi5q"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(19, 117, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owcu2"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(38, 117, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qb3o"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(57, 117, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1o52"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(1, 88, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyev5"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(20, 88, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhgpm"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(39, 88, 18, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65w6f"]
+atlas = ExtResource("1_7tui4")
+region = Rect2(58, 88, 18, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p85da"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlwyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr3q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ockjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg04t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1oof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggrmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jleuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0ipe")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t41q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds663")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2fg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vfto")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx1oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpi5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owcu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qb3o")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1o52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyev5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhgpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65w6f")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eludl"]
+size = Vector2(18, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rty8v"]
+radius = 15.9003
+
+[node name="Teddy" type="CharacterBody2D"]
+z_index = 1
+position = Vector2(332, 274)
+scale = Vector2(10, 10)
+collision_layer = 2
+collision_mask = 21
+script = ExtResource("1_bee5m")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p85da")
+animation = &"walk_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90735e-06, -3.03984e-06)
+shape = SubResource("RectangleShape2D_eludl")
+
+[node name="Interact Components" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="Interact Area" type="Area2D" parent="Interact Components"]
+visible = false
+scale = Vector2(1, 1)
+collision_layer = 0
+collision_mask = 32
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact Components/Interact Area"]
+visible = false
+shape = SubResource("CircleShape2D_rty8v")
+
+[node name="InteractLabel" type="Label" parent="Interact Components"]
+visible = false
+offset_left = -18.0
+offset_top = -41.0
+offset_right = 15.0
+offset_bottom = -18.0
+text = "Test
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractArea" parent="." instance=ExtResource("3_t4a6a")]
+position = Vector2(-2.32458e-06, -7.45058e-09)
+collision_mask = 32
+interact_label = "Pick up Teddy"
+interact_type = "pick_up"
+interact_value = "picked up teddy"
+
+[connection signal="pick_up_teddy" from="InteractArea" to="." method="_on_interact_area_pick_up_teddy"]
+
+[editable path="InteractArea"]

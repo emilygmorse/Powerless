@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj0vs8rblk4xl"]
+[gd_scene load_steps=9 format=3 uid="uid://13h8arm02uci"]
 
 [ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_4tcny"]
-[ext_resource type="Script" path="res://test_files/test_room.gd" id="1_bjdql"]
-[ext_resource type="PackedScene" uid="uid://cwrpl8oouhow1" path="res://kid.tscn" id="2_cthb7"]
+[ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="2_cthb7"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_5fkdu"]
-[ext_resource type="PackedScene" uid="uid://by6dppcxytoiy" path="res://door.tscn" id="4_fail3"]
+[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="4_fail3"]
+[ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="6_34kn5"]
+[ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="7_81dcr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6luhj"]
 size = Vector2(1500, 20)
@@ -13,7 +14,6 @@ size = Vector2(1500, 20)
 polygon = PackedVector2Array(218, 221, 190, 217, 189, 200, 207, 185, 233, 181, 245, 199)
 
 [node name="TestRoom" type="Node2D"]
-script = ExtResource("1_bjdql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(575.704, 307)
@@ -21,6 +21,7 @@ scale = Vector2(2.456, 2.456)
 texture = ExtResource("1_4tcny")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -34,17 +35,32 @@ position = Vector2(610, 623)
 shape = SubResource("RectangleShape2D_6luhj")
 
 [node name="Kid" parent="." instance=ExtResource("2_cthb7")]
-position = Vector2(254, 415)
-collision_mask = 30
+position = Vector2(566, 435)
+collision_mask = 62
 
 [node name="dark_canvas" parent="." instance=ExtResource("3_5fkdu")]
+visible = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(110, 334)
 occluder = SubResource("OccluderPolygon2D_lsm3t")
 
 [node name="Door" parent="." instance=ExtResource("4_fail3")]
 z_index = 1
-position = Vector2(101, 427)
+position = Vector2(100, 420)
+interact_label = "To Test Room 2"
+connecting_room_path = "res://test_files/test_room_2.tscn"
+target_coords = Vector2(1033, 323)
 
-[connection signal="door_used" from="Door" to="." method="_on_door_door_used"]
+[node name="InteractArea" parent="." instance=ExtResource("6_34kn5")]
+position = Vector2(422, 507)
+scale = Vector2(4, 4)
+interact_label = "Interact with table"
+interact_type = "print_text"
+interact_value = "Yay it worked!"
+
+[node name="Teddy" parent="." instance=ExtResource("7_81dcr")]
+position = Vector2(813, 506)
+
+[editable path="InteractArea"]

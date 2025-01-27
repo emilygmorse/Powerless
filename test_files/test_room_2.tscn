@@ -1,14 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbeyqaw5g3ll3"]
+[gd_scene load_steps=5 format=3 uid="uid://bbeyqaw5g3ll3"]
 
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_7u1sy"]
-[ext_resource type="Script" path="res://test_files/test_room_2.gd" id="1_nj5h3"]
-[ext_resource type="PackedScene" uid="uid://by6dppcxytoiy" path="res://door.tscn" id="2_0c5w2"]
-[ext_resource type="PackedScene" uid="uid://cwrpl8oouhow1" path="res://kid.tscn" id="3_33n80"]
+[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="2_0c5w2"]
+[ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="3_33n80"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ydokd"]
 
 [node name="TestRoom2" type="Node2D"]
-script = ExtResource("1_nj5h3")
 
 [node name="dark_canvas" parent="." instance=ExtResource("1_7u1sy")]
 
@@ -27,8 +25,9 @@ offset_bottom = 343.0
 
 [node name="Door" parent="." instance=ExtResource("2_0c5w2")]
 position = Vector2(1088, 324)
+interact_label = "Go Back"
+connecting_room_path = "res://test_files/test_room.tscn"
+target_coords = Vector2(156, 426)
 
 [node name="Kid" parent="." instance=ExtResource("3_33n80")]
 position = Vector2(981, 321)
-
-[connection signal="door_used" from="Door" to="." method="_on_door_door_used"]
