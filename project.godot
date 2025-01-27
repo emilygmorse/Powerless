@@ -2,7 +2,7 @@
 ; It's best edited using the editor UI and not directly,
 ; since the parameters that go here are not all obvious.
 ;
-; Format:https://github.com/emilygmorse/Powerless/blob/POW-10/project.godot
+; Format:
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Powerless"
-run/main_scene="res://Rooms/room.tscn"
+run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://images/icon.png"
 
 [input]
 
@@ -59,7 +59,6 @@ interact={
 2d_physics/layer_4="Light"
 2d_physics/layer_5="Walls"
 2d_physics/layer_6="interactions"
-
 
 [rendering]
 

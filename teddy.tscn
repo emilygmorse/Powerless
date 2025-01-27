@@ -179,8 +179,11 @@ size = Vector2(18, 28)
 radius = 15.9003
 
 [node name="Teddy" type="CharacterBody2D"]
-position = Vector2(320, 201)
-scale = Vector2(3, 3)
+z_index = 1
+position = Vector2(332, 274)
+scale = Vector2(10, 10)
+collision_layer = 2
+collision_mask = 21
 script = ExtResource("1_bee5m")
 metadata/_edit_group_ = true
 
