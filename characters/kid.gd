@@ -11,6 +11,7 @@ func _ready() -> void:
 	hide_prompt()
 	$AnimatedSprite2D.play()
 	update_interactions()
+	
 
 
 func _physics_process(_delta: float) -> void:
@@ -24,9 +25,9 @@ func _physics_process(_delta: float) -> void:
 	elif velocity.x < 0:
 		$AnimatedSprite2D.animation = "walk_left"
 	elif velocity.x > 0: 
-		$AnimatedSprite2D.animation = "walk_right"	
+		$AnimatedSprite2D.animation = "walk_right"
 	elif velocity.y > 0:
-		$AnimatedSprite2D.animation = "walk_down"	
+		$AnimatedSprite2D.animation = "walk_down"
 	elif velocity.y < 0: 
 		$AnimatedSprite2D.animation = "walk_up"
 	
