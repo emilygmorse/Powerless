@@ -62,3 +62,4 @@ func execute_interaction():
 				cur_interactions._emit_pick_up_teddy_signal()
 				_on_interaction_area_area_exited(cur_interactions)
 				#pick_up_teddy.emit()
+			"door": door.emit(cur_interactions.interact_value)

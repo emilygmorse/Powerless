@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_7u1sy"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="2_0c5w2"]
-[ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://kid.tscn" id="3_33n80"]
+[ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="3_33n80"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ydokd"]
 

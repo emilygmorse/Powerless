@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://b18tnddomyy4q"]
 
-[ext_resource type="Script" path="res://kid.gd" id="1_4h2o2"]
+[ext_resource type="Script" path="res://characters/kid.gd" id="1_4h2o2"]
 [ext_resource type="Texture2D" uid="uid://bprsuigcb8jhr" path="res://images/kidsheet.png" id="2_p6xms"]
 [ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="3_ex2ig"]
 

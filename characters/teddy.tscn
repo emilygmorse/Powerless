@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://bdngx7orlcqdx"]
 
 [ext_resource type="Texture2D" uid="uid://dr7g0p5j8iepv" path="res://images/bearsheet.png" id="1_7tui4"]
-[ext_resource type="Script" path="res://teddy.gd" id="1_bee5m"]
+[ext_resource type="Script" path="res://characters/teddy.gd" id="1_bee5m"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="3_t4a6a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlwyy"]
