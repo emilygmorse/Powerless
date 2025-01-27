@@ -1,9 +1,10 @@
 extends Node2D
 
-
+## Test Game Scene that shows movement between two scenes.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# connect to the room's door signal
 	self.get_child(0).door.connect(_on_room_door)
 
 

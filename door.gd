@@ -19,10 +19,12 @@ func hide_prompt() -> void:
 	$Prompt.hide()
 
 
+
+
+## Handles interact button TODO: Move to InteractArea framework
 func _on_body_entered(_body: Node2D) -> void:
 	show_prompt()
 	near_door = true
-
 
 func _on_body_exited(_body: Node2D) -> void:
 	hide_prompt()
