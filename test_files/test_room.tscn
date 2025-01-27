@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://13h8arm02uci"]
+[gd_scene load_steps=9 format=3 uid="uid://13h8arm02uci"]
 
 [ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_4tcny"]
 [ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="2_cthb7"]
@@ -62,7 +62,5 @@ interact_value = "Yay it worked!"
 
 [node name="Teddy" parent="." instance=ExtResource("7_81dcr")]
 position = Vector2(813, 506)
-
-[connection signal="door_used" from="Door" to="." method="_on_door_door_used"]
 
 [editable path="InteractArea"]
