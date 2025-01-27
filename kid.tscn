@@ -179,7 +179,9 @@ animations = [{
 radius = 43.0116
 
 [node name="Kid" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(3, -7)
+collision_mask = 63
 motion_mode = 1
 script = ExtResource("1_4h2o2")
 
