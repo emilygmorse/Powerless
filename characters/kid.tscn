@@ -103,7 +103,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_yfepw")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -192,6 +192,7 @@ shape = SubResource("CircleShape2D_igd3e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_srxtm")
+animation = &"idle"
 
 [node name="LightSourceCircle" parent="." instance=ExtResource("3_ex2ig")]
 visible = false

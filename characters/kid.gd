@@ -9,6 +9,7 @@ signal door(door_info: String)
 
 func _ready() -> void:
 	hide_prompt()
+	$AnimatedSprite2D.play()
 	update_interactions()
 
 
@@ -17,6 +18,17 @@ func _physics_process(_delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	velocity = input_dir * SPEED
+	
+	if velocity.length() == 0:
+		$AnimatedSprite2D.animation = "idle"
+	elif velocity.x < 0:
+		$AnimatedSprite2D.animation = "walk_left"
+	elif velocity.x > 0: 
+		$AnimatedSprite2D.animation = "walk_right"	
+	elif velocity.y > 0:
+		$AnimatedSprite2D.animation = "walk_down"	
+	elif velocity.y < 0: 
+		$AnimatedSprite2D.animation = "walk_up"
 	
 	#move_and_collide(velocity * delta)
 	move_and_slide()
