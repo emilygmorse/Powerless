@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 
 
 # When kid uses door 
-func _on_kid_door(door_info: String) -> void:
+func _on_kid_opens_door(door_info: String) -> void:
 	# split door info up into its components
 	var args = door_info.split(",")
 	var scene_filepath = args[0]

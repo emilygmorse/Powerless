@@ -17,4 +17,4 @@ position = Vector2(857, 303)
 
 [node name="TestRoom3" parent="." instance=ExtResource("2_fh8qx")]
 
-[connection signal="door" from="Kid" to="." method="_on_kid_door"]
+[connection signal="door" from="Kid" to="." method="_on_kid_opens_door"]
