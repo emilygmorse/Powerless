@@ -21,7 +21,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	# Scene Transition
+	## Scene Transition
 	if transition == TRANSITION_STATE.NONE:
 		pass
 	elif transition == TRANSITION_STATE.OUT:
@@ -45,7 +45,7 @@ func _process(_delta: float) -> void:
 		assert(false)
 
 
-# When kid uses door 
+## When kid uses door 
 func _on_kid_opens_door(door_info: String) -> void:
 	# split door info up into its components
 	var args = door_info.split(",")

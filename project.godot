@@ -49,10 +49,8 @@ interact={
 
 [layer_names]
 
-2d_render/layer_1="Player"
-2d_render/layer_2="Teddy"
-2d_render/layer_3="Enemy"
-2d_render/layer_4="Light"
+2d_render/layer_1="Ingame"
+2d_render/layer_2="UI"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Teddy"
 2d_physics/layer_3="Enemy"

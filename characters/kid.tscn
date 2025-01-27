@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b18tnddomyy4q"]
+[gd_scene load_steps=28 format=3 uid="uid://b18tnddomyy4q"]
 
 [ext_resource type="Script" path="res://characters/kid.gd" id="1_4h2o2"]
 [ext_resource type="Texture2D" uid="uid://bprsuigcb8jhr" path="res://images/kidsheet.png" id="2_p6xms"]
@@ -178,6 +178,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdtv8"]
 radius = 43.0116
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6j1ke"]
+light_mode = 1
+
 [node name="Kid" type="CharacterBody2D"]
 z_index = 1
 position = Vector2(3, -7)
@@ -221,6 +224,9 @@ shape = SubResource("CircleShape2D_sdtv8")
 metadata/_edit_group_ = true
 
 [node name="Interact Label" type="Label" parent="Interaction Components"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_6j1ke")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
