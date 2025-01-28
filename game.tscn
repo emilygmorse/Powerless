@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://game.gd" id="1_4lv2d"]
 [ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="2_awmkx"]
-[ext_resource type="PackedScene" path="res://test_files/test_room_3.tscn" id="2_fh8qx"]
 [ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="3_cjk31"]
+[ext_resource type="PackedScene" uid="uid://bpos8fneogbdf" path="res://rooms/bedroom.tscn" id="4_7jm3a"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_4lv2d")
 
+[node name="Bedroom" parent="." instance=ExtResource("4_7jm3a")]
+
 [node name="Kid" parent="." instance=ExtResource("2_awmkx")]
-position = Vector2(575, 328)
+position = Vector2(107, 108)
 wall_min_slide_angle = 0.349066
 
 [node name="Teddy" parent="." instance=ExtResource("3_cjk31")]
-position = Vector2(857, 303)
-
-[node name="TestRoom3" parent="." instance=ExtResource("2_fh8qx")]
+position = Vector2(192, 116)
 
 [connection signal="door" from="Kid" to="." method="_on_kid_opens_door"]

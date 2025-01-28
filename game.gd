@@ -4,7 +4,7 @@ extends Node2D
 # It should load rooms and transition between them,
 # bringing along the player and teddy.
 
-## There should be a starting room scene as the bottommost child node of this scene.
+## There should be a starting room scene as the first child node of this scene.
 
 enum TRANSITION_STATE { NONE, IN, OUT }
 var transition := TRANSITION_STATE.NONE
@@ -16,7 +16,8 @@ var target_position: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	# Set current room
+	current_room = self.get_child(0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,10 +32,12 @@ func _process(_delta: float) -> void:
 			# Delete the current room
 			self.remove_child(current_room)
 			current_room.queue_free()
-			# add the new room
+			# add the new room & update current room
 			self.add_child(new_room)
+			current_room = new_room
 			# Update Kid Position
 			$Kid.position = target_position
+			# Transition back in
 			transition = TRANSITION_STATE.IN
 	elif transition == TRANSITION_STATE.IN:
 		# fade back in
@@ -59,7 +62,7 @@ func _on_kid_opens_door(door_info: String) -> void:
 		# If the room has finished loading
 		if load_status == 3:
 			# Set up transition from current room to new room
-			current_room = self.get_child(-1) # Make sure the starting room is always the bottom node
+			# current_room should already be correct
 			new_room = ResourceLoader.load_threaded_get(scene_filepath).instantiate()
 			# Begin scene transition
 			transition = TRANSITION_STATE.OUT
