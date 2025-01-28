@@ -15,10 +15,6 @@ run/main_scene="res://Rooms/room.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[display]
-
-window/subwindows/embed_subwindows=false
-
 [input]
 
 move_down={

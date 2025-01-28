@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bycmwsp6tntoe"]
+
+[ext_resource type="PackedScene" uid="uid://1tqnysfg01w8" path="res://Game Components/Pop-up Window/window.tscn" id="1_dbtuy"]
+[ext_resource type="Texture2D" uid="uid://did3oisedxrc3" path="res://icon.svg" id="2_flfhw"]
+
+[node name="DrawerPopUp" instance=ExtResource("1_dbtuy")]
+
+[node name="Sprite2D" parent="Camera2D" index="0"]
+position = Vector2(175, 0)
+scale = Vector2(1, 1)
+texture = ExtResource("2_flfhw")
+
+[node name="Button" type="Button" parent="Camera2D" index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 187.0
+offset_top = 146.5
+offset_right = 297.0
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Push to close"

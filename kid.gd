@@ -7,7 +7,6 @@ const SPEED = 150.0
 
 
 func _ready() -> void:
-	hide_prompt()
 	update_interactions()
 
 
@@ -23,12 +22,6 @@ func _physics_process(_delta: float) -> void:
 		execute_interaction()
 
 
-func show_prompt() -> void:
-	$Prompt.show()
-
-func hide_prompt() -> void:
-	$Prompt.hide()
-	
 
 #Interaction Methods
 
@@ -58,3 +51,5 @@ func execute_interaction():
 				cur_interactions._emit_pick_up_teddy_signal()
 				_on_interaction_area_area_exited(cur_interactions)
 				#pick_up_teddy.emit()
+			"pop_up":
+				cur_interactions._emit_pop_up_signal()	
