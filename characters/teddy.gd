@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
+const SPEED = 70.0
 var teddy_just_picked_up = false
 var teddy_picked_up = false
 
