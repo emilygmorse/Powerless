@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc38tk6g41wrp"]
+[gd_scene load_steps=5 format=3 uid="uid://bu3ghymu13n7w"]
 
-[ext_resource type="Script" path="res://test_files/test_game.gd" id="1_bdwvj"]
-[ext_resource type="PackedScene" uid="uid://13h8arm02uci" path="res://test_files/test_room.tscn" id="2_18bje"]
+[ext_resource type="Script" path="res://game.gd" id="1_6euw1"]
+[ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="2_dgjuo"]
+[ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="3_d6ydb"]
+[ext_resource type="PackedScene" uid="uid://b4icnsiwac8w0" path="res://test_files/test_room_3.tscn" id="4_484jg"]
 
 [node name="TestGame" type="Node2D"]
-script = ExtResource("1_bdwvj")
+script = ExtResource("1_6euw1")
 
-[node name="TestRoom" parent="." instance=ExtResource("2_18bje")]
-position = Vector2(5, 8)
+[node name="Kid" parent="." instance=ExtResource("2_dgjuo")]
+position = Vector2(575, 328)
+wall_min_slide_angle = 0.349066
+
+[node name="Teddy" parent="." instance=ExtResource("3_d6ydb")]
+position = Vector2(857, 303)
+
+[node name="TestRoom3" parent="." instance=ExtResource("4_484jg")]
+
+[connection signal="door" from="Kid" to="." method="_on_kid_opens_door"]

@@ -48,6 +48,9 @@ occluder = SubResource("OccluderPolygon2D_lsm3t")
 [node name="Door" parent="." instance=ExtResource("4_fail3")]
 z_index = 1
 position = Vector2(100, 420)
+interact_label = "To Test Room 2"
+connecting_room_path = "res://test_files/test_room_2.tscn"
+target_coords = Vector2(1030, 325)
 
 [node name="InteractArea" parent="." instance=ExtResource("6_34kn5")]
 position = Vector2(422, 507)
