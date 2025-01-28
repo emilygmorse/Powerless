@@ -180,8 +180,6 @@ radius = 15.9003
 
 [node name="Teddy" type="CharacterBody2D"]
 z_index = 1
-position = Vector2(332, 274)
-scale = Vector2(10, 10)
 collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_bee5m")
@@ -201,7 +199,6 @@ z_index = 1
 
 [node name="Interact Area" type="Area2D" parent="Interact Components"]
 visible = false
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 32
 monitoring = false
@@ -211,7 +208,6 @@ visible = false
 shape = SubResource("CircleShape2D_rty8v")
 
 [node name="InteractLabel" type="Label" parent="Interact Components"]
-visible = false
 offset_left = -18.0
 offset_top = -41.0
 offset_right = 15.0

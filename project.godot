@@ -11,9 +11,21 @@ config_version=5
 [application]
 
 config/name="Powerless"
-run/main_scene="res://game.tscn"
+run/main_scene="res://test_files/light_source_test.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://images/icon.png"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/mode=2
+window/stretch/mode="viewport"
+
+[global_group]
+
+Enemy=""
+Player=""
 
 [input]
 
@@ -47,15 +59,6 @@ interact={
 ]
 }
 
-[display]
-
-window/stretch/mode="viewport"
-
-[global_group]
-
-Enemy=""
-Player=""
-
 [layer_names]
 
 2d_render/layer_1="Ingame"
@@ -69,5 +72,6 @@ Player=""
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

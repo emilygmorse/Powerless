@@ -1,66 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://buflia8ra0dlb"]
+[gd_scene load_steps=7 format=3 uid="uid://buflia8ra0dlb"]
 
-[ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_sb6p7"]
+[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_2xxvv"]
+[ext_resource type="Texture2D" uid="uid://c0u5wlcxxvaa6" path="res://images/scenes/living room.png" id="1_ogbh8"]
+[ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="3_8y477"]
 [ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="3_ax3tm"]
-
-[sub_resource type="Gradient" id="Gradient_vsivc"]
-interpolation_mode = 2
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ioygv"]
-gradient = SubResource("Gradient_vsivc")
-width = 80
-height = 80
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.3)
-metadata/_snap_enabled = true
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mn5i0"]
-radius = 52.0
+[ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="4_iux4a"]
+[ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="5_wvc3h"]
 
 [node name="LightSourceCircle" type="Node2D"]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-top_level = true
-light_mask = 0
-visibility_layer = 0
-color = Color(0.187176, 0.187176, 0.187176, 1)
+[node name="dark_canvas" parent="." instance=ExtResource("1_2xxvv")]
+visible = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(582, 321)
-scale = Vector2(2, 2)
-texture = ExtResource("1_sb6p7")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(734, 254)
-color = Color(1, 1, 0.686275, 1)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_ioygv")
-
-[node name="Area2D" type="Area2D" parent="PointLight2D"]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
-shape = SubResource("CircleShape2D_mn5i0")
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_ogbh8")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_ax3tm")]
 
 [node name="Spawn_1" parent="EnemySpawner" index="0"]
-position = Vector2(158, 107)
+position = Vector2(40, 33)
 
 [node name="Spawn_2" type="Marker2D" parent="EnemySpawner"]
-position = Vector2(245, 481)
+position = Vector2(290, 18)
 
 [node name="Spawn_3" type="Marker2D" parent="EnemySpawner"]
-position = Vector2(974, 511)
+position = Vector2(30, 160)
 
 [node name="Spawn_4" type="Marker2D" parent="EnemySpawner"]
-position = Vector2(996, 105)
+position = Vector2(301, 160)
 
-[node name="PlayerTest" type="Marker2D" parent="." groups=["Player"]]
-position = Vector2(622, 311)
+[node name="Teddy" parent="." instance=ExtResource("4_iux4a")]
+position = Vector2(239, 142)
+
+[node name="LightSourceCircle" parent="." instance=ExtResource("5_wvc3h")]
+position = Vector2(51, 99)
+energy = 2.0
+
+[node name="Kid" parent="." instance=ExtResource("3_8y477")]
+position = Vector2(156, 115)
 
 [editable path="EnemySpawner"]
