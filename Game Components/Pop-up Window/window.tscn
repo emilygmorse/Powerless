@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://1tqnysfg01w8"]
+
+[ext_resource type="Script" path="res://Game Components/Pop-up Window/window.gd" id="1_vywh7"]
+
+[sub_resource type="Gradient" id="Gradient_c44v4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_26fd8"]
+gradient = SubResource("Gradient_c44v4")
+
+[node name="Window" type="Window"]
+auto_translate_mode = 1
+title = "pop up"
+initial_position = 1
+size = Vector2i(500, 500)
+unresizable = true
+borderless = true
+always_on_top = true
+popup_window = true
+script = ExtResource("1_vywh7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+scale = Vector2(1e-05, 1e-05)
+texture = SubResource("GradientTexture2D_26fd8")
+centered = false
