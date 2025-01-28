@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 class_name Enemy
 
-@export var speed: float = 50
+@export var speed_x: float = 25
+@export var speed_y: float = 15
 @export var shake_time: float = 3
 @export var  pos_x_diff: int = 0
-@export var  pos_y_diff: int = 50
+@export var  pos_y_diff: int = 0
 
 @export var stretch_time: float = 1.5
 @export var scale_diff: float = 0.1
@@ -44,22 +45,22 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func horizontal_move() -> void:
-	if player_ref.global_position.x > self.global_position.x and abs(player_ref.global_position.x - self.global_position.x) > 10:
+	if player_ref.global_position.x > self.global_position.x and abs(player_ref.global_position.x - self.global_position.x) > 3:
 		sprite_2d.flip_h = false
 		direction_x = 1
-	elif player_ref.global_position.x < self.global_position.x and abs(player_ref.global_position.x - self.global_position.x) > 10:
+	elif player_ref.global_position.x < self.global_position.x and abs(player_ref.global_position.x - self.global_position.x) > 3:
 		sprite_2d.flip_h = true
 		direction_x = -1
-	elif abs(player_ref.global_position.x - self.global_position.x) < 10:
+	elif abs(player_ref.global_position.x - self.global_position.x) < 3:
 		direction_x = 0
-	velocity.x = speed * direction_x
+	velocity.x = speed_x * direction_x
 	
 func vertical_move() -> void:
 	if player_ref.global_position.y > self.global_position.y:
 		direction_y = 1
 	else:
 		direction_y = -1
-	velocity.y = speed * direction_y
+	velocity.y = speed_y * direction_y
 
 func shake() -> void:
 	var tween = create_tween()
