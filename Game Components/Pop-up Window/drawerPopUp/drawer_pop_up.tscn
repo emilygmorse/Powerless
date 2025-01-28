@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bycmwsp6tntoe"]
 
 [ext_resource type="PackedScene" uid="uid://1tqnysfg01w8" path="res://Game Components/Pop-up Window/window.tscn" id="1_dbtuy"]
-[ext_resource type="Texture2D" uid="uid://did3oisedxrc3" path="res://icon.svg" id="2_flfhw"]
+[ext_resource type="Texture2D" uid="uid://cvea57rodwxdm" path="res://images/icon.png" id="2_bv6bc"]
 
 [node name="DrawerPopUp" instance=ExtResource("1_dbtuy")]
 
 [node name="Sprite2D" parent="Camera2D" index="0"]
 position = Vector2(175, 0)
-scale = Vector2(1, 1)
-texture = ExtResource("2_flfhw")
+scale = Vector2(8, 8)
+texture = ExtResource("2_bv6bc")
 
 [node name="Button" type="Button" parent="Camera2D" index="1"]
 anchors_preset = 8
