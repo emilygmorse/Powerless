@@ -1,4 +1,6 @@
 [gd_scene format=3 uid="uid://b6ounnmmw6js8"]
 
 [node name="dark_canvas" type="CanvasModulate"]
+visible = false
+show_behind_parent = true
 color = Color(0.187176, 0.187176, 0.187176, 1)

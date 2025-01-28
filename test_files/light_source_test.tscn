@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://buflia8ra0dlb"]
+[gd_scene load_steps=6 format=3 uid="uid://buflia8ra0dlb"]
 
-[ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_c773m"]
+[ext_resource type="Texture2D" uid="uid://1s3wuv0j1mjm" path="res://test_files/test_background.png" id="1_sb6p7"]
+[ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="3_ax3tm"]
 
 [sub_resource type="Gradient" id="Gradient_vsivc"]
 interpolation_mode = 2
@@ -21,12 +22,16 @@ radius = 52.0
 [node name="LightSourceCircle" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+top_level = true
+light_mask = 0
+visibility_layer = 0
 color = Color(0.187176, 0.187176, 0.187176, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(582, 321)
 scale = Vector2(2, 2)
-texture = ExtResource("1_c773m")
+texture = ExtResource("1_sb6p7")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(734, 254)
@@ -40,3 +45,22 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
 shape = SubResource("CircleShape2D_mn5i0")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_ax3tm")]
+
+[node name="Spawn_1" parent="EnemySpawner" index="0"]
+position = Vector2(158, 107)
+
+[node name="Spawn_2" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(245, 481)
+
+[node name="Spawn_3" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(974, 511)
+
+[node name="Spawn_4" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(996, 105)
+
+[node name="PlayerTest" type="Marker2D" parent="." groups=["Player"]]
+position = Vector2(622, 311)
+
+[editable path="EnemySpawner"]

@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
+const SPEED = 300.0
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 
+signal door(door_info: String)
 
 func _ready() -> void:
+	$AnimatedSprite2D.play()
 	update_interactions()
+	
 
 
 func _physics_process(_delta: float) -> void:
@@ -16,9 +19,23 @@ func _physics_process(_delta: float) -> void:
 	
 	velocity = input_dir * SPEED
 	
+	if velocity.length() == 0:
+		$AnimatedSprite2D.animation = "idle"
+	elif velocity.x < 0:
+		$AnimatedSprite2D.animation = "walk_left"
+	elif velocity.x > 0: 
+		$AnimatedSprite2D.animation = "walk_right"
+	elif velocity.y > 0:
+		$AnimatedSprite2D.animation = "walk_down"
+	elif velocity.y < 0: 
+		$AnimatedSprite2D.animation = "walk_up"
+	
 	#move_and_collide(velocity * delta)
 	move_and_slide()
-	if Input.is_action_just_pressed("interact"):
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
 		execute_interaction()
 
 
@@ -51,5 +68,6 @@ func execute_interaction():
 				cur_interactions._emit_pick_up_teddy_signal()
 				_on_interaction_area_area_exited(cur_interactions)
 				#pick_up_teddy.emit()
+			"door": door.emit(cur_interactions.interact_value)
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()	
