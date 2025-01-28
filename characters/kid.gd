@@ -8,7 +8,6 @@ const SPEED = 300.0
 signal door(door_info: String)
 
 func _ready() -> void:
-	hide_prompt()
 	$AnimatedSprite2D.play()
 	update_interactions()
 	
@@ -40,12 +39,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		execute_interaction()
 
 
-func show_prompt() -> void:
-	$Prompt.show()
-
-func hide_prompt() -> void:
-	$Prompt.hide()
-	
 
 #Interaction Methods
 
@@ -76,3 +69,5 @@ func execute_interaction():
 				_on_interaction_area_area_exited(cur_interactions)
 				#pick_up_teddy.emit()
 			"door": door.emit(cur_interactions.interact_value)
+			"pop_up":
+				cur_interactions._emit_pop_up_signal()	
