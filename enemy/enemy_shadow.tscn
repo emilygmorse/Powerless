@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ywgyqx2yggbd"]
+
+[ext_resource type="Texture2D" uid="uid://cob28yxetuyug" path="res://test_files/shadow_beast.png" id="1_atgag"]
+[ext_resource type="Script" path="res://enemy/enemy_shadow.gd" id="1_w17ej"]
+
+[node name="EnemyShadow" type="CharacterBody2D" groups=["Enemy"]]
+position = Vector2(566, 359)
+scale = Vector2(0.4, 0.4)
+collision_layer = 4
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_w17ej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_atgag")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

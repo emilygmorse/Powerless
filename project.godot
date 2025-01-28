@@ -47,6 +47,15 @@ interact={
 ]
 }
 
+[display]
+
+window/stretch/mode="viewport"
+
+[global_group]
+
+Enemy=""
+Player=""
+
 [layer_names]
 
 2d_render/layer_1="Ingame"
