@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b18tnddomyy4q"]
+[gd_scene load_steps=28 format=3 uid="uid://b18tnddomyy4q"]
 
 [ext_resource type="Script" path="res://characters/kid.gd" id="1_4h2o2"]
 [ext_resource type="Texture2D" uid="uid://bprsuigcb8jhr" path="res://images/kidsheet.png" id="2_p6xms"]
@@ -174,11 +174,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sdtv8"]
-radius = 17.0294
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxid2"]
+radius = 11.0
+height = 38.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6j1ke"]
 light_mode = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qu588"]
+radius = 4.0
+height = 26.0
 
 [node name="Kid" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
@@ -195,6 +200,7 @@ sprite_frames = SubResource("SpriteFrames_srxtm")
 animation = &"walk_down"
 
 [node name="Prompt" type="Label" parent="."]
+visible = false
 offset_left = -31.0
 offset_top = -30.0
 offset_right = 99.0
@@ -212,7 +218,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Components/Interaction Area"]
 position = Vector2(-1, 0)
-shape = SubResource("CircleShape2D_sdtv8")
+shape = SubResource("CapsuleShape2D_oxid2")
 metadata/_edit_group_ = true
 
 [node name="Interact Label" type="Label" parent="Interaction Components"]
@@ -236,6 +242,14 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HurtBox" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 64
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_qu588")
 
 [connection signal="area_entered" from="Interaction Components/Interaction Area" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interaction Components/Interaction Area" to="." method="_on_interaction_area_area_exited"]

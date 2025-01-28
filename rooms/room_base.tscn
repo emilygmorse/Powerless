@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://heyaf8gbqeo2"]
+
+[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_kek5n"]
+
+[node name="RoomBase" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="dark_canvas" parent="." instance=ExtResource("1_kek5n")]
