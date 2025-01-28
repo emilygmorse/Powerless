@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="7_81dcr"]
 [ext_resource type="PackedScene" uid="uid://bycmwsp6tntoe" path="res://Game Components/Pop-up Window/drawerPopUp/drawer_pop_up.tscn" id="8_ar7pj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6luhj"]
-size = Vector2(1500, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nune0"]
+size = Vector2(335, 20)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lsm3t"]
 polygon = PackedVector2Array(218, 221, 190, 217, 189, 200, 207, 185, 233, 181, 245, 199)
@@ -19,26 +19,21 @@ polygon = PackedVector2Array(218, 221, 190, 217, 189, 200, 207, 185, 233, 181, 2
 script = ExtResource("1_bjdql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575.704, 307)
-scale = Vector2(2.456, 2.456)
+position = Vector2(159, 90)
+scale = Vector2(0.72, 0.72)
 texture = ExtResource("1_4tcny")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 collision_layer = 16
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(1, 612, 0, 518, 174, 344, 501, 340, 529, 305, 580, 307, 585, 346, 655, 344, 669, 307, 730, 305, 747, 342, 779, 340, 794, 307, 819, 329, 800, 357, 800, 392, 868, 467, 991, 463, 1145, 616, 1215, 614, 1205, -43, -45, -47, -55, 610)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(297, 565, 297, 517, 353, 516, 466, 490, 484, 527, 444, 567)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(610, 623)
-shape = SubResource("RectangleShape2D_6luhj")
+position = Vector2(160.5, 190)
+shape = SubResource("RectangleShape2D_nune0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1, 180, -1, 142, 7, 136, 32, 112, 42, 101, 87, 101, 138, 99, 145, 90, 161, 90, 163, 100, 181, 101, 185, 90, 206, 91, 209, 100, 218, 100, 223, 92, 229, 98, 223, 108, 246, 136, 281, 135, 319, 174, 318, 189, 357, 191, 354, -15, -32, -17, -29, 191, 2, 193)
 
 [node name="dark_canvas" parent="." instance=ExtResource("3_5fkdu")]
-visible = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
@@ -47,20 +42,20 @@ occluder = SubResource("OccluderPolygon2D_lsm3t")
 
 [node name="Door" parent="." instance=ExtResource("4_fail3")]
 z_index = 1
-position = Vector2(100, 420)
+position = Vector2(19, 121)
 interact_label = "To Test Room 2"
 connecting_room_path = "res://test_files/test_room_2.tscn"
-target_coords = Vector2(1030, 325)
+target_coords = Vector2(260, 90)
 
 [node name="InteractArea" parent="." instance=ExtResource("6_34kn5")]
-position = Vector2(422, 507)
+position = Vector2(103, 155)
 scale = Vector2(4, 4)
 interact_label = "Interact with table"
 interact_type = "print_text"
 interact_value = "Yay it worked!"
 
 [node name="InteractArea2" parent="." instance=ExtResource("6_34kn5")]
-position = Vector2(428, 277)
+position = Vector2(114, 80)
 scale = Vector2(4, 4)
 interact_label = "Open drawers"
 interact_type = "pop_up"
@@ -70,15 +65,15 @@ interact_value = "puzzle time"
 visible = false
 
 [node name="Teddy" parent="." instance=ExtResource("7_81dcr")]
-position = Vector2(766, 476)
-scale = Vector2(3, 3)
+position = Vector2(269, 153)
 
 [node name="Kid" parent="." instance=ExtResource("2_cthb7")]
-position = Vector2(269, 389)
+position = Vector2(170, 122)
 
 [connection signal="pop_up" from="InteractArea2" to="." method="_on_interact_with_drawers_pop_up"]
 [connection signal="pressed" from="DrawerPopUp/Camera2D/Button" to="." method="_on_button_pressed"]
 
+[editable path="Door"]
 [editable path="InteractArea"]
 [editable path="InteractArea2"]
 [editable path="DrawerPopUp"]

@@ -7,14 +7,14 @@
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -19.0
 offset_top = -15.0
-offset_right = 1188.0
-offset_bottom = 681.0
+offset_right = 340.0
+offset_bottom = 198.0
 
 [node name="Door" parent="." instance=ExtResource("1_hwpw6")]
-position = Vector2(1107, 303)
+position = Vector2(295, 155)
 interact_label = "Go Back!"
 connecting_room_path = "res://test_files/test_room_3.tscn"
-target_coords = Vector2(143, 321)
+target_coords = Vector2(60, 120)
 
 [node name="ColorRect" type="ColorRect" parent="Door"]
 offset_left = -19.0

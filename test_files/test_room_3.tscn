@@ -7,14 +7,14 @@
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -15.0
 offset_top = -8.0
-offset_right = 1165.0
-offset_bottom = 668.0
+offset_right = 339.0
+offset_bottom = 206.0
 
 [node name="LeftDoor" parent="." instance=ExtResource("1_doj8i")]
-position = Vector2(90, 320)
+position = Vector2(26, 152)
 interact_label = "To a new room!"
 connecting_room_path = "res://test_files/test_room_4.tscn"
-target_coords = Vector2(1056, 305)
+target_coords = Vector2(260, 120)
 
 [node name="ColorRect" type="ColorRect" parent="LeftDoor"]
 offset_left = -21.0
@@ -24,10 +24,10 @@ offset_bottom = 20.0
 color = Color(1, 0, 1, 1)
 
 [node name="RightDoor" parent="." instance=ExtResource("1_doj8i")]
-position = Vector2(1055, 312)
+position = Vector2(296, 26)
 interact_label = "To Test Room"
-connecting_room_path = "res://test_files/test_room.tscn"
-target_coords = Vector2(168, 428)
+connecting_room_path = "res://test_files/test_room_2.tscn"
+target_coords = Vector2(60, 60)
 
 [node name="ColorRect" type="ColorRect" parent="RightDoor"]
 offset_left = -21.0

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 
+
 const SPEED = 70.0
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"

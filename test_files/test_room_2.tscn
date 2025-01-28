@@ -13,21 +13,34 @@
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -1.0
 offset_top = 1.0
-offset_right = 1148.0
-offset_bottom = 648.0
+offset_right = 333.0
+offset_bottom = 191.0
 texture = SubResource("PlaceholderTexture2D_ydokd")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 1068.0
-offset_top = 303.0
-offset_right = 1108.0
-offset_bottom = 343.0
-
 [node name="Door" parent="." instance=ExtResource("2_0c5w2")]
-position = Vector2(1088, 324)
+position = Vector2(296, 94)
 interact_label = "Go Back"
 connecting_room_path = "res://test_files/test_room.tscn"
-target_coords = Vector2(156, 426)
+target_coords = Vector2(40, 120)
+
+[node name="ColorRect" type="ColorRect" parent="Door"]
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 20.0
+offset_bottom = 21.0
+
+[node name="LeftDoor" parent="." instance=ExtResource("2_0c5w2")]
+position = Vector2(27, 29)
+interact_label = "To Test Room 3"
+connecting_room_path = "res://test_files/test_room_3.tscn"
+target_coords = Vector2(260, 60)
+
+[node name="ColorRect" type="ColorRect" parent="LeftDoor"]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 19.0
+offset_bottom = 19.0
+color = Color(0, 1, 1, 1)
 
 [node name="Kid" parent="." instance=ExtResource("3_33n80")]
-position = Vector2(981, 321)
+position = Vector2(160, 92)
