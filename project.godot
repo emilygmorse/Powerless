@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Powerless"
-run/main_scene="res://test_files/light_source_test.tscn"
+run/main_scene="res://test_files/player_enemy_testing.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://images/icon.png"
 
@@ -28,6 +28,7 @@ window/stretch/scale_mode="integer"
 
 Enemy=""
 Player=""
+Light=""
 
 [input]
 
@@ -71,6 +72,7 @@ interact={
 2d_physics/layer_4="Light"
 2d_physics/layer_5="Walls"
 2d_physics/layer_6="interactions"
+2d_physics/layer_7="Player HurtBox"
 
 [rendering]
 

@@ -16,7 +16,6 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * SPEED
 		$AnimatedSprite2D.play() 
 
-		
 		if velocity.length() == 0:
 			$AnimatedSprite2D.animation = "idle"
 		elif velocity.x < 0:

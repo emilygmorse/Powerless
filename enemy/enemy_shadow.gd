@@ -13,6 +13,8 @@ class_name Enemy
 @export var skew_diff = 20
 
 var player_ref
+var enemy_collision: bool = false
+var delete_enemy_time: float = 1.5
 var direction_x: int = 1
 var direction_y: int = 1
 
@@ -25,12 +27,14 @@ var scale_var_x: float
 var scale_var_y: float
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var area_2d: Area2D = $Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player_ref = get_tree().get_first_node_in_group("Player")
 	
 	modulate = Color(100, 100, 100, 0.1)
+	skew = deg_to_rad(randf_range(-skew_diff, skew_diff))
 	init_scale_x = self.scale.x
 	init_scale_y = self.scale.y
 	scale_var_x = init_scale_x * scale_diff
@@ -40,9 +44,10 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	horizontal_move()
-	vertical_move()
-	move_and_slide()
+	if enemy_collision == false:
+		horizontal_move()
+		vertical_move()
+		move_and_slide()
 
 func horizontal_move() -> void:
 	if player_ref.global_position.x > self.global_position.x and abs(player_ref.global_position.x - self.global_position.x) > 3:
@@ -68,9 +73,10 @@ func shake() -> void:
 	get_tree().create_timer(shake_time - .01).timeout.connect(shake_timer)
 
 func shake_timer() -> void:
-	pos_x_diff *= -1
-	pos_y_diff *= -1
-	shake()
+	if enemy_collision == false:
+		pos_x_diff *= -1
+		pos_y_diff *= -1
+		shake()
 
 func stretch() -> void:
 	var tween = create_tween()
@@ -84,9 +90,41 @@ func stretch() -> void:
 	get_tree().create_timer(stretch_time - .01).timeout.connect(stretch_timer)
 	
 func stretch_timer() -> void:
-	stretch_tween.kill()
-	skew_diff *= -1
-	stretch()
+	if enemy_collision == false:
+		stretch_tween.kill()
+		skew_diff *= -1
+		stretch()
+
+func enemy_destroyed() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(0.01, 0.01), delete_enemy_time)
+	tween.parallel().tween_property(self, "modulate", Color(100, 100, 100, 0), delete_enemy_time)
+	get_tree().create_timer(delete_enemy_time).timeout.connect(delete_enemy)
+	
+func enemy_attacks() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(init_scale_x * 2, init_scale_x * 2), delete_enemy_time)
+	tween.parallel().tween_property(self, "modulate", Color(100, 100, 100, 0), delete_enemy_time)
+	get_tree().create_timer(delete_enemy_time).timeout.connect(delete_enemy)
+	
+func delete_enemy() -> void:
+	queue_free()
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	enemy_collision = true
+	area_2d.set_deferred("monitorable", false)
+	area_2d.set_deferred("monitoring", false)
+	if stretch_tween:
+		stretch_tween.kill()
+		stretch_tween = null
+	if shake_tween:
+		shake_tween.kill()
+		shake_tween = null
+	
+	if area.is_in_group("Player"):
+		enemy_attacks()
+	if area.is_in_group("Light"):
+		enemy_destroyed()
 
 #Currently blink functions are not being calledon. Was experimenting with flickering effect did not care for it. May revisit later.
 func blink_out() -> void:
