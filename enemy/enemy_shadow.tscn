@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://enemy/enemy_shadow.gd" id="1_w17ej"]
 
 [node name="EnemyShadow" type="CharacterBody2D" groups=["Enemy"]]
-modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(566, 359)
+scale = Vector2(0.4, 0.4)
 collision_layer = 4
 collision_mask = 0
 motion_mode = 1
