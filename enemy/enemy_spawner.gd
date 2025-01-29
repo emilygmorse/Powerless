@@ -23,7 +23,8 @@ func _ready() -> void:
 	enemy_spawn_list()
 	for i in self.get_children():
 		spawn_points.insert(0, i)
-	get_tree().create_timer(spawn_time).timeout.connect(spawn_enemy)
+	SignalManager.activate_enemy_spawner.connect(spawn_enemy)
+	#get_tree().create_timer(spawn_time).timeout.connect(spawn_enemy)
 
 func enemy_spawn_list() -> void:
 	var array_count: int = -1

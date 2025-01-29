@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 70.0
+var inputs_allowed = true
 
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
@@ -9,28 +10,40 @@ const SPEED = 70.0
 signal door(door_info: String)
 
 func _ready() -> void:
+	SignalManager.cutscene_started.connect(inputs_disabled)
+	SignalManager.cutscene_ended.connect(inputs_enabled)
 	$AnimatedSprite2D.play()
 	update_interactions()
 
+func inputs_enabled() -> void:
+	inputs_allowed = true
+
+func inputs_disabled() -> void:
+	inputs_allowed = false
+	$AnimatedSprite2D.animation = "idle"
+
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement
-	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	velocity = input_dir * SPEED
-	
-	if velocity.length() == 0:
-		$AnimatedSprite2D.animation = "idle"
-	elif velocity.x < 0:
-		$AnimatedSprite2D.animation = "walk_left"
-	elif velocity.x > 0: 
-		$AnimatedSprite2D.animation = "walk_right"
-	elif velocity.y > 0:
-		$AnimatedSprite2D.animation = "walk_down"
-	elif velocity.y < 0: 
-		$AnimatedSprite2D.animation = "walk_up"
-	
-	#move_and_collide(velocity * delta)
-	move_and_slide()
+	if inputs_allowed == true:
+		
+		var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		
+		velocity = input_dir * SPEED
+		
+		if velocity.length() == 0:
+			$AnimatedSprite2D.animation = "idle"
+		elif velocity.x < 0:
+			$AnimatedSprite2D.animation = "walk_left"
+		elif velocity.x > 0: 
+			$AnimatedSprite2D.animation = "walk_right"
+		elif velocity.y > 0:
+			$AnimatedSprite2D.animation = "walk_down"
+		elif velocity.y < 0: 
+			$AnimatedSprite2D.animation = "walk_up"
+		
+		#move_and_collide(velocity * delta)
+		move_and_slide()
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
