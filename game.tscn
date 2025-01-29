@@ -13,7 +13,6 @@ script = ExtResource("1_4lv2d")
 
 [node name="Kid" parent="." instance=ExtResource("2_awmkx")]
 position = Vector2(107, 108)
-wall_min_slide_angle = 0.349066
 
 [node name="Teddy" parent="." instance=ExtResource("3_cjk31")]
 position = Vector2(192, 116)

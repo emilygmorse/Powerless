@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cixn6i1g580bw"]
+[gd_scene load_steps=5 format=3 uid="uid://cixn6i1g580bw"]
 
 [ext_resource type="Texture2D" uid="uid://c0u5wlcxxvaa6" path="res://images/scenes/living room.png" id="1_bat5l"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_trod0"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_5f65h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8mtj"]
+size = Vector2(320, 20)
 
 [node name="LivingRoom" type="Node2D"]
 
@@ -17,7 +20,15 @@ centered = false
 [node name="dark_canvas" parent="." instance=ExtResource("1_trod0")]
 
 [node name="Walls" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 190)
+shape = SubResource("RectangleShape2D_t8mtj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 179, 26, 116, 38, 116, 38, 124, 64, 124, 64, 116, 67, 116, 63, 81, 79, 81, 79, 88, 124, 88, 124, 81, 280, 81, 320, 180, 320, 0, 0, 0)
 
 [node name="BedroomDoor" parent="." instance=ExtResource("3_5f65h")]
 position = Vector2(157, 74)
