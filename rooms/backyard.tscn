@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd7xtya8g3e25"]
+[gd_scene load_steps=5 format=3 uid="uid://cd7xtya8g3e25"]
 
 [ext_resource type="Texture2D" uid="uid://di434nqbjvdpd" path="res://images/scenes/backyard.png" id="1_r7fai"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_xy27f"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_pse5c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j13m"]
+size = Vector2(320, 20)
 
 [node name="Backyard" type="Node2D"]
 
@@ -17,7 +20,15 @@ centered = false
 [node name="dark_canvas" parent="." instance=ExtResource("1_xy27f")]
 
 [node name="Walls" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 180, 33, 99, 99, 99, 99, 84, 281, 84, 299, 127, 275, 141, 281, 180, 320, 180, 320, 0, 0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 190)
+shape = SubResource("RectangleShape2D_1j13m")
 
 [node name="KitchenDoor" parent="." instance=ExtResource("3_pse5c")]
 position = Vector2(299, 105)

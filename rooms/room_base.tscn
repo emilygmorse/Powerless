@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_kek5n"]
 [ext_resource type="PackedScene" uid="uid://cv0f6edyh7vmb" path="res://dialogue/balloon.tscn" id="2_vlqk8"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syyj7"]
+size = Vector2(320, 20)
+
 [node name="RoomBase" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -23,3 +26,7 @@ collision_layer = 16
 
 [node name="DialogueBalloon" parent="." instance=ExtResource("2_vlqk8")]
 visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 190)
+shape = SubResource("RectangleShape2D_syyj7")
