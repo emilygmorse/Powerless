@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq2uwdyk74yjr"]
+
+[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_ctpom"]
+[ext_resource type="Texture2D" uid="uid://bar2uf6p7o8q6" path="res://images/scenes/kitchen.png" id="1_oswwy"]
+[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_b7wpg"]
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Background" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_oswwy")
+centered = false
+
+[node name="dark_canvas" parent="." instance=ExtResource("1_ctpom")]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="LivingDoor" parent="." instance=ExtResource("3_b7wpg")]
+position = Vector2(298, 109)
+interact_label = "Living Room"
+connecting_room_path = "res://rooms/living_room.tscn"
+target_coords = Vector2(30, 150)
+
+[node name="YardDoor" parent="." instance=ExtResource("3_b7wpg")]
+position = Vector2(7, 145)
+interact_label = "Backyard"
+connecting_room_path = "res://rooms/backyard.tscn"
+target_coords = Vector2(275, 110)

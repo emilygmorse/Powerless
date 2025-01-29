@@ -37,6 +37,7 @@ func _process(_delta: float) -> void:
 			current_room = new_room
 			# Update Kid Position
 			$Kid.position = target_position
+			# TODO: Figure out teddy position. Initial idea: same position?
 			# Transition back in
 			transition = TRANSITION_STATE.IN
 	elif transition == TRANSITION_STATE.IN:

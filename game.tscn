@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bpos8fneogbdf" path="res://rooms/bedroom.tscn" id="4_7jm3a"]
 
 [node name="Game" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_4lv2d")
 
 [node name="Bedroom" parent="." instance=ExtResource("4_7jm3a")]
