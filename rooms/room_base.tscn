@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://heyaf8gbqeo2"]
+[gd_scene load_steps=3 format=3 uid="uid://heyaf8gbqeo2"]
 
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_kek5n"]
+[ext_resource type="PackedScene" uid="uid://cv0f6edyh7vmb" path="res://dialogue/balloon.tscn" id="2_vlqk8"]
 
 [node name="RoomBase" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+limit_left = -160
+limit_top = -90
+limit_right = 160
+limit_bottom = 90
 
 [node name="Background" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -15,3 +20,6 @@ centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 16
+
+[node name="DialogueBalloon" parent="." instance=ExtResource("2_vlqk8")]
+visible = false
