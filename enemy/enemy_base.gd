@@ -123,7 +123,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	
 	if area.is_in_group("Player"):
 		enemy_attacks()
-	if area.is_in_group("Light"):
+	if area.is_in_group("Light") or area.is_in_group("Teddy Attack"):
 		enemy_destroyed()
 
 #Currently blink functions are not being calledon. Was experimenting with flickering effect did not care for it. May revisit later.
