@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdngx7orlcqdx"]
+[gd_scene load_steps=35 format=3 uid="uid://bdngx7orlcqdx"]
 
 [ext_resource type="Texture2D" uid="uid://dr7g0p5j8iepv" path="res://images/bearsheet.png" id="1_7tui4"]
 [ext_resource type="Script" path="res://characters/teddy.gd" id="1_bee5m"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="3_t4a6a"]
+[ext_resource type="PackedScene" uid="uid://y7m4jei1tmgl" path="res://Game Components/progress_bar.tscn" id="4_c13yr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlwyy"]
 atlas = ExtResource("1_7tui4")
@@ -178,6 +179,180 @@ size = Vector2(18, 28)
 [sub_resource type="CircleShape2D" id="CircleShape2D_rty8v"]
 radius = 15.9003
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k1kny"]
+radius = 12.0
+height = 34.0
+
+[sub_resource type="Gradient" id="Gradient_fc86e"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gw6ia"]
+gradient = SubResource("Gradient_fc86e")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_122hf"]
+radius = 32.0
+
+[sub_resource type="Animation" id="Animation_26jvm"]
+resource_name = "radius_attack"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackGlow:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1), Vector2(1, 1), Vector2(0.01, 0.01)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackGlow/AttackArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AttackGlow/AttackArea:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackGlow:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ProgressBar:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1), Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ProgressBar:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_n4ice"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackGlow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackGlow/AttackArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AttackGlow/AttackArea:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackGlow:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ProgressBar:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ProgressBar:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fw0i"]
+_data = {
+"RESET": SubResource("Animation_n4ice"),
+"radius_attack": SubResource("Animation_26jvm")
+}
+
 [node name="Teddy" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 2
@@ -190,6 +365,7 @@ sprite_frames = SubResource("SpriteFrames_p85da")
 animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1.90735e-06, -3.03984e-06)
 shape = SubResource("RectangleShape2D_eludl")
 
@@ -218,11 +394,45 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InteractArea" parent="." instance=ExtResource("3_t4a6a")]
+visible = false
 position = Vector2(-2.32458e-06, -7.45058e-09)
 collision_mask = 32
 interact_label = "Pick up Teddy"
 interact_type = "pick_up"
 interact_value = "picked up teddy"
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+shape = SubResource("CapsuleShape2D_k1kny")
+
+[node name="TeddyAttackNode" type="Node2D" parent="."]
+
+[node name="ProgressBar" parent="TeddyAttackNode" instance=ExtResource("4_c13yr")]
+offset_left = -7.0
+offset_top = -19.0
+offset_right = 7.0
+offset_bottom = -16.0
+scale = Vector2(0.1, 0.1)
+
+[node name="AttackGlow" type="PointLight2D" parent="TeddyAttackNode"]
+texture_filter = 1
+enabled = false
+color = Color(0.95415, 0.000746219, 0.954294, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_gw6ia")
+
+[node name="AttackArea" type="Area2D" parent="TeddyAttackNode/AttackGlow" groups=["Teddy Attack"]]
+collision_layer = 64
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeddyAttackNode/AttackGlow/AttackArea"]
+shape = SubResource("CircleShape2D_122hf")
+
+[node name="AnimationEffect" type="AnimationPlayer" parent="TeddyAttackNode"]
+libraries = {
+"": SubResource("AnimationLibrary_7fw0i")
+}
 
 [connection signal="pick_up_teddy" from="InteractArea" to="." method="_on_interact_area_pick_up_teddy"]
 

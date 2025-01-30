@@ -15,17 +15,20 @@ func _ready() -> void:
 	$AnimatedSprite2D.play()
 	update_interactions()
 
-func inputs_enabled() -> void:
-	inputs_allowed = true
-
 func inputs_disabled() -> void:
 	inputs_allowed = false
 	$AnimatedSprite2D.animation = "idle"
 
+func inputs_enabled() -> void:
+	get_tree().create_timer(0.01).timeout.connect(inputs_enabled_timer)
+
+func inputs_enabled_timer() -> void:
+	inputs_allowed = true
+
+
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement
-	
-	if inputs_allowed == true:
+	if inputs_allowed == true and GameManager.teddy_combat_mode == false:
 		
 		var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://ywgyqx2yggbd"]
+
+[ext_resource type="Script" path="res://enemy/enemy_base.gd" id="1_sxh3a"]
+[ext_resource type="Texture2D" uid="uid://dkgwpvfwk2y5w" path="res://images/scenes/monsters,png.png" id="2_b575s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3f3w"]
+radius = 0.8
+height = 3.0
+
+[sub_resource type="Animation" id="Animation_7yu4g"]
+resource_name = "shadow"
+
+[sub_resource type="Animation" id="Animation_5thn7"]
+resource_name = "tongue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_b575s")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2dbp"]
+_data = {
+"shadow": SubResource("Animation_7yu4g"),
+"tongue": SubResource("Animation_5thn7")
+}
+
+[node name="EnemyShadow" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(10, 10)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_sxh3a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_b575s")
+hframes = 8
+vframes = 5
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 72
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_r3f3w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h2dbp")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
