@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq2uwdyk74yjr"]
+[gd_scene load_steps=6 format=3 uid="uid://cq2uwdyk74yjr"]
 
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_ctpom"]
 [ext_resource type="Texture2D" uid="uid://bar2uf6p7o8q6" path="res://images/scenes/kitchen.png" id="1_oswwy"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_b7wpg"]
+[ext_resource type="Texture2D" uid="uid://bwb6taqx1me1u" path="res://images/objects/table.png" id="4_puc5m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7umbb"]
 size = Vector2(320, 20)
 
 [node name="Kitchen" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -41,3 +43,14 @@ position = Vector2(7, 145)
 interact_label = "Backyard"
 connecting_room_path = "res://rooms/backyard.tscn"
 target_coords = Vector2(275, 110)
+
+[node name="Table" type="StaticBody2D" parent="."]
+position = Vector2(193, 147)
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="Table"]
+texture = ExtResource("4_puc5m")
+offset = Vector2(0, -20)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table"]
+polygon = PackedVector2Array(-34, 0, -27, -21, 26, -21, 34, 0)

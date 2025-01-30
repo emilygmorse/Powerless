@@ -5,6 +5,7 @@ extends Node2D
 # bringing along the player and teddy.
 
 ## There should be a starting room scene as the first child node of this scene.
+# Currently Bedroom
 
 enum TRANSITION_STATE { NONE, IN, OUT }
 var transition := TRANSITION_STATE.NONE
