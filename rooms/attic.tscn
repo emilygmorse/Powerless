@@ -20,11 +20,10 @@ centered = false
 [node name="dark_canvas" parent="." instance=ExtResource("1_lij55")]
 
 [node name="Walls" type="StaticBody2D" parent="."]
-visible = false
 collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PackedVector2Array(222, 97, 97, 97, 79, 145, 79, 150, 239, 150, 239, 146, 158, 146, 203, 100, 222, 100)
+polygon = PackedVector2Array(222, 97, 97, 97, 79, 145, 79, 150, 239, 150, 239, 146, 163, 146, 208, 100, 222, 100)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
 polygon = PackedVector2Array(0, 180, 40, 81, 280, 81, 320, 180, 320, 0, 0, 0)
@@ -37,4 +36,4 @@ shape = SubResource("RectangleShape2D_47lde")
 position = Vector2(174, 124)
 interact_label = "Stairs Down"
 connecting_room_path = "res://rooms/bedroom.tscn"
-target_coords = Vector2(220, 100)
+target_coords = Vector2(220, 90)

@@ -19,3 +19,6 @@ func prep_creak() -> void:
 func _on_creak_timer_timeout() -> void:
 	$Creaking.play()
 	prep_creak()
+
+func stop_creak() -> void:
+	$CreakTimer.stop()
