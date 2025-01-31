@@ -1,6 +1,7 @@
 extends Node2D
 
 var click_delay: bool = false
+var top_breaker_avail: bool = false
 
 @onready var switch_top: ColorRect = $BreakerTop/SwitchTop
 @onready var indicator_top: ColorRect = $BreakerTop/IndicatorTop
@@ -57,13 +58,24 @@ func switch_function(breaker: Dictionary, switch: ColorRect, indicator: ColorRec
 func click_delay_off() -> void:
 	click_delay = false
 
-
 func _on_breaker_top_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
 		switch_function(breaker_top, switch_top, indicator_top)
 
+		#if breaker_left_1.tripped == false:
+			#if breaker_left_2.tripped == false:
+				#if breaker_left_3.tripped == false:
+					#if breaker_left_4.tripped == false:
+						#if breaker_right_1.tripped == false:
+							#if breaker_right_2.tripped == false:
+								#if breaker_right_3.tripped == false:
+									#top_breaker_avail = true
+									#switch_function(breaker_top, switch_top, indicator_top)
+		#else:
+			#print("oops no dice")
+		
 
 func _on_breaker_left_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:

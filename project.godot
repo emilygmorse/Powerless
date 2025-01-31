@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Powerless"
-run/main_scene="res://puzzles/breaker_box.tscn"
+run/main_scene="res://test_files/test_wire_breaker_combo.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://images/icon.png"
 
