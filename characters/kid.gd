@@ -5,8 +5,10 @@ const SPEED = 70.0
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 @onready var hurt_box: Area2D = $HurtBox
+@onready var fearMeter = $FearMeter/FearMeter
 
 signal door(door_info: String)
+signal health
 
 func _ready() -> void:
 	$AnimatedSprite2D.play()
@@ -36,6 +38,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		execute_interaction()
 
+func _on_fear_increased():
+	fearMeter.value -= 10
 
 #Interaction Methods
 
@@ -68,3 +72,5 @@ func execute_interaction():
 			"door": door.emit(cur_interactions.interact_value)
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
+			"health_tick_placeholder": 
+				_on_fear_increased()

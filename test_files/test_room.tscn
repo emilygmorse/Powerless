@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://test_files/test_room.gd" id="1_bjdql"]
 [ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="2_cthb7"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_5fkdu"]
-[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="4_fail3"]
+[ext_resource type="PackedScene" path="res://Game Components/door.tscn" id="4_fail3"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="6_34kn5"]
 [ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="7_81dcr"]
 [ext_resource type="PackedScene" uid="uid://bycmwsp6tntoe" path="res://Game Components/Pop-up Window/drawerPopUp/drawer_pop_up.tscn" id="8_ar7pj"]
@@ -49,14 +49,14 @@ target_coords = Vector2(260, 90)
 
 [node name="InteractArea" parent="." instance=ExtResource("6_34kn5")]
 position = Vector2(103, 155)
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 interact_label = "Interact with table"
 interact_type = "print_text"
 interact_value = "Yay it worked!"
 
 [node name="InteractArea2" parent="." instance=ExtResource("6_34kn5")]
-position = Vector2(114, 80)
-scale = Vector2(4, 4)
+position = Vector2(110, 78)
+scale = Vector2(2, 2)
 interact_label = "Open drawers"
 interact_type = "pop_up"
 interact_value = "puzzle time"
@@ -69,6 +69,12 @@ position = Vector2(269, 153)
 
 [node name="Kid" parent="." instance=ExtResource("2_cthb7")]
 position = Vector2(170, 122)
+
+[node name="InteractArea3" parent="." instance=ExtResource("6_34kn5")]
+position = Vector2(251, 110)
+scale = Vector2(2, 2)
+interact_label = "Try hitbox"
+interact_type = "health_tick_placeholder"
 
 [connection signal="pop_up" from="InteractArea2" to="." method="_on_interact_with_drawers_pop_up"]
 [connection signal="pressed" from="DrawerPopUp/Camera2D/Button" to="." method="_on_button_pressed"]
