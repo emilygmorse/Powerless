@@ -1,9 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://8fy8y0t631m2"]
 
 [ext_resource type="PackedScene" uid="uid://ywgyqx2yggbd" path="res://enemy/enemy_base.tscn" id="1_brxxv"]
-[ext_resource type="Texture2D" uid="uid://dkgwpvfwk2y5w" path="res://images/scenes/monsters,png.png" id="2_ak3hy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe1hf"]
+size = Vector2(22, 30)
 
 [node name="EnemyTongue" instance=ExtResource("1_brxxv")]
+speed_x = 24.0
+speed_y = 12.0
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_ak3hy")
+frame = 3
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_pe1hf")
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "tongue"

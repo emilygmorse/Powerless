@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1hhxsobbepil"]
+
+[ext_resource type="Texture2D" uid="uid://bbrpkm7q2t1me" path="res://puzzles/notes_1_small.png" id="1_fkgbi"]
+
+[node name="Instr_1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fkgbi")

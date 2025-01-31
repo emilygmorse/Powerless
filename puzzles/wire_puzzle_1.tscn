@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmn5hoktqf7el"]
 
 [ext_resource type="Script" path="res://puzzles/wire_puzzle_1.gd" id="1_pj4f7"]
-[ext_resource type="Texture2D" uid="uid://c230ym2ftu8yd" path="res://images/scenes/powerbox1.png" id="2_qcl22"]
+[ext_resource type="Texture2D" uid="uid://6ayroxn360xk" path="res://puzzles/powerbox1_small.png" id="2_5expo"]
 [ext_resource type="Texture2D" uid="uid://dobq1m7m1fs42" path="res://test_files/test_spark.png" id="3_78qtk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6yye"]
@@ -44,14 +44,14 @@ animations = [{
 }]
 
 [node name="WirePuzzle1" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_pj4f7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(160, 90)
-texture = ExtResource("2_qcl22")
+texture = ExtResource("2_5expo")
 
 [node name="BottomWire1" type="Area2D" parent="."]
-position = Vector2(209, 101)
+position = Vector2(-32, 11)
 collision_layer = 128
 collision_mask = 0
 
@@ -63,7 +63,7 @@ sprite_frames = SubResource("SpriteFrames_p7n4j")
 frame_progress = 0.776927
 
 [node name="BottomWire2" type="Area2D" parent="."]
-position = Vector2(283, 103)
+position = Vector2(42, 13)
 collision_layer = 128
 collision_mask = 0
 
@@ -75,7 +75,7 @@ sprite_frames = SubResource("SpriteFrames_p7n4j")
 frame_progress = 0.03063
 
 [node name="BottomWire3" type="Area2D" parent="."]
-position = Vector2(235, 97)
+position = Vector2(-6, 7)
 collision_layer = 128
 collision_mask = 0
 
@@ -87,7 +87,7 @@ sprite_frames = SubResource("SpriteFrames_p7n4j")
 frame_progress = 0.03063
 
 [node name="TopWire1" type="Area2D" parent="."]
-position = Vector2(282, 76)
+position = Vector2(41, -14)
 collision_layer = 128
 collision_mask = 0
 
@@ -99,7 +99,7 @@ sprite_frames = SubResource("SpriteFrames_p7n4j")
 frame_progress = 0.03063
 
 [node name="TopWire2" type="Area2D" parent="."]
-position = Vector2(228, 67)
+position = Vector2(-13, -23)
 collision_layer = 128
 collision_mask = 0
 
@@ -111,7 +111,7 @@ sprite_frames = SubResource("SpriteFrames_p7n4j")
 frame_progress = 0.03063
 
 [node name="TopWire3" type="Area2D" parent="."]
-position = Vector2(270, 34)
+position = Vector2(29, -56)
 collision_layer = 128
 collision_mask = 0
 

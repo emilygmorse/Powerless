@@ -1,8 +1,9 @@
 ~ start
+do SignalManager.activate_enemy_spawner.emit()
+
 do SignalManager.cutscene_started.emit()
 Theodore: [speed=.5][[Hi|Hello|Howdy]], here is some [wave amp=20 freq=10]test dialogue[/wave].
 Amelia: [speed=1]We don't have time for that! [wait=0.3][speed=.25][shake rate=20 level=10]They are already here...[next=1]
 do SignalManager.cutscene_ended.emit()
-do SignalManager.activate_enemy_spawner.emit()
 => END
 
