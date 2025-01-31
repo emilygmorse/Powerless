@@ -12,8 +12,7 @@ var chosen_spawn
 var previous_spawn
 
 var all_enemy_scenes: Dictionary = { 
-SHADOW_TEST = preload("res://enemy/enemy_shadow.tscn"),
-SHADOW_SNAKE = preload("res://enemy/shadow_snake.tscn")
+ENEMY_SNAKE = preload("res://enemy/enemy_snake.tscn")
 }
 
 var new_enemy_list: Dictionary
@@ -23,7 +22,8 @@ func _ready() -> void:
 	enemy_spawn_list()
 	for i in self.get_children():
 		spawn_points.insert(0, i)
-	get_tree().create_timer(spawn_time).timeout.connect(spawn_enemy)
+	SignalManager.activate_enemy_spawner.connect(spawn_enemy)
+	#get_tree().create_timer(spawn_time).timeout.connect(spawn_enemy)
 
 func enemy_spawn_list() -> void:
 	var array_count: int = -1
@@ -32,7 +32,7 @@ func enemy_spawn_list() -> void:
 		new_enemy_list.get_or_add(array_count, all_enemy_scenes.SHADOW_TEST)
 	if snake_spawn == true:
 		array_count += 1
-		new_enemy_list.get_or_add(array_count, all_enemy_scenes.SHADOW_SNAKE)
+		new_enemy_list.get_or_add(array_count, all_enemy_scenes.ENEMY_SNAKE)
 	if array_count == -1:
 		print("No enemies selected to spawn!")
 

@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://uyr52tuggm8h"]
+[gd_scene load_steps=8 format=3 uid="uid://uyr52tuggm8h"]
 
 [ext_resource type="PackedScene" uid="uid://heyaf8gbqeo2" path="res://rooms/room_base.tscn" id="1_uw6oj"]
 [ext_resource type="Texture2D" uid="uid://di434nqbjvdpd" path="res://images/scenes/backyard.png" id="2_plwgf"]
+[ext_resource type="Script" path="res://test_files/player_enemy_testing.gd" id="2_trr6l"]
 [ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="3_52oe1"]
 [ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="4_1eyss"]
 [ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="5_hvnsv"]
 [ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="6_64obh"]
 
 [node name="RoomTest" instance=ExtResource("1_uw6oj")]
+script = ExtResource("2_trr6l")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Background" parent="." index="1"]
 texture = ExtResource("2_plwgf")
+centered = true
 
 [node name="Kid" parent="." index="2" instance=ExtResource("3_52oe1")]
 position = Vector2(-8, 21)
@@ -19,7 +22,6 @@ position = Vector2(-8, 21)
 position = Vector2(40, 48)
 
 [node name="EnemySpawner" parent="." index="4" instance=ExtResource("5_hvnsv")]
-test_spawn = true
 snake_spawn = true
 
 [node name="Spawn_1" parent="EnemySpawner" index="0"]
