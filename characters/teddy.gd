@@ -111,9 +111,7 @@ func _physics_process(delta: float) -> void:
 					progress_bar.value = 0
 					progress_bar.get("theme_override_styles/fill").bg_color = Color.CRIMSON
 			
-			if teddy_just_picked_up:
-				teddy_picked_up = true
-				teddy_just_picked_up = false
+			
 			#if is_hitting_wall:
 				#$AnimatedSprite2D.stop()
 			
@@ -126,6 +124,10 @@ func _physics_process(delta: float) -> void:
 		pass
 	else:
 		assert(false)
+	
+	if teddy_just_picked_up:
+		teddy_picked_up = true
+		teddy_just_picked_up = false
 
 
 func teddy_attack() -> void:
