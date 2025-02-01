@@ -109,7 +109,7 @@ func enemy_attacks() -> void:
 	tween.tween_property(self, "scale", Vector2(init_scale_x * 2, init_scale_x * 2), delete_enemy_time)
 	tween.parallel().tween_property(self, "modulate", Color(0.43, 0.43, 0.43, 0), delete_enemy_time)
 	get_tree().create_timer(delete_enemy_time).timeout.connect(delete_enemy)
-	hit_player.emit(damage)
+	SignalManager.hit_player.emit(damage)
 	
 func delete_enemy() -> void:
 	queue_free()

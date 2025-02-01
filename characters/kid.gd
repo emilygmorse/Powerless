@@ -7,16 +7,18 @@ var kid
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 @onready var hurt_box: Area2D = $HurtBox
-@onready var fearMeter = $"../FearMeter/FearMeter/ProgressBar2"
+@onready var fearMeter = $"../FearMeter"
+#@onready var current_room: ROOM = find_room(self.get_parent, ROOM)
 @export var player_fear: int = 0
 
 signal door(door_info: String)
+signal hurt_box_hit
 
 func _ready() -> void:
 	SignalManager.cutscene_started.connect(inputs_disabled)
 	SignalManager.cutscene_ended.connect(inputs_enabled)
 	$AnimatedSprite2D.play()
-	$"../EnemyShadow".hit_player.connect(update_fear)
+	SignalManager.hit_player.connect(update_fear)
 	update_interactions()
 
 func inputs_disabled() -> void:
@@ -55,6 +57,12 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		execute_interaction()
+
+func find_room(parent, type):
+	for child in parent.get_children():
+		if is_instance_of(child, type):
+			return child
+	return null
 
 #Fear/health methods
 func update_fear(damage: int) -> void:

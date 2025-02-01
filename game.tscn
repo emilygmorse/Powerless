@@ -14,6 +14,13 @@ script = ExtResource("1_4lv2d")
 
 [node name="Bedroom" parent="." instance=ExtResource("4_7jm3a")]
 
+[node name="FearMeter" parent="." instance=ExtResource("6_3258n")]
+z_index = 1
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 111.0
+offset_bottom = 8.0
+
 [node name="Kid" parent="." instance=ExtResource("2_awmkx")]
 position = Vector2(99, 108)
 
@@ -21,10 +28,10 @@ position = Vector2(99, 108)
 position = Vector2(34, 124)
 
 [node name="SoundManager" parent="." instance=ExtResource("5_hrm60")]
-
-[node name="FearMeter" parent="." instance=ExtResource("6_3258n")]
+visible = false
 
 [node name="EnemyShadow" parent="." instance=ExtResource("7_gr7xs")]
+visible = false
 
 [connection signal="door" from="Kid" to="." method="_on_kid_opens_door"]
 
