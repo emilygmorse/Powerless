@@ -91,3 +91,5 @@ func execute_interaction():
 					#TODO: dialogue
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
+			"puzzle":
+				cur_interactions._emit_puzzle_start()

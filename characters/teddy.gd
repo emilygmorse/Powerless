@@ -79,7 +79,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			get_tree().create_timer(0.1).timeout.connect(go_idle)
 		
-
 		
 		move_and_slide()
 		
