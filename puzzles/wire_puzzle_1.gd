@@ -6,13 +6,13 @@ var current_wire = null
 
 #Operates in tandem with GameManager var breaker_trip_1
 
-var bottom_wire_1 = {"name": "BW1", "solution": "TW1", "active": false}
-var bottom_wire_2 = {"name": "BW2", "solution": "TW2", "active": false}
-var bottom_wire_3 = {"name": "BW3", "solution": "TW3", "active": false}
+var bottom_wire_1 = {"name": "BW1", "solution": "TW3", "active": false}
+var bottom_wire_2 = {"name": "BW2", "solution": "TW1", "active": false}
+var bottom_wire_3 = {"name": "BW3", "solution": "TW2", "active": false}
 
-var top_wire_1 = {"name": "TW1", "solution": "BW1", "active": false}
-var top_wire_2 = {"name": "TW2", "solution": "BW2", "active": false}
-var top_wire_3 = {"name": "TW3", "solution": "BW3", "active": false}
+var top_wire_1 = {"name": "TW1", "solution": "BW2", "active": false}
+var top_wire_2 = {"name": "TW2", "solution": "BW3", "active": false}
+var top_wire_3 = {"name": "TW3", "solution": "BW1", "active": false}
 
 @onready var spark_bw_1: AnimatedSprite2D = $BottomWire1/SparkBW1
 @onready var spark_bw_2: AnimatedSprite2D = $BottomWire2/SparkBW2
@@ -23,7 +23,9 @@ var top_wire_3 = {"name": "TW3", "solution": "BW3", "active": false}
 
 
 func _ready() -> void:
+	short_all_wires()
 	SignalManager.wire_puzzle_toggle.connect(toggle)
+	SignalManager.breaker_switches_set.connect(all_wires_live)
 
 
 func toggle(display: bool) -> void:
@@ -55,18 +57,31 @@ func wire_updates(wire: Dictionary, spark: AnimatedSprite2D):
 		else:
 			GameManager.breaker_tripped_1 = true
 			previous_wire = null
-			overload(bottom_wire_1, spark_bw_1)
-			overload(bottom_wire_2, spark_bw_2)
-			overload(bottom_wire_3, spark_bw_3)
-			overload(top_wire_1, spark_tw_1)
-			overload(top_wire_2, spark_tw_2)
-			overload(top_wire_3, spark_tw_3)
-			print("breaker tripped")
+			short_all_wires()
+			SignalManager.wires_shorted.emit()
 
-func overload(wire: Dictionary, spark: AnimatedSprite2D)-> void:
+
+func wires_shorted(wire: Dictionary, spark: AnimatedSprite2D)-> void:
 	spark.stop()
 	spark.hide()
 	wire.active = false
+
+func short_all_wires() -> void:
+	wires_shorted(bottom_wire_1, spark_bw_1)
+	wires_shorted(bottom_wire_2, spark_bw_2)
+	wires_shorted(bottom_wire_3, spark_bw_3)
+	wires_shorted(top_wire_1, spark_tw_1)
+	wires_shorted(top_wire_2, spark_tw_2)
+	wires_shorted(top_wire_3, spark_tw_3)
+
+func all_wires_live() -> void:
+	GameManager.breaker_tripped_1 = false
+	spark_bw_1.show()
+	spark_bw_2.show()
+	spark_bw_3.show()
+	spark_tw_1.show()
+	spark_tw_2.show()
+	spark_tw_3.show()
 
 func win_condition() -> void:
 	if GameManager.wire_puzzle_solved_1 == false:
@@ -83,6 +98,7 @@ func win_condition() -> void:
 func _on_bottom_wire_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_1 == false and GameManager.wire_puzzle_solved_1 == false):
+		print("detect click")
 		click_delay = true
 		get_tree().create_timer(0.5).timeout.connect(click_delay_off)
 		wire_updates(bottom_wire_1, spark_bw_1)

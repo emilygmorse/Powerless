@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpos8fneogbdf"]
+[gd_scene load_steps=6 format=3 uid="uid://bpos8fneogbdf"]
 
 [ext_resource type="Texture2D" uid="uid://by7f7pin1j7nc" path="res://images/scenes/bedroom.png" id="1_d3qdy"]
+[ext_resource type="Script" path="res://rooms/bedroom.gd" id="1_hso4d"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="2_4pgym"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_nw0uc"]
 
@@ -8,6 +9,7 @@
 size = Vector2(320, 20)
 
 [node name="Bedroom" type="Node2D"]
+script = ExtResource("1_hso4d")
 
 [node name="Background" type="Sprite2D" parent="."]
 y_sort_enabled = true

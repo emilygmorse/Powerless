@@ -19,7 +19,10 @@ var breaker_left_4 = {"tripped": true, "switch_pos_x_shift": 13, "switch_trip_po
 
 
 func _ready() -> void:
+	GameManager.breaker_tripped_1 = true
 	SignalManager.breaker_box_toggle.connect(toggle)
+	SignalManager.wires_shorted.connect(trip_all_breakers)
+	SignalManager.breaker_switches_set.emit()
 	set_positions(breaker_top, switch_top, indicator_top)
 	set_positions(breaker_left_2, switch_left_2, indicator_left_2)
 	set_positions(breaker_left_3, switch_left_3, indicator_left_3)
@@ -50,6 +53,13 @@ func switch_function(breaker: Dictionary, switch: ColorRect, indicator: ColorRec
 func click_delay_off() -> void:
 	click_delay = false
 
+func trip_all_breakers() -> void:
+	switch_function(breaker_top, switch_top, indicator_top)
+	switch_function(breaker_left_2, switch_left_2, indicator_left_2)
+	switch_function(breaker_left_3, switch_left_3, indicator_left_3)
+	switch_function(breaker_left_4, switch_left_4, indicator_left_4)
+
+
 func _on_breaker_top_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
@@ -61,8 +71,9 @@ func _on_breaker_top_input_event(viewport: Node, event: InputEvent, shape_idx: i
 				if breaker_left_4.tripped == false:
 					top_breaker_avail = true
 					switch_function(breaker_top, switch_top, indicator_top)
+					SignalManager.breaker_switches_set.emit()
 		else:
-			print("oops no dice")
+			print("oops, no good")
 		
 
 

@@ -1,0 +1,9 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: Ahh reached a battery powered night light. Introduce fear meter regen [next=2] 
+Theodore: Lets hurry out to the back before this thing runs out of juice [next=2]
+do SignalManager.cutscene_ended.emit()
+do GameManager.kitchen_intro = true
+
+do SignalManager.dialogue_ended.emit()
+=> END

@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://6six12nsb2vj"]
+
+[ext_resource type="Script" path="res://puzzles/wire_puzzle_2.gd" id="1_3cqyp"]
+[ext_resource type="Texture2D" uid="uid://6ayroxn360xk" path="res://puzzles/powerbox1_small.png" id="2_ixv58"]
+[ext_resource type="Texture2D" uid="uid://dobq1m7m1fs42" path="res://test_files/test_spark.png" id="3_xg73w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6yye"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5pqa"]
+atlas = ExtResource("3_xg73w")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfw5c"]
+atlas = ExtResource("3_xg73w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qksvx"]
+atlas = ExtResource("3_xg73w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr0yo"]
+atlas = ExtResource("3_xg73w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7n4j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5pqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfw5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qksvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr0yo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WirePuzzle2" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_3cqyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ixv58")
+
+[node name="BottomWire1" type="Area2D" parent="."]
+position = Vector2(-32, 11)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWire1"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkBW1" type="AnimatedSprite2D" parent="BottomWire1"]
+sprite_frames = SubResource("SpriteFrames_p7n4j")
+frame_progress = 0.776927
+
+[node name="BottomWire2" type="Area2D" parent="."]
+position = Vector2(42, 13)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWire2"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkBW2" type="AnimatedSprite2D" parent="BottomWire2"]
+sprite_frames = SubResource("SpriteFrames_p7n4j")
+frame_progress = 0.03063
+
+[node name="BottomWire3" type="Area2D" parent="."]
+position = Vector2(-6, 7)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWire3"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkBW3" type="AnimatedSprite2D" parent="BottomWire3"]
+sprite_frames = SubResource("SpriteFrames_p7n4j")
+frame_progress = 0.03063
+
+[node name="TopWire1" type="Area2D" parent="."]
+position = Vector2(41, -14)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWire1"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkTW1" type="AnimatedSprite2D" parent="TopWire1"]
+sprite_frames = SubResource("SpriteFrames_p7n4j")
+frame_progress = 0.03063
+
+[node name="TopWire2" type="Area2D" parent="."]
+position = Vector2(-13, -23)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWire2"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkTW2" type="AnimatedSprite2D" parent="TopWire2"]
+sprite_frames = SubResource("SpriteFrames_p7n4j")
+frame_progress = 0.03063
+
+[node name="TopWire3" type="Area2D" parent="."]
+position = Vector2(29, -56)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWire3"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkTW3" type="AnimatedSprite2D" parent="TopWire3"]
+sprite_frames = SubResource("SpriteFrames_p7n4j")
+frame_progress = 0.03063
+
+[connection signal="input_event" from="BottomWire1" to="." method="_on_bottom_wire_1_input_event"]
+[connection signal="input_event" from="BottomWire2" to="." method="_on_bottom_wire_2_input_event"]
+[connection signal="input_event" from="BottomWire3" to="." method="_on_bottom_wire_3_input_event"]
+[connection signal="input_event" from="TopWire1" to="." method="_on_top_wire_1_input_event"]
+[connection signal="input_event" from="TopWire2" to="." method="_on_top_wire_2_input_event"]
+[connection signal="input_event" from="TopWire3" to="." method="_on_top_wire_3_input_event"]

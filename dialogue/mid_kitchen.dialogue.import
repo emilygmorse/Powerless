@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://csem71nf8waqy"
+path="res://.godot/imported/mid_kitchen.dialogue-be6756650c6f1af611dcf799a1e7f002.tres"
+
+[deps]
+
+source_file="res://dialogue/mid_kitchen.dialogue"
+dest_files=["res://.godot/imported/mid_kitchen.dialogue-be6756650c6f1af611dcf799a1e7f002.tres"]
+
+[params]
+
+defaults=true

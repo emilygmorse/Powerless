@@ -1,0 +1,12 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: Let's explain the puzzle element solved with Mouse Left Click [next=2] 
+Theodore: And I'll explain protecting you while you solve it [next=2]
+do SignalManager.cutscene_ended.emit()
+do GameManager.kitchen_puzzle = true
+do SignalManager.puzzle_mode.emit()
+do SignalManager.activate_enemy_spawner.emit()
+#Add puzzle start/teddy combat signal
+
+do SignalManager.dialogue_ended.emit()
+=> END
