@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0oghfu6mtadt"
+path="res://.godot/imported/breath out.wav-2155e179e6761d0313e2fec4e2daa789.sample"
+
+[deps]
+
+source_file="res://sounds/recorded effects/wavfiles/breath out.wav"
+dest_files=["res://.godot/imported/breath out.wav-2155e179e6761d0313e2fec4e2daa789.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,7 +1,7 @@
 ~ start
 do SignalManager.cutscene_started.emit()
-Amelia: Intro dialogue placeholder [next=1]
-Theodore: Need to get to the cellar to get the attic key. First press [wave amp=15 freq=5]SPACE[/wave] to pick me up [next=2]
+Amelia: Intro dialogue placeholder
+Theodore: Need to get to the cellar to get the attic key. First press [wave amp=15 freq=5]SPACE[/wave] to pick me up
 do SignalManager.cutscene_ended.emit()
 do GameManager.bedroom_intro = true
 

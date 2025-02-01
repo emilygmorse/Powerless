@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bk00pj0mk8c5n"
+path="res://.godot/imported/more tisks.wav-42de9f250648bd00e4d3282d53969337.sample"
+
+[deps]
+
+source_file="res://sounds/recorded effects/wavfiles/more tisks.wav"
+dest_files=["res://.godot/imported/more tisks.wav-42de9f250648bd00e4d3282d53969337.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
