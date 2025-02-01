@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://opmtiv6n3v6y"]
+
+[ext_resource type="PackedScene" uid="uid://c3iqp1q70vu2h" path="res://puzzles/puzzle_buttons.tscn" id="1_bi83d"]
+[ext_resource type="PackedScene" uid="uid://y08ih22e0iet" path="res://puzzles/instr_2.tscn" id="2_mcgb4"]
+[ext_resource type="PackedScene" uid="uid://b3n5vwwjotb6u" path="res://puzzles/breaker_box_2.tscn" id="3_2hylv"]
+[ext_resource type="PackedScene" uid="uid://6six12nsb2vj" path="res://puzzles/wire_puzzle_2.tscn" id="4_nwotn"]
+
+[node name="Puzzle2" type="Node2D"]
+position = Vector2(265, 108)
+
+[node name="PuzzleButtons" parent="." instance=ExtResource("1_bi83d")]
+
+[node name="Instr2" parent="." instance=ExtResource("2_mcgb4")]
+
+[node name="BreakerBox2" parent="." instance=ExtResource("3_2hylv")]
+visible = false
+
+[node name="WirePuzzle2" parent="." instance=ExtResource("4_nwotn")]
+visible = false

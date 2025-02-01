@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7volyhn76h5c"
+path="res://.godot/imported/breaker_close.wav-e75ed35653c550036392b28ca7002f05.sample"
+
+[deps]
+
+source_file="res://sounds/recorded effects/wavfiles/breaker_close.wav"
+dest_files=["res://.godot/imported/breaker_close.wav-e75ed35653c550036392b28ca7002f05.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

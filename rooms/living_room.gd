@@ -1,7 +1,7 @@
 extends ROOM
 
 func _ready() -> void:
-	SignalManager.light_check.emit(false)
+	SignalManager.light_check.emit(false) #TEST
 	
 	if GameManager.living_room_intro == false:
 		create_dialogue_balloon()

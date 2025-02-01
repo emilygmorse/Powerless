@@ -3,6 +3,11 @@ extends Node2D
 var click_delay: bool = false
 var top_breaker_avail: bool = false
 
+const BREAKER_OPEN = preload("res://sounds/recorded effects/wavfiles/breaker_open.wav")
+const BREAKER_CLOSE = preload("res://sounds/recorded effects/wavfiles/breaker_close.wav")
+@onready var click: AudioStreamPlayer = $Click
+
+
 @onready var switch_top: ColorRect = $BreakerTop/SwitchTop
 @onready var indicator_top: ColorRect = $BreakerTop/IndicatorTop
 @onready var switch_left_2: ColorRect = $BreakerLeft2/SwitchLeft2
@@ -44,20 +49,32 @@ func switch_function(breaker: Dictionary, switch: ColorRect, indicator: ColorRec
 		switch.position.x = breaker.switch_trip_pos_x
 		indicator.position.x = breaker.ind_trip_pos_x
 		indicator.color = Color.CRIMSON
+		click.set_stream(BREAKER_CLOSE)
+		click.play()
 	elif breaker.tripped == true:
 		breaker.tripped = false
 		switch.position.x = breaker.switch_trip_pos_x + breaker.switch_pos_x_shift
 		indicator.position.x = breaker.ind_trip_pos_x - breaker.switch_pos_x_shift
 		indicator.color = Color.FOREST_GREEN
+		click.set_stream(BREAKER_OPEN)
+		click.play()
+
+func trip_function(breaker: Dictionary, switch: ColorRect, indicator: ColorRect) -> void:
+		breaker.tripped = true
+		switch.position.x = breaker.switch_trip_pos_x
+		indicator.position.x = breaker.ind_trip_pos_x
+		indicator.color = Color.CRIMSON
+		click.set_stream(BREAKER_CLOSE)
+		click.play()
 
 func click_delay_off() -> void:
 	click_delay = false
 
 func trip_all_breakers() -> void:
-	switch_function(breaker_top, switch_top, indicator_top)
-	switch_function(breaker_left_2, switch_left_2, indicator_left_2)
-	switch_function(breaker_left_3, switch_left_3, indicator_left_3)
-	switch_function(breaker_left_4, switch_left_4, indicator_left_4)
+	trip_function(breaker_top, switch_top, indicator_top)
+	trip_function(breaker_left_2, switch_left_2, indicator_left_2)
+	trip_function(breaker_left_3, switch_left_3, indicator_left_3)
+	trip_function(breaker_left_4, switch_left_4, indicator_left_4)
 
 
 func _on_breaker_top_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -65,7 +82,6 @@ func _on_breaker_top_input_event(viewport: Node, event: InputEvent, shape_idx: i
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
 		#switch_function(breaker_top, switch_top, indicator_top)
-
 		if breaker_left_2.tripped == false:
 			if breaker_left_3.tripped == false:
 				if breaker_left_4.tripped == false:
@@ -73,7 +89,9 @@ func _on_breaker_top_input_event(viewport: Node, event: InputEvent, shape_idx: i
 					switch_function(breaker_top, switch_top, indicator_top)
 					SignalManager.breaker_switches_set.emit()
 		else:
-			print("oops, no good")
+			trip_all_breakers()
+			click.set_stream(BREAKER_CLOSE)
+			click.play()
 		
 
 
