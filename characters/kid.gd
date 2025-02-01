@@ -7,13 +7,20 @@ var has_teddy = false
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 @onready var hurt_box: Area2D = $HurtBox
+@onready var fearMeter = $"../FearMeter"
+#@onready var current_room: ROOM = find_room(self.get_parent, ROOM)
+@export var player_fear: int = 0
+@export var in_light_index = 0
 
 signal door(door_info: String)
+signal hurt_box_hit
 
 func _ready() -> void:
 	SignalManager.cutscene_started.connect(inputs_disabled)
 	SignalManager.cutscene_ended.connect(inputs_enabled)
+	SignalManager.light_check.connect(light_check)
 	$AnimatedSprite2D.play()
+	SignalManager.hit_player.connect(update_fear)
 	update_interactions()
 
 func inputs_disabled() -> void:
@@ -54,6 +61,33 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		print(self.get_parent().get_children())
 		execute_interaction()
 
+func find_room(parent, type):
+	for child in parent.get_children():
+		if is_instance_of(child, type):
+			return child
+	return null
+
+#Fear/health methods
+func update_fear(damage: int) -> void:
+	print("Player fear before decrease {}", player_fear)
+	player_fear += damage
+	print("Player fear after decrease {}", player_fear)
+	print("Fear meter value before decrease {}", fearMeter.value)
+	fearMeter.value = player_fear
+	print("Fear meter value after decrease {}", fearMeter.value)
+	
+
+func light_check(standing_in_light : bool):	
+	if standing_in_light:
+		in_light_index = -5
+	else:
+		in_light_index = 1
+		
+
+
+func _on_fear_increased():
+	fearMeter.value += 10
+
 
 #Interaction Methods
 
@@ -92,3 +126,8 @@ func execute_interaction():
 				cur_interactions._emit_pop_up_signal()
 			"puzzle":
 				cur_interactions._emit_puzzle_start()
+
+func _on_timer_timeout() -> void:
+	player_fear += in_light_index
+	fearMeter.value = player_fear
+	$Timer.start()

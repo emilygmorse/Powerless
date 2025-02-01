@@ -49,14 +49,14 @@ target_coords = Vector2(260, 90)
 
 [node name="InteractArea" parent="." instance=ExtResource("6_34kn5")]
 position = Vector2(103, 155)
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 interact_label = "Interact with table"
 interact_type = "print_text"
 interact_value = "Yay it worked!"
 
 [node name="InteractArea2" parent="." instance=ExtResource("6_34kn5")]
-position = Vector2(114, 80)
-scale = Vector2(4, 4)
+position = Vector2(110, 78)
+scale = Vector2(2, 2)
 interact_label = "Open drawers"
 interact_type = "pop_up"
 interact_value = "puzzle time"
@@ -69,6 +69,12 @@ position = Vector2(269, 153)
 
 [node name="Kid" parent="." instance=ExtResource("2_cthb7")]
 position = Vector2(170, 122)
+
+[node name="InteractArea3" parent="." instance=ExtResource("6_34kn5")]
+position = Vector2(251, 110)
+scale = Vector2(2, 2)
+interact_label = "Try hitbox"
+interact_type = "health_tick_placeholder"
 
 [connection signal="pop_up" from="InteractArea2" to="." method="_on_interact_with_drawers_pop_up"]
 [connection signal="pressed" from="DrawerPopUp/Camera2D/Button" to="." method="_on_button_pressed"]
