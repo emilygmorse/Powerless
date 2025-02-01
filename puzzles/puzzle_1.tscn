@@ -10,10 +10,10 @@ z_index = 2
 
 [node name="PuzzleButtons" parent="." instance=ExtResource("1_1px6j")]
 
-[node name="WirePuzzle1" parent="." instance=ExtResource("2_5cpkj")]
-visible = false
+[node name="Instr_1" parent="." instance=ExtResource("4_pm5pe")]
 
 [node name="BreakerBox1" parent="." instance=ExtResource("3_wiviv")]
 visible = false
 
-[node name="Instr_1" parent="." instance=ExtResource("4_pm5pe")]
+[node name="WirePuzzle1" parent="." instance=ExtResource("2_5cpkj")]
+visible = false

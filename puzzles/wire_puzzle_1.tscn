@@ -63,7 +63,7 @@ sprite_frames = SubResource("SpriteFrames_p7n4j")
 frame_progress = 0.776927
 
 [node name="BottomWire2" type="Area2D" parent="."]
-position = Vector2(42, 13)
+position = Vector2(-6, 8)
 collision_layer = 128
 collision_mask = 0
 
@@ -75,7 +75,7 @@ sprite_frames = SubResource("SpriteFrames_p7n4j")
 frame_progress = 0.03063
 
 [node name="BottomWire3" type="Area2D" parent="."]
-position = Vector2(-6, 7)
+position = Vector2(41, 13)
 collision_layer = 128
 collision_mask = 0
 
