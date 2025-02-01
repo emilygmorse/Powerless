@@ -7,6 +7,7 @@
 
 [node name="Puzzle1" type="Node2D"]
 z_index = 2
+position = Vector2(265, 108)
 
 [node name="PuzzleButtons" parent="." instance=ExtResource("1_1px6j")]
 

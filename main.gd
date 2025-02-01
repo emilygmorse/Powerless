@@ -9,7 +9,7 @@ var gaming := false
 func _ready() -> void:
 	# Load the game after Godot starts up
 	ResourceLoader.load_threaded_request(GAME)
-	# TODO: Play Music
+	$TitleMusic.play()
 
 
 
@@ -21,6 +21,7 @@ func _on_title_screen_play_game() -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(GAME)
 	# If the room has finished loading
 	if load_status == 3:
+		$TitleMusic.stop()
 		game = ResourceLoader.load_threaded_get(GAME).instantiate()
 		self.add_child(game)
 		$TitleScreen.hide()
@@ -44,4 +45,5 @@ func _on_pause_quit_to_title() -> void:
 	game.queue_free()
 	self.remove_child(game)
 	$TitleScreen.show()
+	$TitleMusic.play()
 	gaming = false

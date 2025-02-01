@@ -1,7 +1,7 @@
 ~ start
 do SignalManager.cutscene_started.emit()
-Amelia: What was that in the corner! [next=1]
-Theodore: Introduce Fearmeter. We need to go to the Kitchen and avoid the shadows[next=2]
+Amelia: What was that in the corner!
+Theodore: Introduce Fearmeter. We need to go to the Kitchen and avoid the shadows
 do SignalManager.cutscene_ended.emit()
 do GameManager.living_room_intro = true
 do SignalManager.activate_enemy_spawner.emit()

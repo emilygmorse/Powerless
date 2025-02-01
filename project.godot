@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Powerless"
-run/main_scene="res://game.tscn"
+config/name="Blackout"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://images/icon.png"
 
@@ -46,6 +46,10 @@ Enemy=""
 Player=""
 Light=""
 "Teddy Attack"=""
+
+[gui]
+
+theme/custom_font="res://dialogue/PixelOperator8.ttf"
 
 [input]
 

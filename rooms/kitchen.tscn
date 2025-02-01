@@ -8,11 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://b2gd7a4sfwrmq" path="res://puzzles/puzzle_1.tscn" id="6_28on2"]
 [ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="7_b7up5"]
 [ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="8_gt5nw"]
+[ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="9_j4iyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7umbb"]
 size = Vector2(320, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jep8a"]
 
 [node name="Kitchen" type="Node2D"]
 y_sort_enabled = true
@@ -65,7 +64,6 @@ polygon = PackedVector2Array(-34, 0, -27, -21, 26, -21, 34, 0)
 
 [node name="Puzzle1" parent="." instance=ExtResource("6_28on2")]
 visible = false
-position = Vector2(265, 108)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_b7up5")]
 skelly_spawn = true
@@ -80,18 +78,15 @@ position = Vector2(204, 176)
 [node name="Spawn_3" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(17, 173)
 
-[node name="BreakerArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 256
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerArea"]
-position = Vector2(55, 70)
-shape = SubResource("CircleShape2D_jep8a")
-
 [node name="LightSourceCircle" parent="." instance=ExtResource("8_gt5nw")]
 position = Vector2(306, 129)
 scale = Vector2(1, 1)
 
-[connection signal="area_entered" from="BreakerArea" to="." method="_on_breaker_area_area_entered"]
+[node name="Breaker" parent="." instance=ExtResource("9_j4iyn")]
+position = Vector2(55, 65)
+interact_label = "Kitchen Breaker"
+interact_type = "puzzle"
+
+[connection signal="puzzle_start" from="Breaker" to="." method="_on_breaker_puzzle_start"]
 
 [editable path="EnemySpawner"]

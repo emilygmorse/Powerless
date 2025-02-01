@@ -20,7 +20,8 @@ func mid_dialogue() -> void:
 func puzzle_mode() -> void:
 	puzzle_1.show()
 
-func _on_breaker_area_area_entered(area: Area2D) -> void:
+
+func _on_breaker_puzzle_start() -> void:
 	print("breaker area entered")
 	if GameManager.puzzle_intro == true:
 		puzzle_mode()

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 70.0
 var inputs_allowed = true
-var kid
+var has_teddy = false
 
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
@@ -116,11 +116,17 @@ func execute_interaction():
 				# Emitting self so Teddy can follow
 				cur_interactions._emit_pick_up_teddy_signal(self)
 				_on_interaction_area_area_exited(cur_interactions)
-				#pick_up_teddy.emit()
-			"door": door.emit(cur_interactions.interact_value)
+				has_teddy = true
+			"door":
+				if has_teddy:
+					door.emit(cur_interactions.interact_value)
+				else:
+					pass
+					#TODO: dialogue
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
-
+			"puzzle":
+				cur_interactions._emit_puzzle_start()
 
 func _on_timer_timeout() -> void:
 	player_fear += in_light_index

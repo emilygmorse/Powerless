@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dufxq6skf7dau"
+path="res://.godot/imported/drawer.wav-cdc51ccf8b5b02a7d4e83f68191c406f.sample"
+
+[deps]
+
+source_file="res://sounds/recorded effects/wavfiles/drawer.wav"
+dest_files=["res://.godot/imported/drawer.wav-cdc51ccf8b5b02a7d4e83f68191c406f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
