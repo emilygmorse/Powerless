@@ -21,7 +21,8 @@ func puzzle_mode() -> void:
 	puzzle_1.show()
 
 func _on_breaker_area_area_entered(area: Area2D) -> void:
-	if GameManager.puzzle_intro:
+	print("breaker area entered")
+	if GameManager.puzzle_intro == true:
 		puzzle_mode()
 	else:
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen.dialogue"), "start")
