@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1hhxsobbepil"]
+
+[ext_resource type="Texture2D" uid="uid://bbrpkm7q2t1me" path="res://puzzles/notes_1_small.png" id="1_fkgbi"]
+[ext_resource type="Script" path="res://puzzles/instr_1.gd" id="1_gckwo"]
+
+[node name="Instr_1" type="Node2D"]
+script = ExtResource("1_gckwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fkgbi")

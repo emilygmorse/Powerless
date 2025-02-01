@@ -1,21 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhbvi1om5xrs3"]
+[gd_scene load_steps=4 format=3 uid="uid://dxs71h587l36s"]
 
-[ext_resource type="Texture2D" uid="uid://cbtbyw1l5sfik" path="res://images/scenes/breakerbox.png" id="1_6blma"]
-[ext_resource type="Script" path="res://puzzles/breaker_box.gd" id="1_thrrv"]
+[ext_resource type="Script" path="res://puzzles/breaker_box_3.gd" id="1_phh81"]
+[ext_resource type="Texture2D" uid="uid://dfs65tde6s75a" path="res://images/scenes/breaker_box_small.png" id="2_raj7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jsqt"]
 size = Vector2(27, 9)
 
-[node name="BreakerBox" type="Node2D"]
-script = ExtResource("1_thrrv")
+[node name="BreakerBox3" type="Node2D"]
+script = ExtResource("1_phh81")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(160, 90)
-texture = ExtResource("1_6blma")
+texture = ExtResource("2_raj7y")
 
 [node name="BreakerTop" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(241, 51)
+position = Vector2(0, -37)
 collision_layer = 128
 collision_mask = 0
 
@@ -48,7 +47,7 @@ shape = SubResource("RectangleShape2D_2jsqt")
 
 [node name="BreakerLeft1" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(221, 71)
+position = Vector2(-20, -16)
 collision_layer = 128
 collision_mask = 0
 
@@ -81,7 +80,7 @@ shape = SubResource("RectangleShape2D_2jsqt")
 
 [node name="BreakerLeft2" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(221, 90)
+position = Vector2(-20, 3)
 collision_layer = 128
 collision_mask = 0
 
@@ -114,7 +113,7 @@ shape = SubResource("RectangleShape2D_2jsqt")
 
 [node name="BreakerLeft3" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(221, 112)
+position = Vector2(-20, 25)
 collision_layer = 128
 collision_mask = 0
 
@@ -147,7 +146,7 @@ shape = SubResource("RectangleShape2D_2jsqt")
 
 [node name="BreakerLeft4" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(221, 130)
+position = Vector2(-20, 43)
 collision_layer = 128
 collision_mask = 0
 
@@ -180,7 +179,7 @@ shape = SubResource("RectangleShape2D_2jsqt")
 
 [node name="BreakerRight1" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(261, 90)
+position = Vector2(20, 3)
 collision_layer = 128
 collision_mask = 0
 
@@ -213,7 +212,7 @@ shape = SubResource("RectangleShape2D_2jsqt")
 
 [node name="BreakerRight2" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(261, 112)
+position = Vector2(20, 25)
 collision_layer = 128
 collision_mask = 0
 
@@ -246,7 +245,7 @@ shape = SubResource("RectangleShape2D_2jsqt")
 
 [node name="BreakerRight3" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(261, 130)
+position = Vector2(20, 43)
 collision_layer = 128
 collision_mask = 0
 

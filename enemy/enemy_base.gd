@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name Enemy
 
+@export var damage: int = 10
 @export var speed_x: float = 25
 @export var speed_y: float = 15
 @export var shake_time: float = 3
@@ -33,7 +34,7 @@ var scale_var_y: float
 func _ready() -> void:
 	player_ref = get_tree().get_first_node_in_group("Player")
 	
-	modulate = Color(100, 100, 100, 0.1)
+	modulate = Color(0.43, 0.43, 0.43, 0.1)
 	skew = deg_to_rad(randf_range(-skew_diff, skew_diff))
 	init_scale_x = self.scale.x
 	init_scale_y = self.scale.y
@@ -83,7 +84,7 @@ func stretch() -> void:
 	stretch_tween = tween 
 	var next_scale_x = randf_range(init_scale_x - scale_var_x, init_scale_x + scale_var_x)
 	var next_scale_y = randf_range(init_scale_y - scale_var_y, init_scale_y + scale_var_y)
-	var next_modulate = Color(100, 100, 100, randf_range(0.25, 0.75))
+	var next_modulate = Color(0.43, 0.43, 0.43, randf_range(0.25, 0.6))
 	tween.tween_property(self, "scale", Vector2(next_scale_x, next_scale_y), stretch_time)
 	tween.parallel().tween_property(self, "skew", deg_to_rad(skew_diff), stretch_time)
 	tween.parallel().tween_property(self, "modulate", next_modulate, stretch_time)
@@ -98,13 +99,13 @@ func stretch_timer() -> void:
 func enemy_destroyed() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(0.01, 0.01), delete_enemy_time)
-	tween.parallel().tween_property(self, "modulate", Color(100, 100, 100, 0), delete_enemy_time)
+	tween.parallel().tween_property(self, "modulate", Color(0.43, 0.43, 0.43, 0), delete_enemy_time)
 	get_tree().create_timer(delete_enemy_time).timeout.connect(delete_enemy)
 	
 func enemy_attacks() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(init_scale_x * 2, init_scale_x * 2), delete_enemy_time)
-	tween.parallel().tween_property(self, "modulate", Color(100, 100, 100, 0), delete_enemy_time)
+	tween.parallel().tween_property(self, "modulate", Color(0.43, 0.43, 0.43, 0), delete_enemy_time)
 	get_tree().create_timer(delete_enemy_time).timeout.connect(delete_enemy)
 	
 func delete_enemy() -> void:

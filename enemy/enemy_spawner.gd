@@ -1,8 +1,14 @@
 extends Node2D
 
 @export var spawn_time: float = 3.0
-@export var test_spawn: bool = false
+@export var skelly_spawn: bool = false
+@export var tongue_spawn: bool = false
+@export var mouth_spawn: bool = false
+@export var spider_spawn: bool = false
+@export var crawler_spawn: bool = false
 @export var snake_spawn: bool = false
+
+
 
 var spawn_points: Array = []
 var spawn_time_diff: float = spawn_time/10
@@ -12,6 +18,11 @@ var chosen_spawn
 var previous_spawn
 
 var all_enemy_scenes: Dictionary = { 
+ENEMY_SKELLY = preload("res://enemy/enemy_skelly.tscn"),
+ENEMY_TONGUE = preload("res://enemy/enemy_tongue.tscn"),
+ENEMY_MOUTH = preload("res://enemy/enemy_mouth.tscn"),
+ENEMY_SPIDER = preload("res://enemy/enemy_spider.tscn"),
+ENEMY_CRAWLER = preload("res://enemy/enemy_crawler.tscn"),
 ENEMY_SNAKE = preload("res://enemy/enemy_snake.tscn")
 }
 
@@ -27,12 +38,24 @@ func _ready() -> void:
 
 func enemy_spawn_list() -> void:
 	var array_count: int = -1
-	if test_spawn == true:
-		array_count += 1
-		new_enemy_list.get_or_add(array_count, all_enemy_scenes.SHADOW_TEST)
 	if snake_spawn == true:
 		array_count += 1
 		new_enemy_list.get_or_add(array_count, all_enemy_scenes.ENEMY_SNAKE)
+	if skelly_spawn == true:
+		array_count += 1
+		new_enemy_list.get_or_add(array_count, all_enemy_scenes.ENEMY_SKELLY)
+	if tongue_spawn == true:
+		array_count += 1
+		new_enemy_list.get_or_add(array_count, all_enemy_scenes.ENEMY_TONGUE)
+	if mouth_spawn == true:
+		array_count += 1
+		new_enemy_list.get_or_add(array_count, all_enemy_scenes.ENEMY_MOUTH)
+	if spider_spawn == true:
+		array_count += 1
+		new_enemy_list.get_or_add(array_count, all_enemy_scenes.ENEMY_SPIDER)
+	if crawler_spawn == true:
+		array_count += 1
+		new_enemy_list.get_or_add(array_count, all_enemy_scenes.ENEMY_CRAWLER)
 	if array_count == -1:
 		print("No enemies selected to spawn!")
 

@@ -22,6 +22,16 @@ var top_wire_3 = {"name": "TW3", "solution": "BW3", "active": false}
 @onready var spark_tw_3: AnimatedSprite2D = $TopWire3/SparkTW3
 
 
+func _ready() -> void:
+	SignalManager.wire_puzzle_toggle.connect(toggle)
+
+
+func toggle(display: bool) -> void:
+	if display:
+		self.show()
+	else:
+		self.hide()
+
 func _process(delta: float) -> void:
 	win_condition()
 
