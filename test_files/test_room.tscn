@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://test_files/test_room.gd" id="1_bjdql"]
 [ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="2_cthb7"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_5fkdu"]
-[ext_resource type="PackedScene" path="res://Game Components/door.tscn" id="4_fail3"]
+[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="4_fail3"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="6_34kn5"]
 [ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="7_81dcr"]
 [ext_resource type="PackedScene" uid="uid://bycmwsp6tntoe" path="res://Game Components/Pop-up Window/drawerPopUp/drawer_pop_up.tscn" id="8_ar7pj"]

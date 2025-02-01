@@ -15,9 +15,9 @@ texture = ExtResource("1_d3qdy")
 centered = false
 
 [node name="dark_canvas" parent="." instance=ExtResource("2_4pgym")]
+visible = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
-visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]

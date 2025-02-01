@@ -1,8 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://b18tnddomyy4q"]
+[gd_scene load_steps=28 format=3 uid="uid://b18tnddomyy4q"]
 
 [ext_resource type="Script" path="res://characters/kid.gd" id="1_4h2o2"]
 [ext_resource type="Texture2D" uid="uid://bprsuigcb8jhr" path="res://images/kidsheet.png" id="2_p6xms"]
-[ext_resource type="PackedScene" uid="uid://bfsga4c1cild8" path="res://characters/FearMeter.tscn" id="3_fwiid"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_axjl4"]
 atlas = ExtResource("2_p6xms")
@@ -249,19 +248,5 @@ collision_mask = 4
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_qu588")
 
-[node name="FearMeter" parent="." instance=ExtResource("3_fwiid")]
-
-[node name="FearMeter" parent="FearMeter" index="0"]
-anchors_preset = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 65.0
-offset_bottom = 6.0
-grow_horizontal = 1
-grow_vertical = 1
-value = 60.0
-
 [connection signal="area_entered" from="Interaction Components/Interaction Area" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interaction Components/Interaction Area" to="." method="_on_interaction_area_area_exited"]
-
-[editable path="FearMeter"]

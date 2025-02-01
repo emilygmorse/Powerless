@@ -7,15 +7,16 @@ var kid
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 @onready var hurt_box: Area2D = $HurtBox
-@onready var fearMeter = $FearMeter/FearMeter
+@onready var fearMeter = $"../FearMeter/FearMeter/ProgressBar2"
+@export var player_fear: int = 0
 
 signal door(door_info: String)
-signal health
 
 func _ready() -> void:
 	SignalManager.cutscene_started.connect(inputs_disabled)
 	SignalManager.cutscene_ended.connect(inputs_enabled)
 	$AnimatedSprite2D.play()
+	$"../EnemyShadow".hit_player.connect(update_fear)
 	update_interactions()
 
 func inputs_disabled() -> void:
@@ -55,8 +56,21 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		execute_interaction()
 
+#Fear/health methods
+func update_fear(damage: int) -> void:
+	print("Player fear before decrease {}", player_fear)
+	player_fear += damage
+	print("Player fear after decrease {}", player_fear)
+	print("Fear meter value before decrease {}", fearMeter.value)
+	fearMeter.value = player_fear
+	print("Fear meter value after decrease {}", fearMeter.value)
+	
+
+
+
 func _on_fear_increased():
-	fearMeter.value -= 10
+	fearMeter.value += 10
+
 
 #Interaction Methods
 
@@ -90,5 +104,3 @@ func execute_interaction():
 			"door": door.emit(cur_interactions.interact_value)
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
-			"health_tick_placeholder": 
-				_on_fear_increased()

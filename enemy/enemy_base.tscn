@@ -295,9 +295,9 @@ motion_mode = 1
 script = ExtResource("1_sxh3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_wf73x")
-hframes = 8
-vframes = 4
+texture = ExtResource("2_hpggt")
+hframes = 4
+vframes = 2
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 collision_layer = 4
