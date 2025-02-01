@@ -31,10 +31,10 @@ polygon = PackedVector2Array(0, 180, 25, 118, 75, 118, 75, 90, 83, 90, 83, 81, 1
 position = Vector2(221, 74)
 interact_label = "Closet Door"
 connecting_room_path = "res://rooms/attic.tscn"
-target_coords = Vector2(200, 130)
+target_coords = Vector2(185, 140)
 
 [node name="LivingDoor" parent="." instance=ExtResource("3_nw0uc")]
 position = Vector2(295, 108)
 interact_label = "Living Room"
 connecting_room_path = "res://rooms/living_room.tscn"
-target_coords = Vector2(155, 100)
+target_coords = Vector2(155, 90)

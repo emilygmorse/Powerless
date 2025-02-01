@@ -2,10 +2,15 @@ extends CharacterBody2D
 
 const SPEED = 70.0
 const ATTACK_TIME = 3.0
+const FOLLOW_DISTANCE = 17.0
 var attack_cool_down = 2.0
 
 var inputs_allowed = true
 var attack_avail = true
+var kid
+
+enum TEDDY_MODE { SIT, FOLLOW, FIGHT, PAUSE }
+var current_mode := TEDDY_MODE.SIT
 
 var teddy_just_picked_up = false
 var teddy_picked_up = false
@@ -45,48 +50,85 @@ func inputs_enabled_timer() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	if self.current_mode == TEDDY_MODE.FOLLOW:
+		var direction:Vector2 = (kid.position - self.position)
+		
+		if direction.length() < FOLLOW_DISTANCE:
+			velocity = Vector2(0,0)
+		elif direction.length() < FOLLOW_DISTANCE * 2.0:
+			velocity = direction.normalized() * SPEED * 0.75
+		else:
+			velocity = direction.normalized() * SPEED
+		
+		$AnimatedSprite2D.play() 
+		if velocity.length() == 0:
+			$AnimatedSprite2D.animation = "idle"
+		elif velocity.x < 0:
+			$AnimatedSprite2D.animation = "walk_left"
+		elif velocity.x > 0: 
+			$AnimatedSprite2D.animation = "walk_right"
+		elif velocity.y > 0:
+			$AnimatedSprite2D.animation = "walk_down"
+		elif velocity.y < 0: 
+			$AnimatedSprite2D.animation = "walk_up"
+		
+		move_and_slide()
+		
+	elif self.current_mode == TEDDY_MODE.FIGHT:
+		# If fighting shadows?
+		# Get the input direction and handle the movement/deceleration.
+		if inputs_allowed == true:
+			
+			if teddy_picked_up == true or GameManager.teddy_combat_mode == true:
+				
+				var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+				
+				velocity = direction * SPEED
+				$AnimatedSprite2D.play() 
 
-	# Get the input direction and handle the movement/deceleration.
-	if inputs_allowed == true:
-		
-		if teddy_picked_up == true or GameManager.teddy_combat_mode == true:
+				if velocity.length() == 0:
+					$AnimatedSprite2D.animation = "idle"
+				elif velocity.x < 0:
+					$AnimatedSprite2D.animation = "walk_left"
+				elif velocity.x > 0: 
+					$AnimatedSprite2D.animation = "walk_right"
+				elif velocity.y > 0:
+					$AnimatedSprite2D.animation = "walk_down"
+				elif velocity.y < 0: 
+					$AnimatedSprite2D.animation = "walk_up"
+				
+				move_and_slide()
+				#pickup interaction
+				#if Input.is_action_just_pressed("interact") and GameManager.teddy_combat_mode == false:
+					#_on_teddy_picked_up_interact()
 			
-			var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+			#attack interaction
+			if GameManager.teddy_combat_mode == true:
+				if Input.is_action_just_pressed("interact") and attack_avail == true:
+					teddy_attack()
+					get_tree().create_timer(ATTACK_TIME).timeout.connect(update_progress_bar)
+					progress_bar.value = 0
+					progress_bar.get("theme_override_styles/fill").bg_color = Color.CRIMSON
 			
-			velocity = direction * SPEED
-			$AnimatedSprite2D.play() 
+			
+			#if is_hitting_wall:
+				#$AnimatedSprite2D.stop()
+			
+			#position += velocity * delta
+	elif self.current_mode == TEDDY_MODE.SIT:
+		# At the beginning of the game
+		pass
+	elif self.current_mode == TEDDY_MODE.PAUSE:
+		# When kid is actively doing puzzle
+		pass
+	else:
+		assert(false)
+	
+	if teddy_just_picked_up:
+		teddy_picked_up = true
+		teddy_just_picked_up = false
 
-			if velocity.length() == 0:
-				$AnimatedSprite2D.animation = "idle"
-			elif velocity.x < 0:
-				$AnimatedSprite2D.animation = "walk_left"
-			elif velocity.x > 0: 
-				$AnimatedSprite2D.animation = "walk_right"
-			elif velocity.y > 0:
-				$AnimatedSprite2D.animation = "walk_down"
-			elif velocity.y < 0: 
-				$AnimatedSprite2D.animation = "walk_up"
-			
-			move_and_slide()
-			#pickup interaction
-			if Input.is_action_just_pressed("interact") and GameManager.teddy_combat_mode == false:
-				_on_teddy_picked_up_interact()
-		
-		#attack interaction
-		if GameManager.teddy_combat_mode == true:
-			if Input.is_action_just_pressed("interact") and attack_avail == true:
-				teddy_attack()
-				get_tree().create_timer(ATTACK_TIME).timeout.connect(update_progress_bar)
-				progress_bar.value = 0
-				progress_bar.get("theme_override_styles/fill").bg_color = Color.CRIMSON
-		
-		if teddy_just_picked_up:
-			teddy_picked_up = true
-			teddy_just_picked_up = false
-		#if is_hitting_wall:
-			#$AnimatedSprite2D.stop()
-		
-		#position += velocity * delta
 
 func teddy_attack() -> void:
 	attack_avail = false
@@ -123,9 +165,17 @@ func update_progress_bar() -> void:
 	#is_hitting_wall = false
 	#pass # Replace with function body.
 
-func _on_interact_area_pick_up_teddy() -> void:
+# When interacted with
+func _on_interact_area_pick_up_teddy(kid) -> void:
 	teddy_just_picked_up = true
-	
-func _on_teddy_picked_up_interact():
-	teddy_picked_up = false
-	teddy_just_picked_up = false
+	# Get kid from pickup signal so Teddy can follow
+	self.kid = kid
+	self.current_mode = TEDDY_MODE.FOLLOW
+	# Disable interaction with teddy; should only need to pick up Teddy once
+	$InteractArea.set_monitorable(false) 
+
+
+# I don't think this is necessary -Andrew
+#func _on_teddy_picked_up_interact():
+	#teddy_picked_up = false
+	#teddy_just_picked_up = false

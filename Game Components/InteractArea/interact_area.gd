@@ -7,10 +7,11 @@ class_name Interactable extends Area2D
 signal pick_up_teddy
 signal pop_up
 
-func _emit_pick_up_teddy_signal():
-	pick_up_teddy.emit()
-	print("emitted signal")
+func _emit_pick_up_teddy_signal(kid):
+	# Emitting kid so Teddy can follow
+	pick_up_teddy.emit(kid)
+	#print("emitted signal",kid)
 
 func _emit_pop_up_signal():
 	pop_up.emit()
-	print("emitted popup signal")
+	#print("emitted popup signal")

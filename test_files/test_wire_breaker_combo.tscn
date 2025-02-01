@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1vf84swdx83d"]
+
+[ext_resource type="PackedScene" uid="uid://bmn5hoktqf7el" path="res://puzzles/wire_puzzle_1.tscn" id="1_3sbhh"]
+[ext_resource type="PackedScene" uid="uid://bhbvi1om5xrs3" path="res://puzzles/breaker_box.tscn" id="2_ew6qy"]
+
+[node name="TestWireBreakerCombo" type="Node2D"]
+
+[node name="WirePuzzle1" parent="." instance=ExtResource("1_3sbhh")]
+
+[node name="BreakerBox" parent="." instance=ExtResource("2_ew6qy")]
+position = Vector2(-160, 0)

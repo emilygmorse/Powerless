@@ -1,0 +1,287 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhbvi1om5xrs3"]
+
+[ext_resource type="Texture2D" uid="uid://cbtbyw1l5sfik" path="res://images/scenes/breakerbox.png" id="1_6blma"]
+[ext_resource type="Script" path="res://puzzles/breaker_box.gd" id="1_thrrv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jsqt"]
+size = Vector2(27, 9)
+
+[node name="BreakerBox" type="Node2D"]
+script = ExtResource("1_thrrv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_6blma")
+
+[node name="BreakerTop" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(241, 51)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Back" type="ColorRect" parent="BreakerTop"]
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SwitchTop" type="ColorRect" parent="BreakerTop"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.261429, 0.283795, 0.312544, 1)
+
+[node name="IndicatorTop" type="ColorRect" parent="BreakerTop"]
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerTop"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2jsqt")
+
+[node name="BreakerLeft1" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(221, 71)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Back" type="ColorRect" parent="BreakerLeft1"]
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SwitchLeft1" type="ColorRect" parent="BreakerLeft1"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.261429, 0.283795, 0.312544, 1)
+
+[node name="IndicatorLeft1" type="ColorRect" parent="BreakerLeft1"]
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLeft1"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2jsqt")
+
+[node name="BreakerLeft2" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(221, 90)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Back" type="ColorRect" parent="BreakerLeft2"]
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SwitchLeft2" type="ColorRect" parent="BreakerLeft2"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.261429, 0.283795, 0.312544, 1)
+
+[node name="IndicatorLeft2" type="ColorRect" parent="BreakerLeft2"]
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLeft2"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2jsqt")
+
+[node name="BreakerLeft3" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(221, 112)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Back" type="ColorRect" parent="BreakerLeft3"]
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SwitchLeft3" type="ColorRect" parent="BreakerLeft3"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.261429, 0.283795, 0.312544, 1)
+
+[node name="IndicatorLeft3" type="ColorRect" parent="BreakerLeft3"]
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLeft3"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2jsqt")
+
+[node name="BreakerLeft4" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(221, 130)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Back" type="ColorRect" parent="BreakerLeft4"]
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SwitchLeft4" type="ColorRect" parent="BreakerLeft4"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.261429, 0.283795, 0.312544, 1)
+
+[node name="IndicatorLeft4" type="ColorRect" parent="BreakerLeft4"]
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLeft4"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2jsqt")
+
+[node name="BreakerRight1" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(261, 90)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Back" type="ColorRect" parent="BreakerRight1"]
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SwitchRight1" type="ColorRect" parent="BreakerRight1"]
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.261429, 0.283795, 0.312544, 1)
+
+[node name="IndicatorRight1" type="ColorRect" parent="BreakerRight1"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerRight1"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2jsqt")
+
+[node name="BreakerRight2" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(261, 112)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Back" type="ColorRect" parent="BreakerRight2"]
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SwitchRight2" type="ColorRect" parent="BreakerRight2"]
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.261429, 0.283795, 0.312544, 1)
+
+[node name="IndicatorRight2" type="ColorRect" parent="BreakerRight2"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerRight2"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2jsqt")
+
+[node name="BreakerRight3" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(261, 130)
+collision_layer = 128
+collision_mask = 0
+
+[node name="Back" type="ColorRect" parent="BreakerRight3"]
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SwitchRight3" type="ColorRect" parent="BreakerRight3"]
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.261429, 0.283795, 0.312544, 1)
+
+[node name="IndicatorRight3" type="ColorRect" parent="BreakerRight3"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerRight3"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2jsqt")
+
+[connection signal="input_event" from="BreakerTop" to="." method="_on_breaker_top_input_event"]
+[connection signal="input_event" from="BreakerLeft1" to="." method="_on_breaker_left_1_input_event"]
+[connection signal="input_event" from="BreakerLeft2" to="." method="_on_breaker_left_2_input_event"]
+[connection signal="input_event" from="BreakerLeft3" to="." method="_on_breaker_left_3_input_event"]
+[connection signal="input_event" from="BreakerLeft4" to="." method="_on_breaker_left_4_input_event"]
+[connection signal="input_event" from="BreakerRight1" to="." method="_on_breaker_right_1_input_event"]
+[connection signal="input_event" from="BreakerRight2" to="." method="_on_breaker_right_2_input_event"]
+[connection signal="input_event" from="BreakerRight3" to="." method="_on_breaker_right_3_input_event"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 70.0
 var inputs_allowed = true
+var kid
 
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
@@ -82,7 +83,8 @@ func execute_interaction():
 				print(cur_interactions.interact_value)
 			"pick_up":
 				#print(cur_interactions.interact_value)
-				cur_interactions._emit_pick_up_teddy_signal()
+				# Emitting self so Teddy can follow
+				cur_interactions._emit_pick_up_teddy_signal(self)
 				_on_interaction_area_area_exited(cur_interactions)
 				#pick_up_teddy.emit()
 			"door": door.emit(cur_interactions.interact_value)
