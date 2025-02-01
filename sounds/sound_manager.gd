@@ -8,11 +8,6 @@ func _ready() -> void:
 	prep_creak()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func prep_creak() -> void:
 	$CreakTimer.start(AVG_TIME + randf_range(-1.0,1.0)*VAR_TIME)
 

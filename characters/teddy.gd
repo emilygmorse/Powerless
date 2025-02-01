@@ -157,32 +157,11 @@ func update_progress_bar() -> void:
 		get_tree().create_timer(attack_cool_down/5).timeout.connect(update_progress_bar)
 
 
-#func start(pos):
-	#position = pos
-	#show()
-	#$CollisionShape2D.disabled = false
-#
-#func _on_body_entered(body: Node2D) -> void:
-	#
-	#hit.emit()
-	#$CollisionShape2D.set_deferred("disabled", true)
-
-
-#func _on_body_entered(body: Node2D) -> void:
-	#is_hitting_wall = true
-	#pass # Replace with function body.
-#
-#
-#
-#func _on_body_exited(body: Node2D) -> void:
-	#is_hitting_wall = false
-	#pass # Replace with function body.
-
 # When interacted with
-func _on_interact_area_pick_up_teddy(kid) -> void:
+func _on_interact_area_pick_up_teddy(kid_node) -> void:
 	teddy_just_picked_up = true
 	# Get kid from pickup signal so Teddy can follow
-	self.kid = kid
+	self.kid = kid_node
 	self.current_mode = TEDDY_MODE.FOLLOW
 	# Disable interaction with teddy; should only need to pick up Teddy once
 	$InteractArea.set_monitorable(false) 

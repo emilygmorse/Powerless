@@ -50,7 +50,8 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact") and inputs_allowed:
+		print(self.get_parent().get_children())
 		execute_interaction()
 
 
@@ -87,8 +88,6 @@ func execute_interaction():
 				if has_teddy:
 					door.emit(cur_interactions.interact_value)
 				else:
-					pass
-					#TODO: dialogue
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
 			"puzzle":

@@ -28,7 +28,7 @@ func _on_title_screen_play_game() -> void:
 		gaming = true
 	else:
 		print("not loaded. loader status: ",load_status)
-		#TODO: Implement a loading screen here instead if necessary
+		#TODO: Implement a loading screen here if necessary
 
 
 func _on_title_screen_quit_game() -> void:
