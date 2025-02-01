@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://crd0dxiot7l33"]
+
+[ext_resource type="PackedScene" uid="uid://bjdgwg23lm1d4" path="res://menus/options/InputRemapMenu.tscn" id="1_igbem"]
+[ext_resource type="Script" path="res://menus/options/options.gd" id="1_x03ah"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_x03ah")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 321.0
+offset_bottom = 181.0
+color = Color(0.376471, 0.376471, 0.376471, 1)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 49.0
+offset_bottom = 34.0
+text = "Back"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 4.0
+offset_right = 237.0
+offset_bottom = 27.0
+scale = Vector2(1.1, 1.1)
+text = "Options"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 69.0
+offset_right = 257.0
+offset_bottom = 85.0
+value = 50.0
+
+[node name="VolumeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 46.0
+offset_right = 189.0
+offset_bottom = 69.0
+text = "Volume"
+
+[node name="ControlsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 113.0
+offset_right = 141.0
+offset_bottom = 144.0
+text = "Controls
+"
+
+[node name="InputRemapMenu" parent="." instance=ExtResource("1_igbem")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]

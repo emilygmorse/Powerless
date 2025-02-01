@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuecj6whg48yr"]
+
+[ext_resource type="PackedScene" uid="uid://ywgyqx2yggbd" path="res://enemy/enemy_base.tscn" id="1_b461s"]
+[ext_resource type="Texture2D" uid="uid://heel467wgb23" path="res://images/scenes/large_monsters_cropped.png" id="2_68wrk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nqfd7"]
+radius = 17.0
+height = 48.0
+
+[node name="EnemySpider" instance=ExtResource("1_b461s")]
+damage = 15
+speed_x = 18.0
+speed_y = 9.0
+pos_x_diff = 5
+skew_diff = 15
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_68wrk")
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nqfd7")
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "spider"

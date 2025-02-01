@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://1mtq1dc7sg6j"]
+
+[ext_resource type="Texture2D" uid="uid://di434nqbjvdpd" path="res://images/scenes/backyard.png" id="4_ue2a2"]
+[ext_resource type="PackedScene" uid="uid://b18tnddomyy4q" path="res://characters/kid.tscn" id="5_anww6"]
+[ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="6_eyxok"]
+[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="7_1ob35"]
+[ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="7_8wcyv"]
+[ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="8_gyjl1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mum0e"]
+size = Vector2(320, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_left = -160
+limit_top = -90
+limit_right = 160
+limit_bottom = 90
+
+[node name="Background" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("4_ue2a2")
+
+[node name="Kid" parent="." instance=ExtResource("5_anww6")]
+position = Vector2(-8, 21)
+
+[node name="Teddy" parent="." instance=ExtResource("6_eyxok")]
+position = Vector2(75, 53)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("7_8wcyv")]
+skelly_spawn = true
+tongue_spawn = true
+mouth_spawn = true
+spider_spawn = true
+crawler_spawn = true
+snake_spawn = true
+
+[node name="Spawn_1" parent="EnemySpawner" index="0"]
+position = Vector2(-121, 17)
+
+[node name="Spawn_2" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(96, -1)
+
+[node name="Spawn_3" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(98, 78)
+
+[node name="Spawn_4" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(-132, 74)
+
+[node name="LightSourceCircle" parent="." instance=ExtResource("8_gyjl1")]
+position = Vector2(-79, -6)
+scale = Vector2(0.5, 0.5)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 190)
+shape = SubResource("RectangleShape2D_mum0e")
+
+[node name="dark_canvas" parent="." instance=ExtResource("7_1ob35")]
+visible = true
+
+[editable path="EnemySpawner"]

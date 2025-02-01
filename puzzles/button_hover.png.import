@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkgwpvfwk2y5w"
-path="res://.godot/imported/monsters,png.png-3b3320e24143091129f3f2cc26a7fb78.ctex"
+uid="uid://bgny1xdh4sn7w"
+path="res://.godot/imported/button_hover.png-54826f64227f4c0ca981d284139eee28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/scenes/monsters,png.png"
-dest_files=["res://.godot/imported/monsters,png.png-3b3320e24143091129f3f2cc26a7fb78.ctex"]
+source_file="res://puzzles/button_hover.png"
+dest_files=["res://.godot/imported/button_hover.png-54826f64227f4c0ca981d284139eee28.ctex"]
 
 [params]
 
