@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1hhxsobbepil"]
 
 [ext_resource type="Texture2D" uid="uid://bbrpkm7q2t1me" path="res://puzzles/notes_1_small.png" id="1_fkgbi"]
-[ext_resource type="Script" path="res://puzzles/instr_1.gd" id="1_gckwo"]
+[ext_resource type="Script" path="res://puzzles/instr.gd" id="1_gckwo"]
 [ext_resource type="FontFile" uid="uid://b8wtvh0cic62k" path="res://Game Components/instruction_font.tres" id="3_rn2m1"]
 
 [node name="Instr_1" type="Node2D"]
@@ -40,5 +40,5 @@ offset_right = 56.0
 offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("3_rn2m1")
 theme_override_font_sizes/font_size = 8
-text = "White and purple wires are swapped"
+text = "Tan and purple wires are swapped"
 autowrap_mode = 2
