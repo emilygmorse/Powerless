@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://cufjqrody2gjv"
+path="res://.godot/imported/puzzle_kitchen.dialogue-92377541a63952ddf33d918ce8e5ab0f.tres"
+
+[deps]
+
+source_file="res://dialogue/puzzle_kitchen.dialogue"
+dest_files=["res://.godot/imported/puzzle_kitchen.dialogue-92377541a63952ddf33d918ce8e5ab0f.tres"]
+
+[params]
+
+defaults=true

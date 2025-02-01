@@ -3,4 +3,4 @@
 [node name="dark_canvas" type="CanvasModulate"]
 visible = false
 show_behind_parent = true
-color = Color(0.470076, 0.470076, 0.470076, 1)
+color = Color(0.646029, 0.646029, 0.646029, 1)
