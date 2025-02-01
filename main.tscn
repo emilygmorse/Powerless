@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbk1astrwfxst"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_rhu0o"]
+[ext_resource type="PackedScene" uid="uid://b1mqme41q3ftb" path="res://menus/title_screen.tscn" id="1_um4re"]
+[ext_resource type="PackedScene" uid="uid://crd0dxiot7l33" path="res://menus/options/options.tscn" id="2_ibbxe"]
+[ext_resource type="PackedScene" uid="uid://c0bpqocfw1cow" path="res://menus/pause.tscn" id="3_sj4mp"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_rhu0o")
+
+[node name="TitleScreen" parent="." instance=ExtResource("1_um4re")]
+
+[node name="Options" parent="." instance=ExtResource("2_ibbxe")]
+visible = false
+
+[node name="Pause" parent="." instance=ExtResource("3_sj4mp")]
+visible = false
+
+[connection signal="goto_options" from="TitleScreen" to="." method="_on_title_screen_goto_options"]
+[connection signal="play_game" from="TitleScreen" to="." method="_on_title_screen_play_game"]
+[connection signal="quit_game" from="TitleScreen" to="." method="_on_title_screen_quit_game"]
+[connection signal="quit_to_title" from="Pause" to="." method="_on_pause_quit_to_title"]
