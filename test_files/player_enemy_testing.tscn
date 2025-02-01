@@ -7,22 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="4_1eyss"]
 [ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="5_hvnsv"]
 [ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="6_64obh"]
-[ext_resource type="Texture2D" uid="uid://2mjn7b7njasa" path="res://images/scenes/powerbox1_small.png" id="8_qowud"]
+[ext_resource type="PackedScene" uid="uid://bmn5hoktqf7el" path="res://puzzles/wire_puzzle_1.tscn" id="8_ouu56"]
 
 [node name="RoomTest" instance=ExtResource("1_uw6oj")]
 script = ExtResource("2_trr6l")
 
-[node name="Background" parent="." index="1"]
+[node name="WirePuzzle1" parent="." index="0" instance=ExtResource("8_ouu56")]
+process_priority = 1
+top_level = true
+z_index = 1
+position = Vector2(105, 18)
+
+[node name="Background" parent="." index="2"]
 texture = ExtResource("2_plwgf")
 centered = true
 
-[node name="Kid" parent="." index="2" instance=ExtResource("3_52oe1")]
+[node name="Kid" parent="." index="3" instance=ExtResource("3_52oe1")]
 position = Vector2(-8, 21)
 
-[node name="Teddy" parent="." index="3" instance=ExtResource("4_1eyss")]
-position = Vector2(40, 48)
+[node name="Teddy" parent="." index="4" instance=ExtResource("4_1eyss")]
+position = Vector2(75, 53)
 
-[node name="EnemySpawner" parent="." index="4" instance=ExtResource("5_hvnsv")]
+[node name="EnemySpawner" parent="." index="5" instance=ExtResource("5_hvnsv")]
 skelly_spawn = true
 tongue_spawn = true
 mouth_spawn = true
@@ -42,15 +48,8 @@ position = Vector2(98, 78)
 [node name="Spawn_4" type="Marker2D" parent="EnemySpawner" index="3"]
 position = Vector2(-132, 74)
 
-[node name="dark_canvas" parent="." index="5"]
-visible = true
-
-[node name="LightSourceCircle" parent="." index="6" instance=ExtResource("6_64obh")]
+[node name="LightSourceCircle" parent="." index="7" instance=ExtResource("6_64obh")]
 position = Vector2(-79, -6)
 scale = Vector2(0.5, 0.5)
-
-[node name="Test" type="Sprite2D" parent="." index="9"]
-position = Vector2(105, 9)
-texture = ExtResource("8_qowud")
 
 [editable path="EnemySpawner"]

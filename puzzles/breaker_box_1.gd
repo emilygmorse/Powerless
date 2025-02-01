@@ -17,12 +17,19 @@ var breaker_left_2 = {"tripped": true, "switch_pos_x_shift": 13, "switch_trip_po
 var breaker_left_3 = {"tripped": true, "switch_pos_x_shift": 13, "switch_trip_pos_x": 0, "ind_trip_pos_x": 0}
 var breaker_left_4 = {"tripped": true, "switch_pos_x_shift": 13, "switch_trip_pos_x": 0, "ind_trip_pos_x": 0}
 
+
 func _ready() -> void:
+	SignalManager.breaker_box_toggle.connect(toggle)
 	set_positions(breaker_top, switch_top, indicator_top)
 	set_positions(breaker_left_2, switch_left_2, indicator_left_2)
 	set_positions(breaker_left_3, switch_left_3, indicator_left_3)
 	set_positions(breaker_left_4, switch_left_4, indicator_left_4)
-
+	
+func toggle(display: bool) -> void:
+	if display:
+		self.show()
+	else:
+		self.hide()
 
 func set_positions(breaker: Dictionary, switch: ColorRect, indicator: ColorRect) -> void:
 	breaker.switch_trip_pos_x = switch.position.x
