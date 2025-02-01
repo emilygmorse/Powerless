@@ -1,0 +1,6 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: . . . I should bring Teddy with me.
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END

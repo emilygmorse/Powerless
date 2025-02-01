@@ -97,7 +97,7 @@ pause={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/test.dialogue", "res://dialogue/intro_bedroom.dialogue", "res://dialogue/intro_living_room.dialogue", "res://dialogue/intro_kitchen.dialogue", "res://dialogue/mid_kitchen.dialogue", "res://dialogue/puzzle_kitchen.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/test.dialogue", "res://dialogue/intro_bedroom.dialogue", "res://dialogue/intro_living_room.dialogue", "res://dialogue/intro_kitchen.dialogue", "res://dialogue/mid_kitchen.dialogue", "res://dialogue/puzzle_kitchen.dialogue", "res://dialogue/need_teddy.dialogue", "res://dialogue/picked_up_teddy.dialogue")
 
 [layer_names]
 

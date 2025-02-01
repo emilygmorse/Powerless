@@ -53,12 +53,10 @@ func _physics_process(_delta: float) -> void:
 		elif velocity.y < 0: 
 			$AnimatedSprite2D.animation = "walk_up"
 		
-		#move_and_collide(velocity * delta)
 		move_and_slide()
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and inputs_allowed:
-		print(self.get_parent().get_children())
 		execute_interaction()
 
 func find_room(parent, type):
@@ -89,7 +87,7 @@ func _on_fear_increased():
 	fearMeter.value += 10
 
 
-#Interaction Methods
+##Interaction Methods
 
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0, area)
@@ -122,6 +120,7 @@ func execute_interaction():
 				if has_teddy:
 					door.emit(cur_interactions.interact_value)
 				else:
+					DialogueManager.show_dialogue_balloon(load("res://dialogue/need_teddy.dialogue"), "start")
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
 			"puzzle":

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://cako8cu6wvniv"
+path="res://.godot/imported/picked_up_teddy.dialogue-213f1ad61e26177d2e6b34105c50f599.tres"
+
+[deps]
+
+source_file="res://dialogue/picked_up_teddy.dialogue"
+dest_files=["res://.godot/imported/picked_up_teddy.dialogue-213f1ad61e26177d2e6b34105c50f599.tres"]
+
+[params]
+
+defaults=true

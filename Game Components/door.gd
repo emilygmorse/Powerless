@@ -13,8 +13,3 @@ func _ready() -> void:
 	interact_value = ",".join([connecting_room_path,str(target_coords.x),str(target_coords.y)])
 	# Background load the scene this door points to.
 	ResourceLoader.load_threaded_request(connecting_room_path)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
