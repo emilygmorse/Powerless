@@ -10,6 +10,7 @@ var kid
 @onready var fearMeter = $"../FearMeter"
 #@onready var current_room: ROOM = find_room(self.get_parent, ROOM)
 @export var player_fear: int = 0
+@export var in_light_index = 0
 
 signal door(door_info: String)
 signal hurt_box_hit
@@ -17,6 +18,7 @@ signal hurt_box_hit
 func _ready() -> void:
 	SignalManager.cutscene_started.connect(inputs_disabled)
 	SignalManager.cutscene_ended.connect(inputs_enabled)
+	SignalManager.light_check.connect(light_check)
 	$AnimatedSprite2D.play()
 	SignalManager.hit_player.connect(update_fear)
 	update_interactions()
@@ -74,6 +76,12 @@ func update_fear(damage: int) -> void:
 	print("Fear meter value after decrease {}", fearMeter.value)
 	
 
+func light_check(standing_in_light : bool):	
+	if standing_in_light:
+		in_light_index = -5
+	else:
+		in_light_index = 1
+		
 
 
 func _on_fear_increased():
@@ -112,3 +120,9 @@ func execute_interaction():
 			"door": door.emit(cur_interactions.interact_value)
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
+
+
+func _on_timer_timeout() -> void:
+	player_fear += in_light_index
+	fearMeter.value = player_fear
+	$Timer.start()
