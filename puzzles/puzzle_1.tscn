@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1hhxsobbepil" path="res://puzzles/instr_1.tscn" id="4_pm5pe"]
 
 [node name="Puzzle1" type="Node2D"]
+z_index = 2
 
 [node name="PuzzleButtons" parent="." instance=ExtResource("1_1px6j")]
 

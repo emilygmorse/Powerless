@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://heyaf8gbqeo2"]
+[gd_scene load_steps=4 format=3 uid="uid://heyaf8gbqeo2"]
 
+[ext_resource type="Script" path="res://rooms/room_base.gd" id="1_5idvg"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_kek5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syyj7"]
 size = Vector2(320, 20)
 
 [node name="RoomBase" type="Node2D"]
+script = ExtResource("1_5idvg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

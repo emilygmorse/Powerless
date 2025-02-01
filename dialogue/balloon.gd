@@ -96,6 +96,7 @@ var dialogue_line: DialogueLine:
 
 
 func _ready() -> void:
+	SignalManager.dialogue_ended.connect(remove_dialogue_manager)
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -185,3 +186,6 @@ func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -
 			pitch = 2.0
 		talk_sound.pitch_scale = randf_range(pitch-0.1, pitch+0.1)
 		talk_sound.play()
+		
+func remove_dialogue_manager() -> void:
+	queue_free()
