@@ -60,18 +60,26 @@ func _physics_process(delta: float) -> void:
 			velocity = direction.normalized() * SPEED * 0.75
 		else:
 			velocity = direction.normalized() * SPEED
+			
 		
 		$AnimatedSprite2D.play() 
-		if velocity.length() == 0:
-			$AnimatedSprite2D.animation = "idle"
-		elif velocity.x < 0:
+	
+		if velocity.x < 0:
 			$AnimatedSprite2D.animation = "walk_left"
-		elif velocity.x > 0: 
+		elif velocity.x > 0:
 			$AnimatedSprite2D.animation = "walk_right"
-		elif velocity.y > 0:
-			$AnimatedSprite2D.animation = "walk_down"
-		elif velocity.y < 0: 
-			$AnimatedSprite2D.animation = "walk_up"
+		#TEST: Commented for now. Follow animations still looks pretty good with just left and right walk. Stretch goal to get up and down integrated
+		#elif velocity.y > 0:
+			#$AnimatedSprite2D.animation = "walk_down"
+		#elif velocity.y < 0: 
+			#$AnimatedSprite2D.animation = "walk_up"
+		elif (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") 
+		or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down")):
+			return
+		else:
+			get_tree().create_timer(0.1).timeout.connect(go_idle)
+		
+
 		
 		move_and_slide()
 		
@@ -128,12 +136,18 @@ func _physics_process(delta: float) -> void:
 	if teddy_just_picked_up:
 		teddy_picked_up = true
 		teddy_just_picked_up = false
+		$AnimatedSprite2D.animation = "idle"
+
 
 
 func teddy_attack() -> void:
 	attack_avail = false
 	animation_effect.play("radius_attack")
 
+func go_idle() -> void:
+	if (Input.is_action_pressed("move_left") == false or Input.is_action_pressed("move_right") == false 
+	or Input.is_action_pressed("move_up") == false or Input.is_action_pressed("move_down") == false):
+		$AnimatedSprite2D.animation = "idle"
 
 func update_progress_bar() -> void:
 	progress_bar.value += 20

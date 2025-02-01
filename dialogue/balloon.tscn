@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv0f6edyh7vmb"]
+[gd_scene load_steps=16 format=3 uid="uid://cv0f6edyh7vmb"]
 
 [ext_resource type="Script" path="res://dialogue/balloon.gd" id="1_s2gbs"]
 [ext_resource type="FontFile" uid="uid://dgr40e8lnisd1" path="res://dialogue/PixelOperator8.ttf" id="2_0v5o5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hfvdi"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_1j1j0"]
 [ext_resource type="AudioStream" uid="uid://cg722ff2nby8y" path="res://dialogue/talk.wav" id="5_617ap"]
+[ext_resource type="Texture2D" uid="uid://w2v47u00wyjx" path="res://dialogue/flashlight.png" id="6_r84we"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -91,6 +92,44 @@ MarginContainer/constants/margin_left = 8
 MarginContainer/constants/margin_right = 8
 MarginContainer/constants/margin_top = 8
 Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
+
+[sub_resource type="Animation" id="Animation_uj4do"]
+resource_name = "indicator"
+loop_mode = 2
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(278, 42), Vector2(278, 47)]
+}
+
+[sub_resource type="Animation" id="Animation_pfh6k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(278, 47)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_foe6q"]
+_data = {
+"RESET": SubResource("Animation_pfh6k"),
+"indicator": SubResource("Animation_uj4do")
+}
 
 [node name="DialogueBalloon" type="CanvasLayer"]
 layer = 100
@@ -185,6 +224,21 @@ script = ExtResource("3_1j1j0")
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
 text = "Response Example"
+
+[node name="Indicator" type="TextureRect" parent="."]
+offset_left = 278.0
+offset_top = 47.0
+offset_right = 295.0
+offset_bottom = 58.0
+scale = Vector2(2, 2)
+texture = ExtResource("6_r84we")
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Indicator"]
+libraries = {
+"": SubResource("AnimationLibrary_foe6q")
+}
+autoplay = "indicator"
 
 [node name="TalkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_617ap")

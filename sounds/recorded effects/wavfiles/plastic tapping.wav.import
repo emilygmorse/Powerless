@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bawysvmv3fx0o"
+path="res://.godot/imported/plastic tapping.wav-70a2edc49909149934141ffd9a59a332.sample"
+
+[deps]
+
+source_file="res://sounds/recorded effects/wavfiles/plastic tapping.wav"
+dest_files=["res://.godot/imported/plastic tapping.wav-70a2edc49909149934141ffd9a59a332.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
