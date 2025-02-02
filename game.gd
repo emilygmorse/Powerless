@@ -89,16 +89,5 @@ func load_room(path, pos) -> void:
 		print("not loaded. loader status: ",load_status)
 		#TODO: Implement a loading screen here instead if necessary
 
-
-# These might be unnecessary, see MorseCode
-# On second thought, these might be necessary
-func set_checkpoint() -> void:
-	checkpoint_path = room_path
-	checkpoint_pos = target_position
-	ResourceLoader.load_threaded_request(checkpoint_path)
-
-func goto_checkpoint() -> void:
-	load_room(checkpoint_path,checkpoint_pos)
-
 func game_end() -> void:
 	transition = TRANSITION_STATE.END
