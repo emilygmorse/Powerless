@@ -4,6 +4,7 @@ Amelia: There it is! The key to the attic!
 Theodore: Finally! Wait, it's up there? How are we going to get it?
 Amelia: If we can just shake the cabinet a bit . . .
 Theodore: [wave amp=15 freq=5]~Oomph~[/wave]
+do SignalManager.got_key.emit()
 Amelia: I got it! Thanks Teddy, I can always count on you.
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()

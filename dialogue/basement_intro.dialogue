@@ -1,0 +1,11 @@
+~ start
+do SignalManager.cutscene_started.emit()
+do SignalManager.activate_enemy_spawner.emit()
+Amelia: [shake rate=20 level=10] It's pitch black down here! There's no way I can find the attic key...
+Theodore: The breaker in the yard should be able to get the basment power back on.
+Amelia: [shake rate=25 level=12]What charlatan electrician wired this house!?
+do SignalManager.cutscene_ended.emit()
+do GameManager.basement_intro = true
+
+do SignalManager.dialogue_ended.emit()
+=> END

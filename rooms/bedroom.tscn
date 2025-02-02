@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpos8fneogbdf"]
+[gd_scene load_steps=11 format=3 uid="uid://bpos8fneogbdf"]
 
 [ext_resource type="Texture2D" uid="uid://by7f7pin1j7nc" path="res://images/scenes/bedroom.png" id="1_d3qdy"]
 [ext_resource type="Script" path="res://rooms/bedroom.gd" id="1_hso4d"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="2_4pgym"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_nw0uc"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="5_ti7e6"]
+[ext_resource type="Texture2D" uid="uid://bmqdotefvffge" path="res://images/objects/biggie.png" id="6_5hnly"]
+[ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="6_m8bye"]
+[ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="8_3f3dm"]
+[ext_resource type="AudioStream" uid="uid://c13ytb8trg5wx" path="res://sounds/zap.wav" id="9_2fobm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3wt0"]
 size = Vector2(320, 20)
@@ -18,7 +22,6 @@ texture = ExtResource("1_d3qdy")
 centered = false
 
 [node name="dark_canvas" parent="." instance=ExtResource("2_4pgym")]
-visible = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
 visible = false
@@ -49,3 +52,35 @@ position = Vector2(61, 95)
 interact_label = "Get in Bed"
 interact_type = "dialogue"
 interact_value = "res://dialogue/interact_dialogues/bed.dialogue"
+
+[node name="BiggieSprite" type="Sprite2D" parent="."]
+position = Vector2(115, 73)
+texture = ExtResource("6_5hnly")
+
+[node name="LightSourceCircle" parent="." instance=ExtResource("6_m8bye")]
+position = Vector2(124, 73)
+scale = Vector2(1.5, 1.5)
+
+[node name="PowerOut" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2fobm")
+pitch_scale = 0.8
+
+[node name="EnemySpawner" parent="." instance=ExtResource("8_3f3dm")]
+spawn_time = 1.0
+tongue_spawn = true
+mouth_spawn = true
+crawler_spawn = true
+
+[node name="Spawn_1" parent="EnemySpawner" index="0"]
+position = Vector2(52, 115)
+
+[node name="Spawn_2" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(119, 72)
+
+[node name="Spawn_3" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(91, 161)
+
+[node name="Spawn_4" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(213, 161)
+
+[editable path="EnemySpawner"]

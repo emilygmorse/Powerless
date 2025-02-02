@@ -15,6 +15,7 @@ signal hit_player(damage: int)
 signal puzzle_mode()
 signal puzzle_solved()
 signal destroy_enemies()
+signal got_key()
 
 
 signal breaker_switches_set()

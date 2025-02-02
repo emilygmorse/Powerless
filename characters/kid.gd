@@ -4,7 +4,7 @@ const SPEED = 70.0
 var inputs_allowed = true
 var has_teddy = false
 var puzzle_mode = false
-
+var meter_pause = false
 
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
@@ -18,8 +18,8 @@ signal door(door_info: String)
 signal hurt_box_hit
 
 func _ready() -> void:
-	SignalManager.cutscene_started.connect(inputs_disabled)
-	SignalManager.cutscene_ended.connect(inputs_enabled)
+	SignalManager.cutscene_started.connect(cutscene_started)
+	SignalManager.cutscene_ended.connect(cutscene_ended)
 	SignalManager.light_check.connect(light_check)
 	SignalManager.puzzle_mode.connect(puzzle_mode_timer)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
@@ -30,6 +30,14 @@ func _ready() -> void:
 	
 	# This should make 2D sounds positional to Kid
 	$AudioListener2D.make_current()
+
+func cutscene_started() -> void:
+	inputs_disabled()
+	meter_pause = true
+
+func cutscene_ended() -> void:
+	inputs_enabled()
+	meter_pause = false
 
 func inputs_disabled() -> void:
 	inputs_allowed = false
@@ -88,7 +96,7 @@ func update_fear(damage: int) -> void:
 
 func light_check(standing_in_light : bool):	
 	if standing_in_light:
-		in_light_index = -5
+		in_light_index = -15
 	else:
 		in_light_index = 1
 		
@@ -196,6 +204,7 @@ func execute_interaction():
 				DialogueManager.show_dialogue_balloon(load(cur_interactions.interact_value), "start")
 
 func _on_timer_timeout() -> void:
-	player_fear += in_light_index
-	fearMeter.value = player_fear
+	if meter_pause == false:
+		player_fear += in_light_index
+		fearMeter.value = player_fear
 	$Timer.start()
