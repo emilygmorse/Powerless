@@ -34,6 +34,7 @@ signal hit_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalManager.destroy_enemies.connect(enemy_destroyed)
 	player_ref = get_tree().get_first_node_in_group("Player")
 	
 	modulate = Color(0.43, 0.43, 0.43, 0.1)

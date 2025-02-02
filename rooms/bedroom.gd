@@ -2,7 +2,7 @@ extends ROOM
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
-	SignalManager.light_check.emit(true) #TEST
+	room_light_status(true) #TEST
 	
 	if GameManager.bedroom_intro == false:
 		create_dialogue_balloon()

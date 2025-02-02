@@ -22,6 +22,7 @@ func _ready() -> void:
 	SignalManager.cutscene_ended.connect(inputs_enabled)
 	SignalManager.light_check.connect(light_check)
 	SignalManager.puzzle_mode.connect(puzzle_mode_timer)
+	SignalManager.puzzle_solved.connect(puzzle_solved)
 
 	$AnimatedSprite2D.play()
 	SignalManager.hit_player.connect(update_fear)
@@ -102,6 +103,10 @@ func puzzle_mode_activate():
 	$AnimatedSprite2D.animation = "puzzle"
 	puzzle_mode = true
 	has_teddy = false
+
+func puzzle_solved():
+	puzzle_mode = false
+	inputs_enabled()
 
 ##Interaction Methods
 
