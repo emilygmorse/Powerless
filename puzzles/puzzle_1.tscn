@@ -10,6 +10,10 @@ z_index = 2
 position = Vector2(265, 108)
 
 [node name="PuzzleButtons" parent="." instance=ExtResource("1_1px6j")]
+offset_left = 81.0
+offset_top = -91.0
+offset_right = 121.0
+offset_bottom = -51.0
 
 [node name="Instr_1" parent="." instance=ExtResource("4_pm5pe")]
 

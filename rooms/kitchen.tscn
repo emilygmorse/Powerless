@@ -66,6 +66,7 @@ polygon = PackedVector2Array(-34, 0, -27, -21, 26, -21, 34, 0)
 visible = false
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_b7up5")]
+spawn_time = 5.0
 skelly_spawn = true
 mouth_spawn = true
 

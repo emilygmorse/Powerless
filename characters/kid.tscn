@@ -20,6 +20,10 @@ region = Rect2(37, 0, 18, 32)
 atlas = ExtResource("2_p6xms")
 region = Rect2(55, 0, 18, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0onpu"]
+atlas = ExtResource("2_p6xms")
+region = Rect2(1, 98, 18, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_62632"]
 atlas = ExtResource("2_p6xms")
 region = Rect2(1, 32, 18, 32)
@@ -68,10 +72,6 @@ region = Rect2(36, 130, 18, 32)
 atlas = ExtResource("2_p6xms")
 region = Rect2(54, 130, 18, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0onpu"]
-atlas = ExtResource("2_p6xms")
-region = Rect2(1, 98, 18, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqigp"]
 atlas = ExtResource("2_p6xms")
 region = Rect2(19, 98, 18, 32)
@@ -101,6 +101,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0onpu")
+}],
+"loop": true,
+"name": &"puzzle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -196,7 +204,7 @@ script = ExtResource("1_4h2o2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -15)
 sprite_frames = SubResource("SpriteFrames_srxtm")
-animation = &"walk_down"
+animation = &"puzzle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

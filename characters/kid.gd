@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 70.0
 var inputs_allowed = true
 var has_teddy = false
+var puzzle_mode = false
+
 
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
@@ -19,6 +21,8 @@ func _ready() -> void:
 	SignalManager.cutscene_started.connect(inputs_disabled)
 	SignalManager.cutscene_ended.connect(inputs_enabled)
 	SignalManager.light_check.connect(light_check)
+	SignalManager.puzzle_mode.connect(puzzle_mode_timer)
+
 	$AnimatedSprite2D.play()
 	SignalManager.hit_player.connect(update_fear)
 	update_interactions()
@@ -36,8 +40,7 @@ func inputs_enabled_timer() -> void:
 
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement
-	if inputs_allowed == true and GameManager.teddy_combat_mode == false:
-		
+	if inputs_allowed == true:
 		var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		
 		velocity = input_dir * SPEED
@@ -54,7 +57,11 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.animation = "walk_up"
 		
 		move_and_slide()
-
+	elif puzzle_mode == true:
+		$AnimatedSprite2D.animation = "puzzle"
+	else:
+		$AnimatedSprite2D.animation = "idle"
+		
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and inputs_allowed:
 		execute_interaction()
@@ -86,6 +93,15 @@ func light_check(standing_in_light : bool):
 func _on_fear_increased():
 	fearMeter.value += 10
 
+func puzzle_mode_timer():
+	get_tree().create_timer(0.01).timeout.connect(puzzle_mode_activate)
+
+func puzzle_mode_activate():
+	print("puzzle mode")
+	inputs_disabled()
+	$AnimatedSprite2D.animation = "puzzle"
+	puzzle_mode = true
+	has_teddy = false
 
 ##Interaction Methods
 

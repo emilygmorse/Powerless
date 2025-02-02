@@ -11,8 +11,6 @@ func _ready() -> void:
 	ResourceLoader.load_threaded_request(GAME)
 	$TitleMusic.play()
 
-
-
 func _on_title_screen_goto_options() -> void:
 	$Options.show()
 
