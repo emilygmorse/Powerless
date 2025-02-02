@@ -70,7 +70,6 @@ text = "Controls
 
 [node name="InputRemapMenu" parent="." instance=ExtResource("1_igbem")]
 visible = false
-use_parent_material = true
 layout_mode = 1
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

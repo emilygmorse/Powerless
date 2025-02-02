@@ -9,7 +9,6 @@ extends Node2D
 @export var snake_spawn: bool = false
 
 
-
 var spawn_points: Array = []
 
 var spawn_time_diff: float = spawn_time/10.0
@@ -33,7 +32,8 @@ var new_enemy_list: Dictionary
 func _ready() -> void:
 	enemy_spawn_list()
 	for i in self.get_children():
-		spawn_points.insert(0, i)
+		if i.get_class() == "Marker2D":
+			spawn_points.push_back(i)
 	SignalManager.activate_enemy_spawner.connect(spawn_enemy)
 
 func enemy_spawn_list() -> void:
@@ -57,7 +57,7 @@ func enemy_spawn_list() -> void:
 		array_count += 1
 		new_enemy_list.get_or_add(array_count, all_enemy_scenes.ENEMY_CRAWLER)
 	if array_count == -1:
-		print("No enemies selected to spawn!")
+		push_error("No enemies selected to spawn! Location: ",self.get_parent().name)
 
 func spawn_enemy() -> void:
 	var spawn_num = randi_range(0, spawn_points.size()-1)
@@ -66,7 +66,7 @@ func spawn_enemy() -> void:
 	var enemy_spawned = new_enemy_list[enemy_type].instantiate()
 	enemy_spawned.global_position = chosen_spawn.global_position
 	call_deferred("add_child", enemy_spawned)
-	get_tree().create_timer(randf_range(spawn_time - spawn_time_diff, spawn_time + spawn_time_diff)).timeout.connect(spawn_enemy)
+	$SpawnTimer.start(randf_range(spawn_time - spawn_time_diff, spawn_time + spawn_time_diff))
 	prevent_repeat_spawn()
 	
 func prevent_repeat_spawn() -> void:
