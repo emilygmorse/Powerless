@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://clvghl131fs1m"
-path="res://.godot/imported/creak_14.wav-3d2387856c458d5fa5ab5d7d3288cde3.sample"
+uid="uid://bqo8pmdlrgelp"
+path="res://.godot/imported/thump.wav-ce1c95051e04ea59e32c934bba841f12.sample"
 
 [deps]
 
-source_file="res://sounds/creaks/creak_14.wav"
-dest_files=["res://.godot/imported/creak_14.wav-3d2387856c458d5fa5ab5d7d3288cde3.sample"]
+source_file="res://sounds/thumps/thump.wav"
+dest_files=["res://.godot/imported/thump.wav-ce1c95051e04ea59e32c934bba841f12.sample"]
 
 [params]
 
