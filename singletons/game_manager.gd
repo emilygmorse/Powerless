@@ -45,3 +45,4 @@ func reset_game() -> void:
 	puzzle_2_solved = false
 	puzzle_3_solved = false
 	attic_key = false
+	cellar_key = false

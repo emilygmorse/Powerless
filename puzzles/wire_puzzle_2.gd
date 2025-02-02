@@ -32,8 +32,6 @@ func _ready() -> void:
 	short_all_wires()
 	SignalManager.wire_puzzle_toggle.connect(toggle)
 	SignalManager.breaker_switches_set.connect(all_wires_live)
-	
-	GameManager.breaker_tripped_2 = false #TEST
 	all_wires_live()
 
 func toggle(display: bool) -> void:

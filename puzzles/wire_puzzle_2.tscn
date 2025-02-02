@@ -2,41 +2,51 @@
 
 [ext_resource type="Script" path="res://puzzles/wire_puzzle_2.gd" id="1_3cqyp"]
 [ext_resource type="Texture2D" uid="uid://ccx2bawrl35hb" path="res://puzzles/powerbox2_small.png" id="2_1pdoj"]
-[ext_resource type="Texture2D" uid="uid://dobq1m7m1fs42" path="res://test_files/test_spark.png" id="3_xg73w"]
+[ext_resource type="Texture2D" uid="uid://b1rsr0vldssdg" path="res://images/spark_updated.png" id="3_w5434"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6yye"]
 radius = 7.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5pqa"]
-atlas = ExtResource("3_xg73w")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5u32"]
+atlas = ExtResource("3_w5434")
+region = Rect2(3, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kfw5c"]
-atlas = ExtResource("3_xg73w")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_th3o6"]
+atlas = ExtResource("3_w5434")
+region = Rect2(18, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qksvx"]
-atlas = ExtResource("3_xg73w")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhmxo"]
+atlas = ExtResource("3_w5434")
+region = Rect2(33, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fr0yo"]
-atlas = ExtResource("3_xg73w")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p7n4j"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rou5x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p5pqa")
+"texture": SubResource("AtlasTexture_n5u32")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kfw5c")
+"texture": SubResource("AtlasTexture_th3o6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qksvx")
+"texture": SubResource("AtlasTexture_xhmxo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk2r0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5u32")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fr0yo")
+"texture": SubResource("AtlasTexture_th3o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhmxo")
 }],
 "loop": true,
 "name": &"default",
@@ -51,7 +61,7 @@ script = ExtResource("1_3cqyp")
 texture = ExtResource("2_1pdoj")
 
 [node name="BottomWire1" type="Area2D" parent="."]
-position = Vector2(43, 26)
+position = Vector2(43, 27)
 collision_layer = 128
 collision_mask = 0
 
@@ -59,8 +69,9 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_t6yye")
 
 [node name="SparkBW1" type="AnimatedSprite2D" parent="BottomWire1"]
-sprite_frames = SubResource("SpriteFrames_p7n4j")
-frame_progress = 0.776927
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_rou5x")
 
 [node name="BottomWire2" type="Area2D" parent="."]
 position = Vector2(10, 30)
@@ -71,8 +82,9 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_t6yye")
 
 [node name="SparkBW2" type="AnimatedSprite2D" parent="BottomWire2"]
-sprite_frames = SubResource("SpriteFrames_p7n4j")
-frame_progress = 0.03063
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_rou5x")
 
 [node name="BottomWire3" type="Area2D" parent="."]
 position = Vector2(-40, 26)
@@ -83,11 +95,12 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_t6yye")
 
 [node name="SparkBW3" type="AnimatedSprite2D" parent="BottomWire3"]
-sprite_frames = SubResource("SpriteFrames_p7n4j")
-frame_progress = 0.03063
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_rou5x")
 
 [node name="BottomWire4" type="Area2D" parent="."]
-position = Vector2(29, 26)
+position = Vector2(29, 27)
 collision_layer = 128
 collision_mask = 0
 
@@ -96,11 +109,12 @@ position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_t6yye")
 
 [node name="SparkBW4" type="AnimatedSprite2D" parent="BottomWire4"]
-sprite_frames = SubResource("SpriteFrames_p7n4j")
-frame_progress = 0.03063
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_rou5x")
 
 [node name="TopWire1" type="Area2D" parent="."]
-position = Vector2(36, 11)
+position = Vector2(35, 11)
 collision_layer = 128
 collision_mask = 0
 
@@ -108,8 +122,8 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_t6yye")
 
 [node name="SparkTW1" type="AnimatedSprite2D" parent="TopWire1"]
-sprite_frames = SubResource("SpriteFrames_p7n4j")
-frame_progress = 0.03063
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_pk2r0")
 
 [node name="TopWire2" type="Area2D" parent="."]
 position = Vector2(-29, 11)
@@ -120,11 +134,11 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_t6yye")
 
 [node name="SparkTW2" type="AnimatedSprite2D" parent="TopWire2"]
-sprite_frames = SubResource("SpriteFrames_p7n4j")
-frame_progress = 0.03063
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_pk2r0")
 
 [node name="TopWire3" type="Area2D" parent="."]
-position = Vector2(1, 12)
+position = Vector2(0, 12)
 collision_layer = 128
 collision_mask = 0
 
@@ -132,11 +146,11 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_t6yye")
 
 [node name="SparkTW3" type="AnimatedSprite2D" parent="TopWire3"]
-sprite_frames = SubResource("SpriteFrames_p7n4j")
-frame_progress = 0.03063
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_pk2r0")
 
 [node name="TopWire4" type="Area2D" parent="."]
-position = Vector2(20, 9)
+position = Vector2(19, 10)
 collision_layer = 128
 collision_mask = 0
 
@@ -144,8 +158,8 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_t6yye")
 
 [node name="SparkTW4" type="AnimatedSprite2D" parent="TopWire4"]
-sprite_frames = SubResource("SpriteFrames_p7n4j")
-frame_progress = 0.03063
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_pk2r0")
 
 [connection signal="input_event" from="BottomWire1" to="." method="_on_bottom_wire_1_input_event"]
 [connection signal="input_event" from="BottomWire2" to="." method="_on_bottom_wire_2_input_event"]

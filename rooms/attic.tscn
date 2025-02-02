@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx1ianv7trwie"]
+[gd_scene load_steps=9 format=3 uid="uid://bx1ianv7trwie"]
 
+[ext_resource type="Script" path="res://rooms/attic.gd" id="1_7dten"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_lij55"]
 [ext_resource type="Texture2D" uid="uid://cx2qw8wu5e8f2" path="res://images/scenes/attic.png" id="1_s2387"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_fwhuu"]
+[ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="5_qg01c"]
+[ext_resource type="PackedScene" uid="uid://df1c2bugxj8ej" path="res://puzzles/puzzle_3.tscn" id="6_pkwxw"]
+[ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="7_ll5gq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47lde"]
 size = Vector2(320, 20)
 
 [node name="Attic" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_7dten")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -18,6 +23,7 @@ texture = ExtResource("1_s2387")
 centered = false
 
 [node name="dark_canvas" parent="." instance=ExtResource("1_lij55")]
+visible = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 16
@@ -37,3 +43,14 @@ position = Vector2(174, 124)
 interact_label = "Stairs Down"
 connecting_room_path = "res://rooms/bedroom.tscn"
 target_coords = Vector2(220, 90)
+
+[node name="Breaker3" parent="." instance=ExtResource("5_qg01c")]
+position = Vector2(119, 63)
+interact_label = "Kitchen Breaker"
+interact_type = "puzzle"
+
+[node name="Puzzle3" parent="." instance=ExtResource("6_pkwxw")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("7_ll5gq")]
+
+[connection signal="puzzle_start" from="Breaker3" to="." method="_on_breaker_3_puzzle_start"]
