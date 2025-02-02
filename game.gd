@@ -11,9 +11,12 @@ enum TRANSITION_STATE { NONE, IN, OUT }
 var transition := TRANSITION_STATE.NONE
 const TRANSITION_SPEED := 0.2 # between 0 and 1
 
-var current_room
-var new_room
+var current_room: Node
+var new_room: Node
 var target_position: Vector2
+var room_path: String
+var checkpoint_path: String
+var checkpoint_pos: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,9 +39,12 @@ func _process(_delta: float) -> void:
 			# add the new room & update current room
 			self.add_child(new_room)
 			current_room = new_room
+			#print(current_room.get_name())
 			# Update Kid & Teddy Position
 			$Kid.position = target_position
 			$Teddy.position = target_position + Vector2.UP*2
+			# Reset checkpoint load just in case
+			ResourceLoader.load_threaded_request(checkpoint_path)
 			# Transition back in
 			transition = TRANSITION_STATE.IN
 	elif transition == TRANSITION_STATE.IN:
@@ -54,20 +60,35 @@ func _process(_delta: float) -> void:
 func _on_kid_opens_door(door_info: String) -> void:
 	# split door info up into its components
 	var args = door_info.split(",")
-	var scene_filepath = args[0]
-	target_position = Vector2(float(args[1]),float(args[2]))
+	room_path = args[0]
+	var room_pos := Vector2(float(args[1]),float(args[2]))
 	
-	if not scene_filepath:
+	if not room_path:
 		push_error("No Scene Filepath from door")
 	else:
-		var load_status = ResourceLoader.load_threaded_get_status(scene_filepath)
-		# If the room has finished loading
-		if load_status == 3:
-			# Set up transition from current room to new room
-			# current_room should already be correct
-			new_room = ResourceLoader.load_threaded_get(scene_filepath).instantiate()
-			# Begin scene transition
-			transition = TRANSITION_STATE.OUT
-		else:
-			print("not loaded. loader status: ",load_status)
-			#TODO: Implement a loading screen here instead if necessary
+		load_room(room_path,room_pos)
+
+func load_room(path, pos) -> void:
+	var load_status = ResourceLoader.load_threaded_get_status(path)
+	# If the room has finished loading
+	if load_status == 3:
+		# Set up transition from current room to new room
+		# current_room should already be correct
+		new_room = ResourceLoader.load_threaded_get(path).instantiate()
+		target_position = pos
+		# Begin scene transition
+		transition = TRANSITION_STATE.OUT
+	else:
+		print("not loaded. loader status: ",load_status)
+		#TODO: Implement a loading screen here instead if necessary
+
+
+# These might be unnecessary, see MorseCode
+# On second thought, these might be necessary
+func set_checkpoint() -> void:
+	checkpoint_path = room_path
+	checkpoint_pos = target_position
+	ResourceLoader.load_threaded_request(checkpoint_path)
+
+func goto_checkpoint() -> void:
+	load_room(checkpoint_path,checkpoint_pos)

@@ -19,3 +19,25 @@ var puzzle_intro = false
 var puzzle_1_solved = false
 var puzzle_2_solved = false
 var puzzle_3_solved = false
+
+
+func reset_game() -> void:
+	wire_puzzle_solved_1 = false
+	wire_puzzle_solved_2 = false
+	wire_puzzle_solved_3 = false
+
+	breaker_tripped_1 = false
+	breaker_tripped_2 = false
+	breaker_tripped_3 = false
+
+	#Scenes
+	bedroom_intro = false
+	living_room_intro = false
+	kitchen_intro = false
+	kitchen_mid = false
+	puzzle_intro = false
+
+	#Keys
+	puzzle_1_solved = false
+	puzzle_2_solved = false
+	puzzle_3_solved = false

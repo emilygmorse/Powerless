@@ -45,3 +45,5 @@ func _on_pause_quit_to_title() -> void:
 	$TitleScreen.show()
 	$TitleMusic.play()
 	gaming = false
+	ResourceLoader.load_threaded_request(GAME)
+	GameManager.reset_game()
