@@ -2,6 +2,7 @@
 do SignalManager.cutscene_started.emit()
 Amelia: It's the garbage can.
 Theodore: Aren't you happy Mom and Dad don't make you empty it?
+#Theodore: Ahhh the old home away from home...
 Amelia: Huh?
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()

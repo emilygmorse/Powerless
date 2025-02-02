@@ -1,5 +1,4 @@
 ~ start
-do SignalManager.cutscene_started.emit()
 Amelia: Oh golly gee, the power's gone out!
 Amelia: I think the breaker box is in the attic.
 Amelia: There's a ladder up there in my closet.
