@@ -132,7 +132,6 @@ func execute_interaction():
 			"print_text": 
 				print(cur_interactions.interact_value)
 			"pick_up":
-				#print(cur_interactions.interact_value)
 				# Emitting self so Teddy can follow
 				cur_interactions._emit_pick_up_teddy_signal(self)
 				_on_interaction_area_area_exited(cur_interactions)
@@ -140,13 +139,31 @@ func execute_interaction():
 				DialogueManager.show_dialogue_balloon(load("res://dialogue/picked_up_teddy.dialogue"), "start")
 			"door":
 				if has_teddy:
+					var key = cur_interactions.key
+					# Check for keys like so:
+					if key == "attic":
+						if GameManager.attic_key:
+							pass
+						else: 
+							DialogueManager.show_dialogue_balloon(load("res://dialogue/door_failures/no_attic_key.dialogue"), "start")
+							return
+					# Once all keys have been checked, enter door
 					door.emit(cur_interactions.interact_value)
 				else:
-					DialogueManager.show_dialogue_balloon(load("res://dialogue/need_teddy.dialogue"), "start")
+					# You gotta get Teddy first!
+					DialogueManager.show_dialogue_balloon(load("res://dialogue/door_failures/need_teddy.dialogue"), "start")
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
 			"puzzle":
 				cur_interactions._emit_puzzle_start()
+			"item":
+				# Pick up a key for example
+				var key = cur_interactions.interact_value
+				if key == "attic":
+					DialogueManager.show_dialogue_balloon(load("res://dialogue/item_pickups/attic_key.dialogue"), "start")
+					GameManager.attic_key = true
+			"dialogue":
+				DialogueManager.show_dialogue_balloon(load(cur_interactions.interact_value), "start")
 
 func _on_timer_timeout() -> void:
 	player_fear += in_light_index

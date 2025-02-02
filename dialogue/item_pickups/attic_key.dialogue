@@ -1,0 +1,7 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: I found it! The key to the attic!
+Theodore: Finally.
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END

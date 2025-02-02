@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bpvbx5yhiwomk"
+path="res://.godot/imported/parents_room.dialogue-1531fdda1e133f4b4ec09ac84a0f79b4.tres"
+
+[deps]
+
+source_file="res://dialogue/interact_dialogues/parents_room.dialogue"
+dest_files=["res://.godot/imported/parents_room.dialogue-1531fdda1e133f4b4ec09ac84a0f79b4.tres"]
+
+[params]
+
+defaults=true

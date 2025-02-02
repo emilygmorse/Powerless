@@ -3,6 +3,7 @@ extends Area2D
 @export var interact_label = "none"
 @export var connecting_room_path: String
 @export var target_coords: Vector2
+@export var key:= "make this unique"
 
 var interact_type = "door"
 var interact_value: String

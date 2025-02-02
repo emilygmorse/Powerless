@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://d4dvstkaitm0y"
+path="res://.godot/imported/front_door.dialogue-333d6632a371c606a1bed6dc4ee742b1.tres"
+
+[deps]
+
+source_file="res://dialogue/interact_dialogues/front_door.dialogue"
+dest_files=["res://.godot/imported/front_door.dialogue-333d6632a371c606a1bed6dc4ee742b1.tres"]
+
+[params]
+
+defaults=true

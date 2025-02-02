@@ -1,7 +1,8 @@
 ~ start
 do SignalManager.cutscene_started.emit()
-Amelia: Let's explain the puzzle element solved with Mouse Left Click
-Theodore: And I'll explain protecting you while you solve it
+Amelia: Here's the kitchen breaker box.
+Theodore: My fuzzy mitts won't work well with wires. You try to fix it.
+Theodore: I'll hold off the shadows with my [wave amp=15 freq=5]POWERFUL[/wave] aura.
 do SignalManager.cutscene_ended.emit()
 do GameManager.kitchen_puzzle = true
 do SignalManager.puzzle_mode.emit()

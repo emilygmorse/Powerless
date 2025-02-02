@@ -11,7 +11,8 @@ extends Node2D
 
 
 var spawn_points: Array = []
-var spawn_time_diff: float
+
+var spawn_time_diff: float = spawn_time/10.0
 var first_spawn: bool = true
 var enemy_type: int
 var chosen_spawn
@@ -30,7 +31,6 @@ var new_enemy_list: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawn_time_diff = spawn_time/10
 	enemy_spawn_list()
 	for i in self.get_children():
 		spawn_points.insert(0, i)
