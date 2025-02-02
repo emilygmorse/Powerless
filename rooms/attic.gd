@@ -6,6 +6,8 @@ extends ROOM
 func _ready() -> void:
 	room_light_status(GameManager.puzzle_3_solved)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
+	if GameManager.puzzle_3_solved == false:
+		enemy_spawner.spawn_enemy()
 
 func puzzle_solved() -> void:
 	GameManager.puzzle_3_solved = true

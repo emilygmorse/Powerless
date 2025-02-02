@@ -19,8 +19,8 @@ metadata/_snap_enabled = true
 radius = 35.0
 
 [node name="LightSourceCircle" type="PointLight2D" groups=["Light"]]
-scale = Vector2(0.2, 0.2)
-color = Color(1, 1, 0.686275, 1)
+color = Color(0.592157, 1, 0.956863, 1)
+energy = 1.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ioygv")
 script = ExtResource("1_ha6k0")

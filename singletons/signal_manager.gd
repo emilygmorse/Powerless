@@ -17,6 +17,7 @@ signal fear_reset_during_puzzle()
 signal puzzle_mode()
 signal puzzle_solved()
 signal destroy_enemies()
+signal got_key()
 
 
 signal breaker_switches_set()

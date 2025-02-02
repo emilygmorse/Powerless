@@ -14,6 +14,8 @@ var living_room_intro = false
 var kitchen_intro = false
 var kitchen_mid = false
 var puzzle_intro = false
+var basement_intro = false
+var final_pep_talk = true
 
 #Keys
 var puzzle_1_solved = false

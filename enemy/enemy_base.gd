@@ -36,7 +36,7 @@ signal hit_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalManager.destroy_enemies.connect(enemy_destroyed)
+	SignalManager.destroy_enemies.connect(lights_on_deleted)
 	player_ref = get_tree().get_first_node_in_group("Player")
 	
 	modulate = Color(0.43, 0.43, 0.43, 0.1)
@@ -118,6 +118,20 @@ func enemy_attacks() -> void:
 	
 func delete_enemy() -> void:
 	queue_free()
+
+
+func lights_on_deleted():
+	enemy_collision = true
+	area_2d.set_deferred("monitorable", false)
+	area_2d.set_deferred("monitoring", false)
+	if stretch_tween:
+		stretch_tween.kill()
+		stretch_tween = null
+	if shake_tween:
+		shake_tween.kill()
+		shake_tween = null
+	enemy_destroyed()
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	enemy_collision = true
