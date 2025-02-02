@@ -7,6 +7,7 @@ const VAR_TIME := 30.0 #seconds
 func _ready() -> void:
 	SignalManager.outside.connect(went_outside)
 	SignalManager.ambient_music.connect(ambient)
+	SignalManager.theme_music.connect(theme)
 	prep_creak()
 
 
@@ -28,6 +29,16 @@ func went_outside(yes):
 
 func ambient(on: bool):
 	if on:
-		$AmbientMusic.play()
+		if not $AmbientMusic.is_playing():
+			$ThemeMusic.stop()
+			$AmbientMusic.play()
 	else:
 		$AmbientMusic.stop()
+
+func theme(on: bool):
+	if on:
+		if not $ThemeMusic.is_playing():
+			$AmbientMusic.stop()
+			$ThemeMusic.play()
+	else:
+		$ThemeMusic.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://n22bihxmbmjh"]
+[gd_scene load_steps=26 format=3 uid="uid://n22bihxmbmjh"]
 
 [ext_resource type="Script" path="res://sounds/sound_manager.gd" id="1_5e2la"]
 [ext_resource type="AudioStream" uid="uid://brydaq6ql72e8" path="res://sounds/creaks/creak_01.wav" id="2_feh4d"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://eguctyuo0ko1" path="res://sounds/creaks/creak_09.wav" id="21_vy76b"]
 [ext_resource type="AudioStream" uid="uid://cgfypvy11iocd" path="res://sounds/creaks/creak_10.wav" id="22_osp36"]
 [ext_resource type="AudioStream" uid="uid://qkq5qahjtqbc" path="res://sounds/music/Ambient Worry.wav" id="23_dbwgn"]
+[ext_resource type="AudioStream" uid="uid://d2u8dkfsppcne" path="res://sounds/music/SpookyTheme.wav" id="24_v060i"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e3jn8"]
 playback_mode = 1
@@ -62,6 +63,10 @@ one_shot = true
 
 [node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_dbwgn")
+volume_db = -15.0
+
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_v060i")
 volume_db = -15.0
 
 [connection signal="timeout" from="CreakTimer" to="." method="_on_creak_timer_timeout"]

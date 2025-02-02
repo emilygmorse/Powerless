@@ -23,5 +23,7 @@ func room_light_status(condition: bool) -> void:
 	if condition:
 		dark_canvas.hide()
 		SignalManager.light_check.emit(true)
+		SignalManager.theme_music.emit(true)
 	else:
 		SignalManager.light_check.emit(false)
+		SignalManager.ambient_music.emit(true)
