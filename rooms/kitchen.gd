@@ -39,9 +39,8 @@ func puzzle_solved() -> void:
 	GameManager.puzzle_1_solved = true
 	SignalManager.destroy_enemies.emit()
 	room_light_status(GameManager.puzzle_1_solved)
-	#Dialogue entry. Need to find cellar key now that lights are on
-	#Interaction now available somewhere in kitchen or living room now that lights are on
-	#Checkpoint updated to Kitchen door entry to yard
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen_done.dialogue"), "start")
+	#TODO: Checkpoint updated to Kitchen door entry to yard
 
 func spawner_check() -> void: 
 	if GameManager.puzzle_intro or GameManager.puzzle_1_solved == false:
