@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfsga4c1cild8"]
 
-[ext_resource type="Texture2D" uid="uid://l7eem3bk40q6" path="res://images/progressBarUnder.png" id="3_h83wx"]
+[ext_resource type="Texture2D" uid="uid://dtbcnvscxqoxc" path="res://images/progressBarUnder.png" id="3_h83wx"]
 [ext_resource type="Script" path="res://characters/fear_meter.gd" id="3_ivb1w"]
-[ext_resource type="Texture2D" uid="uid://b36rb5kjoiu7t" path="res://images/progressBar.png" id="4_7888e"]
+[ext_resource type="Texture2D" uid="uid://b2555sdfr2jcm" path="res://images/progressBar.png" id="4_7888e"]
 
 [sub_resource type="Theme" id="Theme_6yhtb"]
 

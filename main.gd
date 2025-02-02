@@ -11,8 +11,6 @@ func _ready() -> void:
 	ResourceLoader.load_threaded_request(GAME)
 	$TitleMusic.play()
 
-
-
 func _on_title_screen_goto_options() -> void:
 	$Options.show()
 
@@ -47,3 +45,5 @@ func _on_pause_quit_to_title() -> void:
 	$TitleScreen.show()
 	$TitleMusic.play()
 	gaming = false
+	ResourceLoader.load_threaded_request(GAME)
+	GameManager.reset_game()

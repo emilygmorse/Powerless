@@ -1,12 +1,12 @@
 extends ROOM
 
 @onready var puzzle_1: Node2D = $Puzzle1
+@onready var light_source_circle: PointLight2D = $LightSourceCircle
 
 func _ready() -> void:
 	#SignalManager.light_check.emit(false) #TEST
-	
 	SignalManager.mid_dialogue.connect(mid_dialogue)
-	SignalManager.puzzle_mode.emit(puzzle_mode)
+	SignalManager.puzzle_mode.connect(puzzle_mode)
 	room_light_status(GameManager.puzzle_1_solved)
 	
 	if GameManager.kitchen_intro == false:    #UPDATE THIS LINE W/ CORRECT ROOM
@@ -20,7 +20,10 @@ func mid_dialogue() -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/mid_kitchen.dialogue"), "start")
 
 func puzzle_mode() -> void:
+	print("puzzle 1 show!")
 	puzzle_1.show()
+	light_source_circle.hide()
+
 
 
 func _on_breaker_puzzle_start() -> void:

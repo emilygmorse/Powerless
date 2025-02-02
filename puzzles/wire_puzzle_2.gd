@@ -32,7 +32,9 @@ func _ready() -> void:
 	short_all_wires()
 	SignalManager.wire_puzzle_toggle.connect(toggle)
 	SignalManager.breaker_switches_set.connect(all_wires_live)
-
+	
+	GameManager.breaker_tripped_2 = false #TEST
+	all_wires_live()
 
 func toggle(display: bool) -> void:
 	if display:
@@ -103,7 +105,7 @@ func win_condition() -> void:
 							if top_wire_2.active:
 								if top_wire_3.active:
 									if top_wire_4.active:
-										GameManager.wire_puzzle_solved_1 = true
+										GameManager.wire_puzzle_solved_2 = true
 										print("You win")
 
 
@@ -160,7 +162,7 @@ func _on_bottom_wire_4_input_event(viewport: Node, event: InputEvent, shape_idx:
 	and GameManager.breaker_tripped_2 == false and GameManager.wire_puzzle_solved_2 == false):
 		click_delay = true
 		get_tree().create_timer(0.5).timeout.connect(click_delay_off)
-		wire_updates(bottom_wire_3, spark_bw_3)
+		wire_updates(bottom_wire_4, spark_bw_4)
 
 
 func _on_top_wire_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

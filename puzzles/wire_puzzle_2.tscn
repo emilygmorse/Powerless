@@ -45,6 +45,7 @@ animations = [{
 
 [node name="WirePuzzle2" type="Node2D"]
 texture_filter = 1
+position = Vector2(85, 81)
 script = ExtResource("1_3cqyp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
