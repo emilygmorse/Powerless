@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd7xtya8g3e25"]
+[gd_scene load_steps=6 format=3 uid="uid://cd7xtya8g3e25"]
 
+[ext_resource type="Script" path="res://rooms/backyard.gd" id="1_2ce8l"]
 [ext_resource type="Texture2D" uid="uid://di434nqbjvdpd" path="res://images/scenes/backyard.png" id="1_r7fai"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_xy27f"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_pse5c"]
@@ -8,6 +9,7 @@
 size = Vector2(320, 20)
 
 [node name="Backyard" type="Node2D"]
+script = ExtResource("1_2ce8l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
