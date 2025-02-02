@@ -8,7 +8,7 @@ extends ROOM
 func _ready() -> void:
 	room_light_status(GameManager.puzzle_1_solved)
 	SignalManager.mid_dialogue.connect(mid_dialogue)
-	SignalManager.puzzle_mode.connect(puzzle_mode)
+	#SignalManager.puzzle_mode.connect(puzzle_mode)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
 	
 	if GameManager.puzzle_intro:
@@ -29,10 +29,10 @@ func intro_dialogue() -> void:
 func mid_dialogue() -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/mid_kitchen.dialogue"), "start")
 
-func puzzle_mode() -> void:
-	print("puzzle 1 show!")
-	#add_puzzle(puzzle_1)
-	light_source_circle.hide()
+#func puzzle_mode() -> void:
+	#print("puzzle 1 show!")
+	##add_puzzle(puzzle_1)
+	#light_source_circle.hide()
 
 func puzzle_solved() -> void:
 	enemy_spawner.queue_free()
@@ -49,6 +49,7 @@ func spawner_check() -> void:
 func _on_breaker_puzzle_start() -> void:
 	print("breaker area entered")
 	if GameManager.puzzle_intro == true:
-		puzzle_mode()
+		SignalManager.puzzle_mode.emit()
 	else:
+		light_source_circle.hide()
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen.dialogue"), "start")

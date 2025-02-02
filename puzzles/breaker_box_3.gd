@@ -77,74 +77,95 @@ func switch_function(breaker: Dictionary, switch: ColorRect, indicator: ColorRec
 func click_delay_off() -> void:
 	click_delay = false
 
+func trip_function(breaker: Dictionary, switch: ColorRect, indicator: ColorRect) -> void:
+		breaker.tripped = true
+		switch.position.x = breaker.switch_trip_pos_x
+		indicator.position.x = breaker.ind_trip_pos_x
+		indicator.color = Color.CRIMSON
+		click.set_stream(BREAKER_CLOSE)
+		click.play()
+
 func trip_all_breakers() -> void:
-	switch_function(breaker_top, switch_top, indicator_top)
-	switch_function(breaker_left_2, switch_left_2, indicator_left_2)
-	switch_function(breaker_left_3, switch_left_3, indicator_left_3)
-	switch_function(breaker_left_4, switch_left_4, indicator_left_4)
-	switch_function(breaker_right_2, switch_right_2, indicator_right_2)
-	switch_function(breaker_right_3, switch_right_3, indicator_right_3)
+	trip_function(breaker_top, switch_top, indicator_top)
+	trip_function(breaker_left_1, switch_left_1, indicator_left_1)
+	trip_function(breaker_left_2, switch_left_2, indicator_left_2)
+	trip_function(breaker_left_3, switch_left_3, indicator_left_3)
+	trip_function(breaker_left_4, switch_left_4, indicator_left_4)
+	trip_function(breaker_right_1, switch_right_1, indicator_right_1)
+	trip_function(breaker_right_2, switch_right_2, indicator_right_2)
+	trip_function(breaker_right_3, switch_right_3, indicator_right_3)
 
 func _on_breaker_top_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
 		#switch_function(breaker_top, switch_top, indicator_top)
-
-		if breaker_left_2.tripped == false:
-			if breaker_left_3.tripped == false:
-				if breaker_left_4.tripped == false:
-					top_breaker_avail = true
-					switch_function(breaker_top, switch_top, indicator_top)
-					SignalManager.breaker_switches_set.emit()
+		
+		if breaker_left_1.tripped == false:
+			if breaker_left_2.tripped == false:
+				if breaker_left_3.tripped == true:
+					if breaker_left_4.tripped == false:
+						if breaker_right_1.tripped == false:
+							if breaker_right_2.tripped == false:
+								if breaker_right_3.tripped == false:
+									top_breaker_avail = true
+									switch_function(breaker_top, switch_top, indicator_top)
+									SignalManager.breaker_switches_set.emit()
 		else:
 			trip_all_breakers()
 			click.set_stream(BREAKER_CLOSE)
 			click.play()
 
-
+#Good
 func _on_breaker_left_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
 		switch_function(breaker_left_1, switch_left_1, indicator_left_1)
 
-
+#Good
 func _on_breaker_left_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
-		switch_function(breaker_left_2, switch_left_2, indicator_left_2)
+		if breaker_left_1.tripped == false and breaker_left_4.tripped == false and breaker_right_3.tripped == false:
+			switch_function(breaker_left_2, switch_left_2, indicator_left_2)
+		else:
+			trip_all_breakers()
 
-
+#Good
 func _on_breaker_left_3_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
-		switch_function(breaker_left_3, switch_left_3, indicator_left_3)
+		trip_all_breakers()
 
-
+#Good
 func _on_breaker_left_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
 		switch_function(breaker_left_4, switch_left_4, indicator_left_4)
 
-
+#Good
 func _on_breaker_right_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
-		switch_function(breaker_right_1, switch_right_1, indicator_right_1)
-
+		if breaker_left_1.tripped == false and breaker_left_4.tripped == false and breaker_right_3.tripped == false:
+			switch_function(breaker_right_1, switch_right_1, indicator_right_1)
+		else:
+			trip_all_breakers()
 
 func _on_breaker_right_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
 		get_tree().create_timer(0.2).timeout.connect(click_delay_off)
-		switch_function(breaker_right_2, switch_right_2, indicator_right_2)
-
-
+		if breaker_left_1.tripped == false and breaker_left_4.tripped == false and breaker_right_3.tripped == false:
+			switch_function(breaker_right_2, switch_right_2, indicator_right_2)
+		else:
+			trip_all_breakers()
+#Good
 func _on_breaker_right_3_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false:
 		click_delay = true
