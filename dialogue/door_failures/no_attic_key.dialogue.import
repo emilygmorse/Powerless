@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://c7705vvrkxyqk"
+path="res://.godot/imported/no_attic_key.dialogue-81415b4e4e8a8890929a961f2f81925c.tres"
+
+[deps]
+
+source_file="res://dialogue/door_failures/no_attic_key.dialogue"
+dest_files=["res://.godot/imported/no_attic_key.dialogue-81415b4e4e8a8890929a961f2f81925c.tres"]
+
+[params]
+
+defaults=true

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bawysvmv3fx0o"
-path="res://.godot/imported/plastic tapping.wav-70a2edc49909149934141ffd9a59a332.sample"
+path="res://.godot/imported/plastic_tapping.wav-c9f53bdc2efea15ee9347b27de91635a.sample"
 
 [deps]
 
-source_file="res://sounds/recorded effects/wavfiles/plastic tapping.wav"
-dest_files=["res://.godot/imported/plastic tapping.wav-70a2edc49909149934141ffd9a59a332.sample"]
+source_file="res://sounds/recorded effects/plastic_tapping.wav"
+dest_files=["res://.godot/imported/plastic_tapping.wav-c9f53bdc2efea15ee9347b27de91635a.sample"]
 
 [params]
 

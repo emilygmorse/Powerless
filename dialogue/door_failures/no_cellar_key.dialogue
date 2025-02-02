@@ -1,0 +1,7 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: Darn, the cellar is padlocked shut. Where did we keep the key again?
+Theodore: It should be in one of the kitchen drawers.
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END

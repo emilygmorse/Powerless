@@ -25,7 +25,8 @@ func _ready() -> void:
 	SignalManager.cutscene_started.connect(inputs_disabled)
 	SignalManager.cutscene_ended.connect(inputs_enabled)
 	SignalManager.puzzle_mode.connect(teddy_fight_mode_activate)
-	
+	SignalManager.puzzle_solved.connect(puzzle_solved)
+
 	attack_area.monitoring = false
 	attack_area.monitorable = false
 	attack_glow.enabled = false
@@ -53,7 +54,15 @@ func teddy_fight_mode_activate() -> void:
 	progress_bar.show()
 	teddy_picked_up = false
 	self.current_mode = TEDDY_MODE.FIGHT
-	
+
+func puzzle_solved() -> void:
+	inputs_disabled()
+	progress_bar.hide()
+	teddy_just_picked_up = true
+	teddy_picked_up = true
+	self.current_mode = TEDDY_MODE.FOLLOW
+
+
 	
 func _physics_process(delta: float) -> void:
 	
@@ -138,7 +147,6 @@ func _physics_process(delta: float) -> void:
 		teddy_picked_up = true
 		teddy_just_picked_up = false
 		$AnimatedSprite2D.animation = "idle"
-
 
 
 func teddy_attack() -> void:

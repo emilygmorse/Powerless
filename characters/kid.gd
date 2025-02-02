@@ -21,11 +21,15 @@ func _ready() -> void:
 	SignalManager.cutscene_ended.connect(inputs_enabled)
 	SignalManager.light_check.connect(light_check)
 	SignalManager.puzzle_mode.connect(puzzle_mode_timer)
+	SignalManager.puzzle_solved.connect(puzzle_solved)
 
 	$AnimatedSprite2D.play()
 	SignalManager.hit_player.connect(update_fear)
 	SignalManager.max_fear_reached.connect(return_to_checkpoint)
 	update_interactions()
+	
+	# This should make 2D sounds positional to Kid
+	$AudioListener2D.make_current()
 
 func inputs_disabled() -> void:
 	inputs_allowed = false
@@ -99,7 +103,11 @@ func puzzle_mode_activate():
 	inputs_disabled()
 	$AnimatedSprite2D.animation = "puzzle"
 	puzzle_mode = true
-	has_teddy = false
+
+func puzzle_solved():
+	puzzle_mode = false
+	has_teddy = true
+	inputs_enabled()
 
 ##Interaction Methods
 
@@ -121,11 +129,20 @@ func update_interactions():
 func execute_interaction():
 	if all_interactions:
 		var cur_interactions = all_interactions[0]
+		
+		# Check light requirement
+		if cur_interactions.puzzle_requirement == 0 or (cur_interactions.puzzle_requirement == 1 and GameManager.puzzle_1_solved) or (cur_interactions.puzzle_requirement == 2 and GameManager.puzzle_2_solved) or (cur_interactions.puzzle_requirement == 3 and GameManager.puzzle_3_solved):
+			# it's lit
+			pass
+		else:
+			# too dark
+			DialogueManager.show_dialogue_balloon(load("res://dialogue/interact_dialogues/too_dark.dialogue"), "start")
+			return
+		
 		match cur_interactions.interact_type:
 			"print_text": 
 				print(cur_interactions.interact_value)
 			"pick_up":
-				#print(cur_interactions.interact_value)
 				# Emitting self so Teddy can follow
 				cur_interactions._emit_pick_up_teddy_signal(self)
 				_on_interaction_area_area_exited(cur_interactions)
@@ -133,13 +150,48 @@ func execute_interaction():
 				DialogueManager.show_dialogue_balloon(load("res://dialogue/picked_up_teddy.dialogue"), "start")
 			"door":
 				if has_teddy:
+					var key = cur_interactions.key
+					# Check for keys like so:
+					if key == "attic":
+						if GameManager.attic_key:
+							pass
+						else: 
+							DialogueManager.show_dialogue_balloon(load("res://dialogue/door_failures/no_attic_key.dialogue"), "start")
+							return
+					elif key == "cellar":
+						if GameManager.cellar_key:
+							pass
+						else:
+							DialogueManager.show_dialogue_balloon(load("res://dialogue/door_failures/no_cellar_key.dialogue"), "start")
+							return
+					# Once all keys have been checked, enter door
 					door.emit(cur_interactions.interact_value)
 				else:
-					DialogueManager.show_dialogue_balloon(load("res://dialogue/need_teddy.dialogue"), "start")
+					# You gotta get Teddy first!
+					DialogueManager.show_dialogue_balloon(load("res://dialogue/door_failures/need_teddy.dialogue"), "start")
 			"pop_up":
 				cur_interactions._emit_pop_up_signal()
 			"puzzle":
 				cur_interactions._emit_puzzle_start()
+			"item":
+				# Pick up a key for example
+				var key = cur_interactions.interact_value
+				if key == "attic":
+					if GameManager.attic_key:
+						# key is gone
+						pass
+					else:
+						DialogueManager.show_dialogue_balloon(load("res://dialogue/item_pickups/attic_key.dialogue"), "start")
+						GameManager.attic_key = true
+				elif key == "cellar":
+					if GameManager.cellar_key:
+						# key is gone
+						pass
+					else:
+						DialogueManager.show_dialogue_balloon(load("res://dialogue/item_pickups/cellar_key.dialogue"), "start")
+						GameManager.cellar_key = true
+			"dialogue":
+				DialogueManager.show_dialogue_balloon(load(cur_interactions.interact_value), "start")
 
 func _on_timer_timeout() -> void:
 	player_fear += in_light_index

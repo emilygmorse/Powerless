@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://c4pcrwlncpnfa"
+path="res://.godot/imported/under_sink.dialogue-78592d9c47e129ed8c4c2b33379fd65b.tres"
+
+[deps]
+
+source_file="res://dialogue/interact_dialogues/under_sink.dialogue"
+dest_files=["res://.godot/imported/under_sink.dialogue-78592d9c47e129ed8c4c2b33379fd65b.tres"]
+
+[params]
+
+defaults=true

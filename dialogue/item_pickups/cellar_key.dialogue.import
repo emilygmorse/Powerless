@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dqatoobu7obrk"
+path="res://.godot/imported/cellar_key.dialogue-dcf32fd878ee8730ecc6b4e54f67ff86.tres"
+
+[deps]
+
+source_file="res://dialogue/item_pickups/cellar_key.dialogue"
+dest_files=["res://.godot/imported/cellar_key.dialogue-dcf32fd878ee8730ecc6b4e54f67ff86.tres"]
+
+[params]
+
+defaults=true

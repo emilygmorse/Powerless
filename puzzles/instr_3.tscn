@@ -1,0 +1,137 @@
+[gd_scene load_steps=4 format=3 uid="uid://vc0mmyhgu604"]
+
+[ext_resource type="Script" path="res://puzzles/instr.gd" id="1_op6ri"]
+[ext_resource type="Texture2D" uid="uid://bbrpkm7q2t1me" path="res://puzzles/notes_1_small.png" id="2_c6hcr"]
+[ext_resource type="FontFile" uid="uid://b8wtvh0cic62k" path="res://Game Components/instruction_font.tres" id="3_ujqwj"]
+
+[node name="Instr3" type="Node2D"]
+script = ExtResource("1_op6ri")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c6hcr")
+
+[node name="Title" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -41.0
+offset_top = -65.0
+offset_right = 41.0
+offset_bottom = -57.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "Instructions"
+uppercase = true
+
+[node name="Note1" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -49.0
+offset_top = -55.0
+offset_right = 56.0
+offset_bottom = -14.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "Set even and then odd before setting Master"
+autowrap_mode = 2
+
+[node name="Note2" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -49.0
+offset_top = -17.0
+offset_right = 56.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "Match Bottom Terminals with Top Wire colors"
+autowrap_mode = 2
+
+[node name="Note3" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -49.0
+offset_top = 22.0
+offset_right = 56.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "Orange and Tan colors are swapped"
+autowrap_mode = 2
+
+[node name="Note4" type="Label" parent="."]
+modulate = Color(0.713726, 0, 0, 1)
+offset_left = -52.0
+offset_top = 59.0
+offset_right = 53.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "NEVER SET 5   "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Note5" type="Label" parent="."]
+modulate = Color(0.713726, 0, 0, 1)
+offset_left = 43.0
+offset_top = 59.0
+offset_right = 52.0
+offset_bottom = 67.0
+rotation = 1.5708
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "("
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Note6" type="Label" parent="."]
+modulate = Color(0.713726, 0, 0, 1)
+offset_left = 44.0
+offset_top = 55.0
+offset_right = 53.0
+offset_bottom = 63.0
+rotation = 1.5708
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = ":"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Underline" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -43.0
+offset_top = -64.0
+offset_right = 48.0
+offset_bottom = -56.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "_________________"
+uppercase = true
+
+[node name="Dash" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -51.0
+offset_top = -25.0
+offset_right = 51.0
+offset_bottom = -17.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "-----------------"
+uppercase = true
+
+[node name="Dash2" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -51.0
+offset_top = 15.0
+offset_right = 51.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "-----------------"
+uppercase = true
+
+[node name="Dash3" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -51.0
+offset_top = 51.0
+offset_right = 51.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("3_ujqwj")
+theme_override_font_sizes/font_size = 8
+text = "-----------------"
+uppercase = true

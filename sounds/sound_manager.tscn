@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://n22bihxmbmjh"]
+[gd_scene load_steps=37 format=3 uid="uid://n22bihxmbmjh"]
 
 [ext_resource type="Script" path="res://sounds/sound_manager.gd" id="1_5e2la"]
 [ext_resource type="AudioStream" uid="uid://brydaq6ql72e8" path="res://sounds/creaks/creak_01.wav" id="2_feh4d"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://cy2464k7ekynw" path="res://sounds/creaks/creak_11.wav" id="4_pmily"]
 [ext_resource type="AudioStream" uid="uid://d2cpd71i30rp8" path="res://sounds/creaks/creak_12.wav" id="5_gej16"]
 [ext_resource type="AudioStream" uid="uid://dlne6r12yvq78" path="res://sounds/creaks/creak_13.wav" id="6_i4khb"]
-[ext_resource type="AudioStream" uid="uid://clvghl131fs1m" path="res://sounds/creaks/creak_14.wav" id="7_b2soe"]
 [ext_resource type="AudioStream" uid="uid://c27cv8c1pyqgq" path="res://sounds/creaks/creak_15.wav" id="8_kvtob"]
 [ext_resource type="AudioStream" uid="uid://bouilh74tb2sd" path="res://sounds/creaks/creak_16.wav" id="9_bxqkp"]
 [ext_resource type="AudioStream" uid="uid://vwoquvfv0fk5" path="res://sounds/creaks/creak_17.wav" id="10_mwfx2"]
@@ -16,38 +15,64 @@
 [ext_resource type="AudioStream" uid="uid://cfqy71yfa7ima" path="res://sounds/creaks/creak_20.wav" id="13_igu6e"]
 [ext_resource type="AudioStream" uid="uid://cdtr0rhd36c3g" path="res://sounds/creaks/creak_21.wav" id="15_r1n3a"]
 [ext_resource type="AudioStream" uid="uid://cqb45c7ituwxr" path="res://sounds/creaks/creak_04.wav" id="16_vfi2g"]
-[ext_resource type="AudioStream" uid="uid://do64bd5ggj25m" path="res://sounds/creaks/creak_05.wav" id="17_tdaxn"]
 [ext_resource type="AudioStream" uid="uid://cs6f7ggqi08yi" path="res://sounds/creaks/creak_06.wav" id="18_ksmy6"]
 [ext_resource type="AudioStream" uid="uid://vocm7vwpap3h" path="res://sounds/creaks/creak_07.wav" id="19_4lhch"]
 [ext_resource type="AudioStream" uid="uid://bfgln47sc407t" path="res://sounds/creaks/creak_08.wav" id="20_by8nh"]
 [ext_resource type="AudioStream" uid="uid://eguctyuo0ko1" path="res://sounds/creaks/creak_09.wav" id="21_vy76b"]
 [ext_resource type="AudioStream" uid="uid://cgfypvy11iocd" path="res://sounds/creaks/creak_10.wav" id="22_osp36"]
 [ext_resource type="AudioStream" uid="uid://qkq5qahjtqbc" path="res://sounds/music/Ambient Worry.wav" id="23_dbwgn"]
+[ext_resource type="AudioStream" uid="uid://d2u8dkfsppcne" path="res://sounds/music/SpookyTheme.wav" id="24_v060i"]
+[ext_resource type="AudioStream" uid="uid://dba1m3asb621i" path="res://sounds/recorded effects/glass_1.wav" id="25_4mwc2"]
+[ext_resource type="AudioStream" uid="uid://d08vv3ca3bijl" path="res://sounds/recorded effects/glass.wav" id="25_5qbp1"]
+[ext_resource type="AudioStream" uid="uid://dauaig7mr1jp1" path="res://sounds/recorded effects/glass_2.wav" id="26_608qc"]
+[ext_resource type="AudioStream" uid="uid://bawysvmv3fx0o" path="res://sounds/recorded effects/plastic_tapping.wav" id="26_ejfni"]
+[ext_resource type="AudioStream" uid="uid://bw7c8la1jbvck" path="res://sounds/recorded effects/glass_3.wav" id="27_dx00o"]
+[ext_resource type="AudioStream" uid="uid://ckx6qmop2po84" path="res://sounds/recorded effects/knock_1.wav" id="28_18os0"]
+[ext_resource type="AudioStream" uid="uid://bk383ngpwhjit" path="res://sounds/recorded effects/knock_2.wav" id="29_8o24i"]
+[ext_resource type="AudioStream" uid="uid://djf2m2ibxnwmd" path="res://sounds/recorded effects/knock_3.wav" id="30_jjnyk"]
+[ext_resource type="AudioStream" uid="uid://bqo8pmdlrgelp" path="res://sounds/thumps/thump.wav" id="31_y1yod"]
+[ext_resource type="AudioStream" uid="uid://ubmfxvrw76xm" path="res://sounds/thumps/thumps.wav" id="32_vs2ax"]
+[ext_resource type="AudioStream" uid="uid://bxppmfo026uh4" path="res://sounds/thumps/kthump.wav" id="33_27mur"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e3jn8"]
 playback_mode = 1
-streams_count = 21
+streams_count = 19
 stream_0/stream = ExtResource("2_feh4d")
 stream_1/stream = ExtResource("3_hxe80")
 stream_2/stream = ExtResource("4_e323l")
 stream_3/stream = ExtResource("16_vfi2g")
-stream_4/stream = ExtResource("17_tdaxn")
-stream_5/stream = ExtResource("18_ksmy6")
-stream_6/stream = ExtResource("19_4lhch")
-stream_7/stream = ExtResource("20_by8nh")
-stream_8/stream = ExtResource("21_vy76b")
-stream_9/stream = ExtResource("22_osp36")
-stream_10/stream = ExtResource("4_pmily")
-stream_11/stream = ExtResource("5_gej16")
-stream_12/stream = ExtResource("6_i4khb")
-stream_13/stream = ExtResource("7_b2soe")
-stream_14/stream = ExtResource("8_kvtob")
-stream_15/stream = ExtResource("9_bxqkp")
-stream_16/stream = ExtResource("10_mwfx2")
-stream_17/stream = ExtResource("11_hyoq0")
-stream_18/stream = ExtResource("12_kgpn5")
-stream_19/stream = ExtResource("13_igu6e")
-stream_20/stream = ExtResource("15_r1n3a")
+stream_4/stream = ExtResource("18_ksmy6")
+stream_5/stream = ExtResource("19_4lhch")
+stream_6/stream = ExtResource("20_by8nh")
+stream_7/stream = ExtResource("21_vy76b")
+stream_8/stream = ExtResource("22_osp36")
+stream_9/stream = ExtResource("4_pmily")
+stream_10/stream = ExtResource("5_gej16")
+stream_11/stream = ExtResource("6_i4khb")
+stream_12/stream = ExtResource("8_kvtob")
+stream_13/stream = ExtResource("9_bxqkp")
+stream_14/stream = ExtResource("10_mwfx2")
+stream_15/stream = ExtResource("11_hyoq0")
+stream_16/stream = ExtResource("12_kgpn5")
+stream_17/stream = ExtResource("13_igu6e")
+stream_18/stream = ExtResource("15_r1n3a")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yvn6s"]
+streams_count = 8
+stream_0/stream = ExtResource("25_5qbp1")
+stream_1/stream = ExtResource("26_ejfni")
+stream_2/stream = ExtResource("25_4mwc2")
+stream_3/stream = ExtResource("26_608qc")
+stream_4/stream = ExtResource("27_dx00o")
+stream_5/stream = ExtResource("28_18os0")
+stream_6/stream = ExtResource("29_8o24i")
+stream_7/stream = ExtResource("30_jjnyk")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1unnd"]
+streams_count = 3
+stream_0/stream = ExtResource("31_y1yod")
+stream_1/stream = ExtResource("32_vs2ax")
+stream_2/stream = ExtResource("33_27mur")
 
 [node name="SoundManager" type="Node2D"]
 script = ExtResource("1_5e2la")
@@ -62,6 +87,25 @@ one_shot = true
 
 [node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_dbwgn")
-volume_db = -10.0
+volume_db = -15.0
+
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_v060i")
+volume_db = -15.0
+
+[node name="SusNoises" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_yvn6s")
+max_polyphony = 2
+
+[node name="SusTimer" type="Timer" parent="."]
+
+[node name="Thumps" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_1unnd")
+volume_db = 8.0
+max_polyphony = 2
+
+[node name="ThumpTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="CreakTimer" to="." method="_on_creak_timer_timeout"]
+[connection signal="timeout" from="SusTimer" to="." method="_on_sus_timer_timeout"]
+[connection signal="timeout" from="ThumpTimer" to="." method="_on_thump_timer_timeout"]

@@ -1,0 +1,6 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: There's no way I'm unlocking the front door.
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END

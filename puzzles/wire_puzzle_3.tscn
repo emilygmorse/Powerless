@@ -1,0 +1,211 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6uobc8bjiear"]
+
+[ext_resource type="Script" path="res://puzzles/wire_puzzle_3.gd" id="1_3pycf"]
+[ext_resource type="Texture2D" uid="uid://dhbtrh6kip53o" path="res://puzzles/powerbox3_small.png" id="2_ylr4h"]
+[ext_resource type="Texture2D" uid="uid://b1rsr0vldssdg" path="res://images/spark_updated.png" id="3_uqq53"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6yye"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5u32"]
+atlas = ExtResource("3_uqq53")
+region = Rect2(3, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th3o6"]
+atlas = ExtResource("3_uqq53")
+region = Rect2(18, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhmxo"]
+atlas = ExtResource("3_uqq53")
+region = Rect2(33, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgkq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5u32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th3o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhmxo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28kav"]
+atlas = ExtResource("3_uqq53")
+region = Rect2(3, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfj4x"]
+atlas = ExtResource("3_uqq53")
+region = Rect2(18, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gb3j"]
+atlas = ExtResource("3_uqq53")
+region = Rect2(33, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7iy7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28kav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfj4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gb3j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WirePuzzle3" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_3pycf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ylr4h")
+
+[node name="BottomWire1" type="Area2D" parent="."]
+position = Vector2(7, 4)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWire1"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkBW1" type="AnimatedSprite2D" parent="BottomWire1"]
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_tgkq0")
+
+[node name="BottomWire2" type="Area2D" parent="."]
+position = Vector2(-42, 4)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWire2"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkBW2" type="AnimatedSprite2D" parent="BottomWire2"]
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_tgkq0")
+
+[node name="BottomWire3" type="Area2D" parent="."]
+position = Vector2(42, 6)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWire3"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkBW3" type="AnimatedSprite2D" parent="BottomWire3"]
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_tgkq0")
+
+[node name="BottomWire4" type="Area2D" parent="."]
+position = Vector2(-25, 4)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWire4"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkBW4" type="AnimatedSprite2D" parent="BottomWire4"]
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_tgkq0")
+
+[node name="BottomWire5" type="Area2D" parent="."]
+position = Vector2(-7, 7)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWire5"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkBW5" type="AnimatedSprite2D" parent="BottomWire5"]
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_tgkq0")
+
+[node name="TopWire1" type="Area2D" parent="."]
+position = Vector2(31, -13)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWire1"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkTW1" type="AnimatedSprite2D" parent="TopWire1"]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_7iy7i")
+
+[node name="TopWire2" type="Area2D" parent="."]
+position = Vector2(-13, -17)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWire2"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkTW2" type="AnimatedSprite2D" parent="TopWire2"]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_7iy7i")
+
+[node name="TopWire3" type="Area2D" parent="."]
+position = Vector2(45, -17)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWire3"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkTW3" type="AnimatedSprite2D" parent="TopWire3"]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_7iy7i")
+
+[node name="TopWire4" type="Area2D" parent="."]
+position = Vector2(-45, -17)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWire4"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkTW4" type="AnimatedSprite2D" parent="TopWire4"]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_7iy7i")
+
+[node name="TopWire5" type="Area2D" parent="."]
+position = Vector2(-28, -15)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWire5"]
+shape = SubResource("CircleShape2D_t6yye")
+
+[node name="SparkTW5" type="AnimatedSprite2D" parent="TopWire5"]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_7iy7i")
+
+[connection signal="input_event" from="BottomWire1" to="." method="_on_bottom_wire_1_input_event"]
+[connection signal="input_event" from="BottomWire2" to="." method="_on_bottom_wire_2_input_event"]
+[connection signal="input_event" from="BottomWire3" to="." method="_on_bottom_wire_3_input_event"]
+[connection signal="input_event" from="BottomWire4" to="." method="_on_bottom_wire_4_input_event"]
+[connection signal="input_event" from="BottomWire5" to="." method="_on_bottom_wire_5_input_event"]
+[connection signal="input_event" from="TopWire1" to="." method="_on_top_wire_1_input_event"]
+[connection signal="input_event" from="TopWire2" to="." method="_on_top_wire_2_input_event"]
+[connection signal="input_event" from="TopWire3" to="." method="_on_top_wire_3_input_event"]
+[connection signal="input_event" from="TopWire4" to="." method="_on_top_wire_4_input_event"]
+[connection signal="input_event" from="TopWire5" to="." method="_on_top_wire_5_input_event"]

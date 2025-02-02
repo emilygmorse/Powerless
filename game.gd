@@ -12,6 +12,7 @@ var transition := TRANSITION_STATE.NONE
 const TRANSITION_SPEED := 0.2 # between 0 and 1
 
 var current_room: Node
+var new_room_resource: Resource
 var new_room: Node
 var target_position: Vector2
 var room_path: String
@@ -37,6 +38,7 @@ func _process(_delta: float) -> void:
 			self.remove_child(current_room)
 			current_room.queue_free()
 			# add the new room & update current room
+			new_room = new_room_resource.instantiate()
 			self.add_child(new_room)
 			current_room = new_room
 			#print(current_room.get_name())
@@ -44,7 +46,8 @@ func _process(_delta: float) -> void:
 			$Kid.position = target_position
 			$Teddy.position = target_position + Vector2.UP*2
 			# Reset checkpoint load just in case
-			ResourceLoader.load_threaded_request(checkpoint_path)
+			if checkpoint_path:
+				ResourceLoader.load_threaded_request(checkpoint_path)
 			# Transition back in
 			transition = TRANSITION_STATE.IN
 	elif transition == TRANSITION_STATE.IN:
@@ -60,21 +63,21 @@ func _process(_delta: float) -> void:
 func _on_kid_opens_door(door_info: String) -> void:
 	# split door info up into its components
 	var args = door_info.split(",")
-	room_path = args[0]
-	var room_pos := Vector2(float(args[1]),float(args[2]))
+	var path = args[0]
+	var pos := Vector2(float(args[1]),float(args[2]))
 	
-	if not room_path:
+	if not path:
 		push_error("No Scene Filepath from door")
 	else:
-		load_room(room_path,room_pos)
+		load_room(path,pos)
 
 func load_room(path, pos) -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(path)
 	# If the room has finished loading
 	if load_status == 3:
 		# Set up transition from current room to new room
-		# current_room should already be correct
-		new_room = ResourceLoader.load_threaded_get(path).instantiate()
+		new_room_resource = ResourceLoader.load_threaded_get(path)
+		room_path = path
 		target_position = pos
 		# Begin scene transition
 		transition = TRANSITION_STATE.OUT

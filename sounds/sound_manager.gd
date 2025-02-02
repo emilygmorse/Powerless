@@ -7,11 +7,17 @@ const VAR_TIME := 30.0 #seconds
 func _ready() -> void:
 	SignalManager.outside.connect(went_outside)
 	SignalManager.ambient_music.connect(ambient)
-	prep_creak()
+	SignalManager.theme_music.connect(theme)
+	prep_creak(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
+	prep_thump(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
+	prep_sus(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
 
 
-func prep_creak() -> void:
-	$CreakTimer.start(AVG_TIME + randf_range(-1.0,1.0)*VAR_TIME)
+func prep_creak(time:=0.0) -> void:
+	if time > 0:
+		$CreakTimer.start(time)
+	else:
+		$CreakTimer.start(AVG_TIME + randf_range(-1.0,1.0)*VAR_TIME)
 
 func _on_creak_timer_timeout() -> void:
 	$Creaking.play()
@@ -20,14 +26,49 @@ func _on_creak_timer_timeout() -> void:
 func stop_creak() -> void:
 	$CreakTimer.stop()
 
+func prep_thump(time:=0.0) -> void:
+	if time > 0:
+		$ThumpTimer.start(time)
+	else:
+		$ThumpTimer.start(AVG_TIME + randf_range(-1.0,1.0)*VAR_TIME)
+
+func _on_thump_timer_timeout() -> void:
+	$Thumps.play()
+	prep_thump()
+
+func stop_thump() -> void:
+	$ThumpTimer.stop()
+
 func went_outside(yes):
 	if yes:
 		stop_creak()
+		stop_thump()
 	else:
-		prep_creak()
+		prep_creak(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
+		prep_thump(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
+
+func prep_sus(time:=0.0) -> void:
+	if time > 0:
+		$SusTimer.start(time)
+	else:
+		$SusTimer.start(AVG_TIME + randf_range(-1.0,1.0)*VAR_TIME)
+
+func _on_sus_timer_timeout() -> void:
+	$SusNoises.play()
+	prep_sus()
 
 func ambient(on: bool):
 	if on:
-		$AmbientMusic.play()
+		if not $AmbientMusic.is_playing():
+			$ThemeMusic.stop()
+			$AmbientMusic.play()
 	else:
 		$AmbientMusic.stop()
+
+func theme(on: bool):
+	if on:
+		if not $ThemeMusic.is_playing():
+			$AmbientMusic.stop()
+			$ThemeMusic.play()
+	else:
+		$ThemeMusic.stop()

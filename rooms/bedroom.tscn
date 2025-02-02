@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpos8fneogbdf"]
+[gd_scene load_steps=7 format=3 uid="uid://bpos8fneogbdf"]
 
 [ext_resource type="Texture2D" uid="uid://by7f7pin1j7nc" path="res://images/scenes/bedroom.png" id="1_d3qdy"]
 [ext_resource type="Script" path="res://rooms/bedroom.gd" id="1_hso4d"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="2_4pgym"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_nw0uc"]
+[ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="5_ti7e6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3wt0"]
 size = Vector2(320, 20)
@@ -20,6 +21,7 @@ centered = false
 visible = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
@@ -34,9 +36,16 @@ position = Vector2(221, 74)
 interact_label = "Closet Door"
 connecting_room_path = "res://rooms/attic.tscn"
 target_coords = Vector2(185, 140)
+key = "attic"
 
 [node name="LivingDoor" parent="." instance=ExtResource("3_nw0uc")]
 position = Vector2(295, 108)
 interact_label = "Living Room"
 connecting_room_path = "res://rooms/living_room.tscn"
 target_coords = Vector2(155, 90)
+
+[node name="Bed" parent="." instance=ExtResource("5_ti7e6")]
+position = Vector2(61, 95)
+interact_label = "Get in Bed"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/bed.dialogue"

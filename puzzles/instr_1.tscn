@@ -29,16 +29,37 @@ offset_right = 56.0
 offset_bottom = -12.0
 theme_override_fonts/font = ExtResource("3_rn2m1")
 theme_override_font_sizes/font_size = 8
-text = "Set all switches before setting master switch"
+text = "Set all switches before setting Master Switch"
 autowrap_mode = 2
 
 [node name="Note2" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 offset_left = -49.0
-offset_top = -3.0
 offset_right = 56.0
-offset_bottom = 30.0
+offset_bottom = 33.0
 theme_override_fonts/font = ExtResource("3_rn2m1")
 theme_override_font_sizes/font_size = 8
-text = "Tan and purple wires are swapped"
+text = "Tan and Purple wires are swapped"
 autowrap_mode = 2
+
+[node name="Underline" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -43.0
+offset_top = -60.0
+offset_right = 48.0
+offset_bottom = -52.0
+theme_override_fonts/font = ExtResource("3_rn2m1")
+theme_override_font_sizes/font_size = 8
+text = "_________________"
+uppercase = true
+
+[node name="Dash" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -51.0
+offset_top = -11.0
+offset_right = 51.0
+offset_bottom = -3.0
+theme_override_fonts/font = ExtResource("3_rn2m1")
+theme_override_font_sizes/font_size = 8
+text = "-----------------"
+uppercase = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://c0wkc2wes1fag"
+path="res://.godot/imported/need_teddy.dialogue-fad527da3d62cbf626fa4c9c8232b710.tres"
+
+[deps]
+
+source_file="res://dialogue/door_failures/need_teddy.dialogue"
+dest_files=["res://.godot/imported/need_teddy.dialogue-fad527da3d62cbf626fa4c9c8232b710.tres"]
+
+[params]
+
+defaults=true

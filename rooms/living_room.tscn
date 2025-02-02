@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cixn6i1g580bw"]
+[gd_scene load_steps=8 format=3 uid="uid://cixn6i1g580bw"]
 
 [ext_resource type="Script" path="res://rooms/living_room.gd" id="1_purhy"]
 [ext_resource type="Texture2D" uid="uid://c0u5wlcxxvaa6" path="res://images/scenes/living room.png" id="2_k4tmq"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_rmkyb"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="4_c4h35"]
 [ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="5_4ggex"]
+[ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="6_1a58n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8mtj"]
 size = Vector2(320, 20)
@@ -61,5 +62,23 @@ position = Vector2(87, 176)
 
 [node name="Spawn_4" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(57, 50)
+
+[node name="TV" parent="." instance=ExtResource("6_1a58n")]
+position = Vector2(101, 71)
+interact_label = "TV"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/tv.dialogue"
+
+[node name="ParentsRoom" parent="." instance=ExtResource("6_1a58n")]
+position = Vector2(221, 75)
+interact_label = "My Parents' Room"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/parents_room.dialogue"
+
+[node name="FrontDoor" parent="." instance=ExtResource("6_1a58n")]
+position = Vector2(295, 105)
+interact_label = "Front Door"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/front_door.dialogue"
 
 [editable path="EnemySpawner"]

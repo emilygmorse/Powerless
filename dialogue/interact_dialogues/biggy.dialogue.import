@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://2sjb7o2dtgo6"
+path="res://.godot/imported/biggy.dialogue-a04e87d579341e8db91697dae11a8110.tres"
+
+[deps]
+
+source_file="res://dialogue/interact_dialogues/biggy.dialogue"
+dest_files=["res://.godot/imported/biggy.dialogue-a04e87d579341e8db91697dae11a8110.tres"]
+
+[params]
+
+defaults=true

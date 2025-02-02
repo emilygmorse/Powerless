@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://cobm3fxxbvtwi"
+path="res://.godot/imported/middle_drawer.dialogue-e6b478f45c3f1cd75c5e4b720f36027b.tres"
+
+[deps]
+
+source_file="res://dialogue/interact_dialogues/middle_drawer.dialogue"
+dest_files=["res://.godot/imported/middle_drawer.dialogue-e6b478f45c3f1cd75c5e4b720f36027b.tres"]
+
+[params]
+
+defaults=true

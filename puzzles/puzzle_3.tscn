@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://df1c2bugxj8ej"]
+
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_ktruy"]
+[ext_resource type="PackedScene" uid="uid://c3iqp1q70vu2h" path="res://puzzles/puzzle_buttons.tscn" id="2_8xnva"]
+[ext_resource type="PackedScene" uid="uid://vc0mmyhgu604" path="res://puzzles/instr_3.tscn" id="3_kpesl"]
+[ext_resource type="PackedScene" uid="uid://dxs71h587l36s" path="res://puzzles/breaker_box_3.tscn" id="4_imuno"]
+[ext_resource type="PackedScene" uid="uid://c6uobc8bjiear" path="res://puzzles/wire_puzzle_3.tscn" id="5_elyj6"]
+
+[sub_resource type="Animation" id="Animation_5mabf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(376, 108)]
+}
+
+[sub_resource type="Animation" id="Animation_bjcgq"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(376, 108), Vector2(265, 108)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ok0wg"]
+_data = {
+"RESET": SubResource("Animation_5mabf"),
+"transition": SubResource("Animation_bjcgq")
+}
+
+[node name="Puzzle3" type="Node2D"]
+z_index = 2
+position = Vector2(376, 108)
+script = ExtResource("1_ktruy")
+
+[node name="PuzzleButtons" parent="." instance=ExtResource("2_8xnva")]
+offset_left = 81.0
+offset_top = -91.0
+offset_right = 121.0
+offset_bottom = -51.0
+
+[node name="Instr3" parent="." instance=ExtResource("3_kpesl")]
+
+[node name="BreakerBox3" parent="." instance=ExtResource("4_imuno")]
+visible = false
+
+[node name="WirePuzzle3" parent="." instance=ExtResource("5_elyj6")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ok0wg")
+}
