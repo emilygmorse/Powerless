@@ -106,7 +106,8 @@ func win_condition() -> void:
 								if top_wire_3.active:
 									if top_wire_4.active:
 										GameManager.wire_puzzle_solved_2 = true
-										print("You win")
+										SignalManager.puzzle_solved.emit()
+
 
 
 func _on_bottom_wire_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

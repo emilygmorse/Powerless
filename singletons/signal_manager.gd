@@ -9,6 +9,9 @@ signal light_check(status: bool)
 signal activate_enemy_spawner()
 signal hit_player(damage: int)
 signal puzzle_mode()
+signal puzzle_solved()
+signal destroy_enemies()
+
 
 signal breaker_switches_set()
 signal wires_shorted()
