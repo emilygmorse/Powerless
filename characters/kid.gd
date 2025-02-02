@@ -207,13 +207,13 @@ func execute_interaction():
 				DialogueManager.show_dialogue_balloon(load(cur_interactions.interact_value), "start")
 
 func _on_timer_timeout() -> void:
-	player_fear += in_light_index
-	if player_fear <= 0:
-		fear_meter.value = 0
-	else:
-		fear_meter.value = player_fear
-	$LightTimer.start()
+	print("meter_pause: {}", meter_pause)
+	print("player_fear: {}", player_fear)
 	if meter_pause == false:
 		player_fear += in_light_index
-		fearMeter.value = player_fear
-	$Timer.start()
+		if player_fear <= 0:
+			player_fear = 0
+			fear_meter.value = 0
+		else:
+			fear_meter.value = player_fear
+	$LightTimer.start()
