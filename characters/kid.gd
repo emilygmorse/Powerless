@@ -27,6 +27,9 @@ func _ready() -> void:
 	$AnimatedSprite2D.play()
 	SignalManager.hit_player.connect(update_fear)
 	update_interactions()
+	
+	# This should make 2D sounds positional to Kid
+	$AudioListener2D.make_current()
 
 func inputs_disabled() -> void:
 	inputs_allowed = false

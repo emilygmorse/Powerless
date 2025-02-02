@@ -13,6 +13,8 @@ class_name Enemy
 @export var scale_diff: float = 0.1
 @export var skew_diff = 20
 
+@export var sound_timer := 10.0 #seconds
+
 var player_ref
 var enemy_collision: bool = false
 var delete_enemy_time: float = 1.5
@@ -45,6 +47,8 @@ func _ready() -> void:
 	scale_var_y = init_scale_y * scale_diff
 	stretch()
 	shake()
+	
+	$SoundTimer.start(sound_timer/2.0+randf_range(-sound_timer/4.0,sound_timer/4.0))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -139,3 +143,8 @@ func blink_out() -> void:
 func blink_back() -> void:
 	self.show()
 	get_tree().create_timer(randf_range(2.5,4)).timeout.connect(blink_out)
+
+
+func _on_sound_timer_timeout() -> void:
+	$MonsterSound.play()
+	$SoundTimer.start(sound_timer+randf_range(-sound_timer/2.0,sound_timer/2.0))

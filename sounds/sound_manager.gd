@@ -8,11 +8,14 @@ func _ready() -> void:
 	SignalManager.outside.connect(went_outside)
 	SignalManager.ambient_music.connect(ambient)
 	SignalManager.theme_music.connect(theme)
-	prep_creak()
+	prep_creak(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
 
 
-func prep_creak() -> void:
-	$CreakTimer.start(AVG_TIME + randf_range(-1.0,1.0)*VAR_TIME)
+func prep_creak(time:=0.0) -> void:
+	if time > 0:
+		$CreakTimer.start(time)
+	else:
+		$CreakTimer.start(AVG_TIME + randf_range(-1.0,1.0)*VAR_TIME)
 
 func _on_creak_timer_timeout() -> void:
 	$Creaking.play()
@@ -25,7 +28,7 @@ func went_outside(yes):
 	if yes:
 		stop_creak()
 	else:
-		prep_creak()
+		prep_creak(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
 
 func ambient(on: bool):
 	if on:

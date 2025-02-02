@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d08vv3ca3bijl"
-path="res://.godot/imported/glass.wav-2f26f44d1c750a55a290f83e6f71e892.sample"
+path="res://.godot/imported/glass.wav-60a67de8c60dd3f7b062c7cfed507cc9.sample"
 
 [deps]
 
-source_file="res://sounds/recorded effects/wavfiles/glass.wav"
-dest_files=["res://.godot/imported/glass.wav-2f26f44d1c750a55a290f83e6f71e892.sample"]
+source_file="res://sounds/recorded effects/glass.wav"
+dest_files=["res://.godot/imported/glass.wav-60a67de8c60dd3f7b062c7cfed507cc9.sample"]
 
 [params]
 
