@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bbhbsn107msia"
+path="res://.godot/imported/attic_key.dialogue-29c73c81630abcb6e4c3c40aa331aa8e.tres"
+
+[deps]
+
+source_file="res://dialogue/item_pickups/attic_key.dialogue"
+dest_files=["res://.godot/imported/attic_key.dialogue-29c73c81630abcb6e4c3c40aa331aa8e.tres"]
+
+[params]
+
+defaults=true

@@ -11,7 +11,7 @@ extends Node2D
 
 
 var spawn_points: Array = []
-var spawn_time_diff: float = spawn_time/10
+var spawn_time_diff: float = spawn_time/10.0
 var first_spawn: bool = true
 var enemy_type: int
 var chosen_spawn

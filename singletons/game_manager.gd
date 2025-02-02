@@ -19,6 +19,7 @@ var puzzle_intro = false
 var puzzle_1_solved = false
 var puzzle_2_solved = false
 var puzzle_3_solved = false
+var attic_key = false
 
 
 func reset_game() -> void:
@@ -41,3 +42,4 @@ func reset_game() -> void:
 	puzzle_1_solved = false
 	puzzle_2_solved = false
 	puzzle_3_solved = false
+	attic_key = false

@@ -1,0 +1,6 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: I can't go to sleep without my night light.
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END

@@ -62,6 +62,6 @@ one_shot = true
 
 [node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_dbwgn")
-volume_db = -10.0
+volume_db = -15.0
 
 [connection signal="timeout" from="CreakTimer" to="." method="_on_creak_timer_timeout"]
