@@ -106,6 +106,7 @@ func puzzle_mode_activate():
 
 func puzzle_solved():
 	puzzle_mode = false
+	has_teddy = true
 	inputs_enabled()
 
 ##Interaction Methods

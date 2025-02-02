@@ -19,6 +19,8 @@ var puzzle_intro = false
 var puzzle_1_solved = false
 var puzzle_2_solved = false
 var puzzle_3_solved = false
+
+var cellar_key = false
 var attic_key = false
 
 

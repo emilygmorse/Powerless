@@ -63,7 +63,6 @@ offset = Vector2(0, -20)
 polygon = PackedVector2Array(-34, 0, -27, -21, 26, -21, 34, 0)
 
 [node name="Puzzle1" parent="." instance=ExtResource("6_28on2")]
-visible = false
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_b7up5")]
 spawn_time = 5.0
@@ -80,6 +79,7 @@ position = Vector2(204, 176)
 position = Vector2(17, 173)
 
 [node name="LightSourceCircle" parent="." instance=ExtResource("8_gt5nw")]
+visible = false
 position = Vector2(288, 176)
 scale = Vector2(1, 1)
 
