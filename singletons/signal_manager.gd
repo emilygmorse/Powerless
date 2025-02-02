@@ -12,6 +12,8 @@ signal light_check(status: bool)
 signal activate_enemy_spawner()
 
 signal hit_player(damage: int)
+signal max_fear_reached()
+signal fear_reset_during_puzzle()
 signal puzzle_mode()
 signal puzzle_solved()
 signal destroy_enemies()

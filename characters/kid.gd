@@ -9,13 +9,12 @@ var meter_pause = false
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 @onready var hurt_box: Area2D = $HurtBox
-@onready var fearMeter = $"../FearMeter"
+@onready var fear_meter = $"../FearMeter"
 #@onready var current_room: ROOM = find_room(self.get_parent, ROOM)
 @export var player_fear: int = 0
 @export var in_light_index = 0
 
 signal door(door_info: String)
-signal hurt_box_hit
 
 func _ready() -> void:
 	SignalManager.cutscene_started.connect(cutscene_started)
@@ -26,6 +25,7 @@ func _ready() -> void:
 
 	$AnimatedSprite2D.play()
 	SignalManager.hit_player.connect(update_fear)
+	SignalManager.max_fear_reached.connect(return_to_checkpoint)
 	update_interactions()
 	
 	# This should make 2D sounds positional to Kid
@@ -86,12 +86,8 @@ func find_room(parent, type):
 
 #Fear/health methods
 func update_fear(damage: int) -> void:
-	print("Player fear before decrease {}", player_fear)
 	player_fear += damage
-	print("Player fear after decrease {}", player_fear)
-	print("Fear meter value before decrease {}", fearMeter.value)
-	fearMeter.value = player_fear
-	print("Fear meter value after decrease {}", fearMeter.value)
+	fear_meter.value = player_fear
 	
 
 func light_check(standing_in_light : bool):	
@@ -101,9 +97,16 @@ func light_check(standing_in_light : bool):
 		in_light_index = 1
 		
 
-
-func _on_fear_increased():
-	fearMeter.value += 10
+func return_to_checkpoint():
+	player_fear = 0
+	fear_meter.value = 0
+	#if we reset during a puzzle, we have to call this to give control back to kid
+	if puzzle_mode:
+		puzzle_solved()
+		SignalManager.fear_reset_during_puzzle.emit()
+	door.emit(GameManager.checkpoint_dict.get(GameManager.current_checkpoint))
+	
+	
 
 func puzzle_mode_timer():
 	get_tree().create_timer(0.01).timeout.connect(puzzle_mode_activate)
@@ -204,7 +207,13 @@ func execute_interaction():
 				DialogueManager.show_dialogue_balloon(load(cur_interactions.interact_value), "start")
 
 func _on_timer_timeout() -> void:
+	print("meter_pause: {}", meter_pause)
+	print("player_fear: {}", player_fear)
 	if meter_pause == false:
 		player_fear += in_light_index
-		fearMeter.value = player_fear
-	$Timer.start()
+		if player_fear <= 0:
+			player_fear = 0
+			fear_meter.value = 0
+		else:
+			fear_meter.value = player_fear
+	$LightTimer.start()

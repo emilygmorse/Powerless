@@ -25,6 +25,15 @@ var puzzle_3_solved = false
 var cellar_key = false
 var attic_key = false
 
+#Checkpoints
+var checkpoint_dict = {
+	0: "res://rooms/bedroom.tscn,280,115",
+	1: "res://rooms/kitchen.tscn,30,150",
+	2: "res://rooms/living_room.tscn,155,90"
+}
+
+var current_checkpoint = 0
+
 func reset_game() -> void:
 	wire_puzzle_solved_1 = false
 	wire_puzzle_solved_2 = false
@@ -47,3 +56,6 @@ func reset_game() -> void:
 	puzzle_3_solved = false
 	attic_key = false
 	cellar_key = false
+	
+	#Checkpoints
+	current_checkpoint = 0

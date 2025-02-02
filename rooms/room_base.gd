@@ -32,7 +32,9 @@ func room_light_status(condition: bool) -> void:
 func light_signal() -> void:
 	if light_status:
 		SignalManager.light_check.emit(true)
+		print("Light status: true set in room_light_status")
 		SignalManager.theme_music.emit(true)
 	else:
 		SignalManager.light_check.emit(false)
+		print("Light status: false set in room_light_status")
 		SignalManager.ambient_music.emit(true)

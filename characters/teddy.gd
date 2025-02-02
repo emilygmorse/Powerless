@@ -26,6 +26,7 @@ func _ready() -> void:
 	SignalManager.cutscene_ended.connect(inputs_enabled)
 	SignalManager.puzzle_mode.connect(teddy_fight_mode_activate)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
+	SignalManager.fear_reset_during_puzzle.connect(puzzle_solved)
 
 	attack_area.monitoring = false
 	attack_area.monitorable = false
