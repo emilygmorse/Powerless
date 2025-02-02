@@ -3,9 +3,10 @@ do SignalManager.cutscene_started.emit()
 Amelia: Oh golly gee the power's gone out!
 Amelia: I think there's a breaker box in the attic.
 Amelia: There's a ladder up there in my closet.
-Theodore: Need to get to the cellar to get the attic key. First press [wave amp=15 freq=5]SPACE[/wave] to pick me up
+#Theodore: Need to get to the cellar to get the attic key. First press [wave amp=15 freq=5]SPACE[/wave] to pick me up
 do SignalManager.cutscene_ended.emit()
 do GameManager.bedroom_intro = true
+do SignalManager.ambient_music.emit(true)
 
 do SignalManager.dialogue_ended.emit()
 => END

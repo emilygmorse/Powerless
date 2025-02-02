@@ -116,6 +116,7 @@ func execute_interaction():
 				cur_interactions._emit_pick_up_teddy_signal(self)
 				_on_interaction_area_area_exited(cur_interactions)
 				has_teddy = true
+				DialogueManager.show_dialogue_balloon(load("res://dialogue/picked_up_teddy.dialogue"), "start")
 			"door":
 				if has_teddy:
 					door.emit(cur_interactions.interact_value)
