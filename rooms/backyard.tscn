@@ -71,11 +71,14 @@ position = Vector2(248, 129)
 visible = false
 
 [node name="Breaker2" parent="." instance=ExtResource("7_iaw5a")]
-position = Vector2(107, 75)
+position = Vector2(107, 72)
 interact_label = "Kitchen Breaker"
 interact_type = "puzzle"
 
 [node name="LightSourceCircle" parent="." instance=ExtResource("8_vyiod")]
+visible = false
+position = Vector2(81, 81)
+scale = Vector2(1, 1)
 
 [connection signal="puzzle_start" from="Breaker2" to="." method="_on_breaker_2_puzzle_start"]
 

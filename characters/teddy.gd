@@ -58,7 +58,7 @@ func teddy_fight_mode_activate() -> void:
 func puzzle_solved() -> void:
 	inputs_disabled()
 	progress_bar.hide()
-	self.current_mode = TEDDY_MODE.SIT
+	self.current_mode = TEDDY_MODE.FOLLOW
 
 
 	
