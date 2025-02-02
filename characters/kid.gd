@@ -7,13 +7,12 @@ var has_teddy = false
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
 @onready var hurt_box: Area2D = $HurtBox
-@onready var fearMeter = $"../FearMeter"
+@onready var fear_meter = $"../FearMeter"
 #@onready var current_room: ROOM = find_room(self.get_parent, ROOM)
 @export var player_fear: int = 0
 @export var in_light_index = 0
 
 signal door(door_info: String)
-signal hurt_box_hit
 
 func _ready() -> void:
 	SignalManager.cutscene_started.connect(inputs_disabled)
@@ -21,6 +20,7 @@ func _ready() -> void:
 	SignalManager.light_check.connect(light_check)
 	$AnimatedSprite2D.play()
 	SignalManager.hit_player.connect(update_fear)
+	SignalManager.max_fear_reached.connect(return_to_checkpoint)
 	update_interactions()
 
 func inputs_disabled() -> void:
@@ -70,9 +70,9 @@ func update_fear(damage: int) -> void:
 	print("Player fear before decrease {}", player_fear)
 	player_fear += damage
 	print("Player fear after decrease {}", player_fear)
-	print("Fear meter value before decrease {}", fearMeter.value)
-	fearMeter.value = player_fear
-	print("Fear meter value after decrease {}", fearMeter.value)
+	print("Fear meter value before decrease {}", fear_meter.value)
+	fear_meter.value = player_fear
+	print("Fear meter value after decrease {}", fear_meter.value)
 	
 
 func light_check(standing_in_light : bool):	
@@ -82,10 +82,11 @@ func light_check(standing_in_light : bool):
 		in_light_index = 1
 		
 
-
-func _on_fear_increased():
-	fearMeter.value += 10
-
+func return_to_checkpoint():
+	player_fear = 0
+	fear_meter.value = 0
+	door.emit("res://rooms/bedroom.tscn,280,115")
+	
 
 ##Interaction Methods
 
@@ -128,5 +129,5 @@ func execute_interaction():
 
 func _on_timer_timeout() -> void:
 	player_fear += in_light_index
-	fearMeter.value = player_fear
-	$Timer.start()
+	fear_meter.value = player_fear
+	$LightTimer.start()

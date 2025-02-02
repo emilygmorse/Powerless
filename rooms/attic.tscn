@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bx1ianv7trwie"]
 
-[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_lij55"]
-[ext_resource type="Texture2D" uid="uid://cx2qw8wu5e8f2" path="res://images/scenes/attic.png" id="1_s2387"]
-[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_fwhuu"]
+[ext_resource type="Texture2D" uid="uid://cx2qw8wu5e8f2" path="res://images/scenes/attic.png" id="1_v0csb"]
+[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="2_yoyd4"]
+[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_h6nla"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47lde"]
 size = Vector2(320, 20)
@@ -14,10 +14,10 @@ y_sort_enabled = true
 anchor_mode = 0
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_s2387")
+texture = ExtResource("1_v0csb")
 centered = false
 
-[node name="dark_canvas" parent="." instance=ExtResource("1_lij55")]
+[node name="dark_canvas" parent="." instance=ExtResource("2_yoyd4")]
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 16
@@ -32,7 +32,7 @@ polygon = PackedVector2Array(0, 180, 40, 81, 280, 81, 320, 180, 320, 0, 0, 0)
 position = Vector2(160, 190)
 shape = SubResource("RectangleShape2D_47lde")
 
-[node name="Stairs" parent="." instance=ExtResource("3_fwhuu")]
+[node name="Stairs" parent="." instance=ExtResource("3_h6nla")]
 position = Vector2(174, 124)
 interact_label = "Stairs Down"
 connecting_room_path = "res://rooms/bedroom.tscn"

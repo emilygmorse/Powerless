@@ -8,6 +8,7 @@ signal mid_dialogue()
 signal light_check(status: bool)
 signal activate_enemy_spawner()
 signal hit_player(damage: int)
+signal max_fear_reached()
 signal puzzle_mode()
 
 signal breaker_switches_set()

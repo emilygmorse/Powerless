@@ -1,26 +1,26 @@
 [gd_scene load_steps=7 format=3 uid="uid://cixn6i1g580bw"]
 
-[ext_resource type="Script" path="res://rooms/living_room.gd" id="1_4aq2l"]
-[ext_resource type="Texture2D" uid="uid://c0u5wlcxxvaa6" path="res://images/scenes/living room.png" id="1_bat5l"]
-[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_trod0"]
-[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_5f65h"]
-[ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="5_ki70l"]
+[ext_resource type="Script" path="res://rooms/living_room.gd" id="1_purhy"]
+[ext_resource type="Texture2D" uid="uid://c0u5wlcxxvaa6" path="res://images/scenes/living room.png" id="2_k4tmq"]
+[ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="3_rmkyb"]
+[ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="4_c4h35"]
+[ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="5_4ggex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8mtj"]
 size = Vector2(320, 20)
 
 [node name="LivingRoom" type="Node2D"]
-script = ExtResource("1_4aq2l")
+script = ExtResource("1_purhy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 y_sort_enabled = true
 anchor_mode = 0
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_bat5l")
+texture = ExtResource("2_k4tmq")
 centered = false
 
-[node name="dark_canvas" parent="." instance=ExtResource("1_trod0")]
+[node name="dark_canvas" parent="." instance=ExtResource("3_rmkyb")]
 visible = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
@@ -34,19 +34,19 @@ shape = SubResource("RectangleShape2D_t8mtj")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 polygon = PackedVector2Array(0, 179, 26, 116, 38, 116, 38, 124, 64, 124, 64, 116, 67, 116, 63, 81, 79, 81, 79, 88, 124, 88, 124, 81, 280, 81, 320, 180, 320, 0, 0, 0)
 
-[node name="BedroomDoor" parent="." instance=ExtResource("3_5f65h")]
+[node name="BedroomDoor" parent="." instance=ExtResource("4_c4h35")]
 position = Vector2(157, 74)
 interact_label = "My Room"
 connecting_room_path = "res://rooms/bedroom.tscn"
 target_coords = Vector2(280, 115)
 
-[node name="KitchenDoor" parent="." instance=ExtResource("3_5f65h")]
+[node name="KitchenDoor" parent="." instance=ExtResource("4_c4h35")]
 position = Vector2(7, 145)
 interact_label = "Kitchen"
 connecting_room_path = "res://rooms/kitchen.tscn"
 target_coords = Vector2(280, 115)
 
-[node name="EnemySpawner" parent="." instance=ExtResource("5_ki70l")]
+[node name="EnemySpawner" parent="." instance=ExtResource("5_4ggex")]
 spawn_time = 2.0
 skelly_spawn = true
 
