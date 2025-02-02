@@ -65,7 +65,7 @@ position = Vector2(207, 53)
 position = Vector2(128, 175)
 
 [node name="Spawn_4" type="Marker2D" parent="EnemySpawner"]
-position = Vector2(248, 129)
+position = Vector2(206, 138)
 
 [node name="Puzzle2" parent="." instance=ExtResource("6_7h8bt")]
 
