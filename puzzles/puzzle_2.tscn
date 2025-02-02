@@ -6,14 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://6six12nsb2vj" path="res://puzzles/wire_puzzle_2.tscn" id="4_nwotn"]
 
 [node name="Puzzle2" type="Node2D"]
+z_index = 2
 position = Vector2(265, 108)
 
 [node name="PuzzleButtons" parent="." instance=ExtResource("1_bi83d")]
+offset_left = 81.0
+offset_top = -91.0
+offset_right = 121.0
+offset_bottom = -51.0
 
 [node name="Instr2" parent="." instance=ExtResource("2_mcgb4")]
 
 [node name="BreakerBox2" parent="." instance=ExtResource("3_2hylv")]
 visible = false
+position = Vector2(1, 0)
 
 [node name="WirePuzzle2" parent="." instance=ExtResource("4_nwotn")]
 visible = false

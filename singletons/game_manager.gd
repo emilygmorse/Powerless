@@ -1,8 +1,5 @@
 extends Node
 
-
-var teddy_combat_mode: bool = false
-
 var wire_puzzle_solved_1: bool = false
 var wire_puzzle_solved_2: bool = false
 var wire_puzzle_solved_3: bool = false
