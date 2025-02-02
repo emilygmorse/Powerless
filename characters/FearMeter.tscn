@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfsga4c1cild8"]
 
-[ext_resource type="Texture2D" uid="uid://dtbcnvscxqoxc" path="res://images/progressBarUnder.png" id="3_h83wx"]
+[ext_resource type="Texture2D" uid="uid://ba0ur8gd0s62r" path="res://images/bar_background_small.png" id="1_3hcx7"]
+[ext_resource type="Texture2D" uid="uid://cr8fr3gsmbb82" path="res://images/bar_progress_small.png" id="2_ht5sn"]
 [ext_resource type="Script" path="res://characters/fear_meter.gd" id="3_ivb1w"]
-[ext_resource type="Texture2D" uid="uid://b2555sdfr2jcm" path="res://images/progressBar.png" id="4_7888e"]
 
 [sub_resource type="Theme" id="Theme_6yhtb"]
 
@@ -10,12 +10,12 @@
 light_mask = 2
 visibility_layer = 2
 z_index = -1
-offset_right = 109.0
-offset_bottom = 7.0
+offset_right = 60.0
+offset_bottom = 9.0
 theme = SubResource("Theme_6yhtb")
-texture_under = ExtResource("3_h83wx")
-texture_progress = ExtResource("4_7888e")
-texture_progress_offset = Vector2(1, 0)
+texture_under = ExtResource("1_3hcx7")
+texture_progress = ExtResource("2_ht5sn")
+texture_progress_offset = Vector2(2, 2)
 script = ExtResource("3_ivb1w")
 metadata/_edit_horizontal_guides_ = [-63.0]
 

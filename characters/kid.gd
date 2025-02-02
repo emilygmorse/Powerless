@@ -92,8 +92,7 @@ func light_check(standing_in_light : bool):
 func return_to_checkpoint():
 	player_fear = 0
 	fear_meter.value = 0
-	door.emit("res://rooms/bedroom.tscn,280,115")
-	
+	door.emit(GameManager.checkpoint_dict.get(GameManager.current_checkpoint))
 
 func puzzle_mode_timer():
 	get_tree().create_timer(0.01).timeout.connect(puzzle_mode_activate)
