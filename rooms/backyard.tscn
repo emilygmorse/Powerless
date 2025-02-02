@@ -44,9 +44,10 @@ target_coords = Vector2(30, 150)
 
 [node name="BasementHatch" parent="." instance=ExtResource("3_pse5c")]
 position = Vector2(283, 159)
-interact_label = "Basement Hatch"
+interact_label = "Cellar Door"
 connecting_room_path = "res://rooms/basement.tscn"
 target_coords = Vector2(275, 110)
+key = "cellar"
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_o3ptq")]
 spawn_time = 4.0
@@ -70,7 +71,7 @@ position = Vector2(248, 129)
 
 [node name="Breaker2" parent="." instance=ExtResource("7_iaw5a")]
 position = Vector2(107, 72)
-interact_label = "Kitchen Breaker"
+interact_label = "Generator Breaker"
 interact_type = "puzzle"
 
 [connection signal="puzzle_start" from="Breaker2" to="." method="_on_breaker_2_puzzle_start"]

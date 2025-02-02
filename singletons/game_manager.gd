@@ -23,7 +23,6 @@ var puzzle_3_solved = false
 var cellar_key = false
 var attic_key = false
 
-
 func reset_game() -> void:
 	wire_puzzle_solved_1 = false
 	wire_puzzle_solved_2 = false
@@ -45,3 +44,4 @@ func reset_game() -> void:
 	puzzle_2_solved = false
 	puzzle_3_solved = false
 	attic_key = false
+	cellar_key = false

@@ -88,6 +88,34 @@ position = Vector2(55, 65)
 interact_label = "Kitchen Breaker"
 interact_type = "puzzle"
 
+[node name="LeftDrawers" parent="." instance=ExtResource("9_j4iyn")]
+position = Vector2(142, 81)
+interact_label = "Drawers"
+interact_type = "item"
+interact_value = "cellar"
+puzzle_requirement = 1
+
+[node name="UnderSink" parent="." instance=ExtResource("9_j4iyn")]
+position = Vector2(174, 81)
+interact_label = "Under Sink"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/under_sink.dialogue"
+puzzle_requirement = 1
+
+[node name="MidDrawers" parent="." instance=ExtResource("9_j4iyn")]
+position = Vector2(208, 81)
+interact_label = "Drawers"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/middle_drawer.dialogue"
+puzzle_requirement = 1
+
+[node name="RightDrawers" parent="." instance=ExtResource("9_j4iyn")]
+position = Vector2(240, 81)
+interact_label = "Drawers"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/right_drawer.dialogue"
+puzzle_requirement = 1
+
 [connection signal="puzzle_start" from="Breaker" to="." method="_on_breaker_puzzle_start"]
 
 [editable path="EnemySpawner"]

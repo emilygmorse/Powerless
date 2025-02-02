@@ -4,6 +4,7 @@ extends Area2D
 @export var connecting_room_path: String
 @export var target_coords: Vector2
 @export var key:= "make this unique"
+@export var puzzle_requirement := 0
 
 var interact_type = "door"
 var interact_value: String

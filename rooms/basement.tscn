@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c231flgjxpyk8"]
+[gd_scene load_steps=6 format=3 uid="uid://c231flgjxpyk8"]
 
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_iwag8"]
 [ext_resource type="Texture2D" uid="uid://muu7mp03uww1" path="res://images/scenes/basement.png" id="1_nbup7"]
 [ext_resource type="PackedScene" uid="uid://lo5o10fslxac" path="res://Game Components/door.tscn" id="3_ja6d2"]
+[ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="4_oxj6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua2xw"]
 size = Vector2(320, 20)
@@ -18,6 +19,7 @@ texture = ExtResource("1_nbup7")
 centered = false
 
 [node name="dark_canvas" parent="." instance=ExtResource("1_iwag8")]
+visible = true
 
 [node name="Walls" type="StaticBody2D" parent="."]
 visible = false
@@ -35,3 +37,31 @@ position = Vector2(298, 107)
 interact_label = "Back Up"
 connecting_room_path = "res://rooms/backyard.tscn"
 target_coords = Vector2(260, 160)
+
+[node name="LeftCabinets" parent="." instance=ExtResource("4_oxj6a")]
+position = Vector2(74, 75)
+interact_label = "Cabinets"
+interact_type = "item"
+interact_value = "attic"
+puzzle_requirement = 2
+
+[node name="Chest" parent="." instance=ExtResource("4_oxj6a")]
+position = Vector2(119, 75)
+interact_label = "Chest"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/chest.dialogue"
+puzzle_requirement = 2
+
+[node name="RightCabinets" parent="." instance=ExtResource("4_oxj6a")]
+position = Vector2(162, 75)
+interact_label = "Cabinets"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/cabinets.dialogue"
+puzzle_requirement = 2
+
+[node name="Map" parent="." instance=ExtResource("4_oxj6a")]
+position = Vector2(232, 70)
+interact_label = "World Map"
+interact_type = "dialogue"
+interact_value = "res://dialogue/interact_dialogues/map.dialogue"
+puzzle_requirement = 2

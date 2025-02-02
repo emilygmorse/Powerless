@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://436u454eto5"
+path="res://.godot/imported/cabinets.dialogue-733e4b9a9dbd1aee968273bc98b002c4.tres"
+
+[deps]
+
+source_file="res://dialogue/interact_dialogues/cabinets.dialogue"
+dest_files=["res://.godot/imported/cabinets.dialogue-733e4b9a9dbd1aee968273bc98b002c4.tres"]
+
+[params]
+
+defaults=true

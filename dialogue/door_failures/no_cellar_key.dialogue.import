@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://c8hs1ub722sbn"
+path="res://.godot/imported/no_cellar_key.dialogue-966f71c030e013d206f6b29765183e02.tres"
+
+[deps]
+
+source_file="res://dialogue/door_failures/no_cellar_key.dialogue"
+dest_files=["res://.godot/imported/no_cellar_key.dialogue-966f71c030e013d206f6b29765183e02.tres"]
+
+[params]
+
+defaults=true

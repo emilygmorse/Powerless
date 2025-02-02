@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://clylhw3qxc206"
+path="res://.godot/imported/right_drawer.dialogue-efe07756f5cb512c3a08413af238b6bb.tres"
+
+[deps]
+
+source_file="res://dialogue/interact_dialogues/right_drawer.dialogue"
+dest_files=["res://.godot/imported/right_drawer.dialogue-efe07756f5cb512c3a08413af238b6bb.tres"]
+
+[params]
+
+defaults=true

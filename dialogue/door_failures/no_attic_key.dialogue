@@ -1,6 +1,6 @@
 ~ start
 do SignalManager.cutscene_started.emit()
-Amelia: Drat, I need the attic key to unlock the ladder.
+Amelia: Drat, I need the attic key to unlock the ladder in my closet.
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()
 => END

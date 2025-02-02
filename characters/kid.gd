@@ -102,7 +102,6 @@ func puzzle_mode_activate():
 	inputs_disabled()
 	$AnimatedSprite2D.animation = "puzzle"
 	puzzle_mode = true
-	has_teddy = false
 
 func puzzle_solved():
 	puzzle_mode = false
@@ -129,6 +128,16 @@ func update_interactions():
 func execute_interaction():
 	if all_interactions:
 		var cur_interactions = all_interactions[0]
+		
+		# Check light requirement
+		if cur_interactions.puzzle_requirement == 0 or (cur_interactions.puzzle_requirement == 1 and GameManager.puzzle_1_solved) or (cur_interactions.puzzle_requirement == 2 and GameManager.puzzle_2_solved) or (cur_interactions.puzzle_requirement == 3 and GameManager.puzzle_3_solved):
+			# it's lit
+			pass
+		else:
+			# too dark
+			DialogueManager.show_dialogue_balloon(load("res://dialogue/interact_dialogues/too_dark.dialogue"), "start")
+			return
+		
 		match cur_interactions.interact_type:
 			"print_text": 
 				print(cur_interactions.interact_value)
@@ -148,6 +157,12 @@ func execute_interaction():
 						else: 
 							DialogueManager.show_dialogue_balloon(load("res://dialogue/door_failures/no_attic_key.dialogue"), "start")
 							return
+					elif key == "cellar":
+						if GameManager.cellar_key:
+							pass
+						else:
+							DialogueManager.show_dialogue_balloon(load("res://dialogue/door_failures/no_cellar_key.dialogue"), "start")
+							return
 					# Once all keys have been checked, enter door
 					door.emit(cur_interactions.interact_value)
 				else:
@@ -161,8 +176,19 @@ func execute_interaction():
 				# Pick up a key for example
 				var key = cur_interactions.interact_value
 				if key == "attic":
-					DialogueManager.show_dialogue_balloon(load("res://dialogue/item_pickups/attic_key.dialogue"), "start")
-					GameManager.attic_key = true
+					if GameManager.attic_key:
+						# key is gone
+						pass
+					else:
+						DialogueManager.show_dialogue_balloon(load("res://dialogue/item_pickups/attic_key.dialogue"), "start")
+						GameManager.attic_key = true
+				elif key == "cellar":
+					if GameManager.cellar_key:
+						# key is gone
+						pass
+					else:
+						DialogueManager.show_dialogue_balloon(load("res://dialogue/item_pickups/cellar_key.dialogue"), "start")
+						GameManager.cellar_key = true
 			"dialogue":
 				DialogueManager.show_dialogue_balloon(load(cur_interactions.interact_value), "start")
 

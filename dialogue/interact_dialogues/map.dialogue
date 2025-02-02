@@ -1,0 +1,8 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Theodore: The world is so big.
+Amelia: Yeah, it's a little scary.
+Theodore: Don't worry, I'm here for you.
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END
