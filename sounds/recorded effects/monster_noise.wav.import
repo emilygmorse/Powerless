@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b1axfcdpjp75g"
-path="res://.godot/imported/monster noise.wav-14767f1c98edc0c97e4f7bf12a959c16.sample"
+path="res://.godot/imported/monster_noise.wav-a890ae2513e6a3e953969621961a59ad.sample"
 
 [deps]
 
-source_file="res://sounds/recorded effects/wavfiles/monster noise.wav"
-dest_files=["res://.godot/imported/monster noise.wav-14767f1c98edc0c97e4f7bf12a959c16.sample"]
+source_file="res://sounds/recorded effects/monster_noise.wav"
+dest_files=["res://.godot/imported/monster_noise.wav-a890ae2513e6a3e953969621961a59ad.sample"]
 
 [params]
 

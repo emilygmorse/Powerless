@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djf2m2ibxnwmd"
+path="res://.godot/imported/knock_3.wav-7e89997237b5a79d994333e36ebef04d.sample"
+
+[deps]
+
+source_file="res://sounds/recorded effects/knock_3.wav"
+dest_files=["res://.godot/imported/knock_3.wav-7e89997237b5a79d994333e36ebef04d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://clvghl131fs1m"
-path="res://.godot/imported/creak_14.wav-3d2387856c458d5fa5ab5d7d3288cde3.sample"
+uid="uid://d08vv3ca3bijl"
+path="res://.godot/imported/glass.wav-60a67de8c60dd3f7b062c7cfed507cc9.sample"
 
 [deps]
 
-source_file="res://sounds/creaks/creak_14.wav"
-dest_files=["res://.godot/imported/creak_14.wav-3d2387856c458d5fa5ab5d7d3288cde3.sample"]
+source_file="res://sounds/recorded effects/glass.wav"
+dest_files=["res://.godot/imported/glass.wav-60a67de8c60dd3f7b062c7cfed507cc9.sample"]
 
 [params]
 

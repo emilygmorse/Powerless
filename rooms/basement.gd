@@ -22,3 +22,4 @@ func intro_dialogue() -> void:
 func got_key():
 	cover_key.show()
 	GameManager.attic_key = true
+

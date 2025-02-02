@@ -7,6 +7,7 @@ extends ROOM
 @onready var power_out: AudioStreamPlayer2D = $PowerOut
 
 # Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	if GameManager.bedroom_intro == false:
 		room_light_status(true)
@@ -22,7 +23,6 @@ func _ready() -> void:
 		###TRIGGER FINAL DIALOGUE / CUTSCENE ###
 	elif GameManager.bedroom_intro == true:
 		room_light_status(false)
-
 
 func intro_dialogue() -> void:
 	create_dialogue_balloon()
