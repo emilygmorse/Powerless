@@ -98,7 +98,6 @@ func win_condition() -> void:
 func _on_bottom_wire_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_1 == false and GameManager.wire_puzzle_solved_1 == false):
-		print("detect click")
 		click_delay = true
 		get_tree().create_timer(0.5).timeout.connect(click_delay_off)
 		wire_updates(bottom_wire_1, spark_bw_1)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2o5jbyrmeyck"
-path="res://.godot/imported/notes_small.png-cdd188308e45bd2bf69c4644773b9f9e.ctex"
+uid="uid://dhbtrh6kip53o"
+path="res://.godot/imported/powerbox3_small.png-d5a996784660405ca9a08c2a6913e93b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/scenes/notes_small.png"
-dest_files=["res://.godot/imported/notes_small.png-cdd188308e45bd2bf69c4644773b9f9e.ctex"]
+source_file="res://puzzles/powerbox3_small.png"
+dest_files=["res://.godot/imported/powerbox3_small.png-d5a996784660405ca9a08c2a6913e93b.ctex"]
 
 [params]
 

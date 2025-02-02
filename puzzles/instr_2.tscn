@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://y08ih22e0iet"]
+
+[ext_resource type="Script" path="res://puzzles/instr.gd" id="1_kavk8"]
+[ext_resource type="Texture2D" uid="uid://bbrpkm7q2t1me" path="res://puzzles/notes_1_small.png" id="2_rdprv"]
+[ext_resource type="FontFile" uid="uid://b8wtvh0cic62k" path="res://Game Components/instruction_font.tres" id="3_osms8"]
+
+[node name="Instr2" type="Node2D"]
+script = ExtResource("1_kavk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rdprv")
+
+[node name="Title" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -41.0
+offset_top = -62.0
+offset_right = 41.0
+offset_bottom = -54.0
+theme_override_fonts/font = ExtResource("3_osms8")
+theme_override_font_sizes/font_size = 8
+text = "Instructions"
+uppercase = true
+
+[node name="Note1" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -49.0
+offset_top = -45.0
+offset_right = 56.0
+offset_bottom = -12.0
+theme_override_fonts/font = ExtResource("3_osms8")
+theme_override_font_sizes/font_size = 8
+text = "Set all switches in descending order before setting master"
+autowrap_mode = 2
+
+[node name="Note2" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -49.0
+offset_top = 7.0
+offset_right = 56.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_osms8")
+theme_override_font_sizes/font_size = 8
+text = "Purple and green wire terminals are swapped"
+autowrap_mode = 2

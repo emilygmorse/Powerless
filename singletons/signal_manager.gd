@@ -17,3 +17,6 @@ signal wires_shorted()
 signal instr_toggle(display: bool)
 signal breaker_box_toggle(display: bool)
 signal wire_puzzle_toggle(display: bool)
+
+signal outside(yes: bool)
+signal ambient_music(yes: bool)

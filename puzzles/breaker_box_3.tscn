@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxs71h587l36s"]
 
 [ext_resource type="Script" path="res://puzzles/breaker_box_3.gd" id="1_phh81"]
-[ext_resource type="Texture2D" uid="uid://dfs65tde6s75a" path="res://images/scenes/breaker_box_small.png" id="2_raj7y"]
+[ext_resource type="Texture2D" uid="uid://csescofg2wt23" path="res://puzzles/breaker_box_small.png" id="2_dsuo4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jsqt"]
 size = Vector2(27, 9)
@@ -10,7 +10,8 @@ size = Vector2(27, 9)
 script = ExtResource("1_phh81")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_raj7y")
+position = Vector2(-1, 0)
+texture = ExtResource("2_dsuo4")
 
 [node name="BreakerTop" type="Area2D" parent="."]
 z_index = 1
@@ -275,6 +276,9 @@ color = Color(0.862745, 0.0784314, 0.235294, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerRight3"]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_2jsqt")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+autoplay = true
 
 [connection signal="input_event" from="BreakerTop" to="." method="_on_breaker_top_input_event"]
 [connection signal="input_event" from="BreakerLeft1" to="." method="_on_breaker_left_1_input_event"]

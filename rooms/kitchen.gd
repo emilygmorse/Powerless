@@ -3,6 +3,8 @@ extends ROOM
 @onready var puzzle_1: Node2D = $Puzzle1
 
 func _ready() -> void:
+	SignalManager.light_check.emit(false) #TEST
+	
 	SignalManager.mid_dialogue.connect(mid_dialogue)
 	SignalManager.puzzle_mode.emit(puzzle_mode)
 	room_light_status(GameManager.puzzle_1_solved)
