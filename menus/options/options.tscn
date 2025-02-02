@@ -5,17 +5,20 @@
 [ext_resource type="Script" path="res://menus/options/volume_slider.gd" id="2_ycpjh"]
 
 [node name="Options" type="Control"]
+use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_x03ah")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
 layout_mode = 0
 offset_right = 321.0
 offset_bottom = 181.0
 color = Color(0.376471, 0.376471, 0.376471, 1)
 
 [node name="BackButton" type="Button" parent="."]
+use_parent_material = true
 layout_mode = 0
 offset_left = 4.0
 offset_top = 3.0
@@ -24,6 +27,7 @@ offset_bottom = 34.0
 text = "Back"
 
 [node name="Label" type="Label" parent="."]
+use_parent_material = true
 layout_mode = 1
 offset_left = 73.0
 offset_top = 9.0
@@ -34,6 +38,7 @@ text = "Options"
 horizontal_alignment = 1
 
 [node name="VolumeSlider" type="HSlider" parent="."]
+use_parent_material = true
 layout_mode = 0
 offset_left = 68.0
 offset_top = 74.0
@@ -45,6 +50,7 @@ value = 1.0
 script = ExtResource("2_ycpjh")
 
 [node name="VolumeLabel" type="Label" parent="."]
+use_parent_material = true
 layout_mode = 0
 offset_left = 117.0
 offset_top = 51.0
@@ -53,6 +59,7 @@ offset_bottom = 74.0
 text = "Volume"
 
 [node name="ControlsButton" type="Button" parent="."]
+use_parent_material = true
 layout_mode = 0
 offset_left = 67.0
 offset_top = 113.0
@@ -63,6 +70,7 @@ text = "Controls
 
 [node name="InputRemapMenu" parent="." instance=ExtResource("1_igbem")]
 visible = false
+use_parent_material = true
 layout_mode = 1
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

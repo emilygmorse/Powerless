@@ -66,7 +66,7 @@ layout_mode = 2
 [node name="L" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "Logan"
+text = "Logan S. Yarnell"
 autowrap_mode = 2
 
 [node name="LStuff" type="Label" parent="VBoxContainer"]
@@ -83,7 +83,7 @@ layout_mode = 2
 [node name="M" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "MegaMayne"
+text = "Xander"
 autowrap_mode = 2
 
 [node name="MStuff" type="Label" parent="VBoxContainer"]
@@ -123,7 +123,23 @@ autowrap_mode = 2
 [node name="DMStuff" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "MIT License"
+text = "Nathan Hoad - MIT License"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="HSeparator7" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Palette" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Color Palette"
+autowrap_mode = 2
+
+[node name="PStuff" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "beachboogeyman from lospec"
 horizontal_alignment = 2
 autowrap_mode = 2
 

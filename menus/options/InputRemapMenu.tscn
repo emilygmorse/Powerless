@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://menus/options/input_remap_menu.gd" id="1_t81a1"]
 
 [node name="InputRemapMenu" type="Control"]
+use_parent_material = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,12 +14,14 @@ grow_vertical = 2
 script = ExtResource("1_t81a1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
 layout_mode = 0
 offset_right = 322.0
 offset_bottom = 182.0
 color = Color(0.377919, 0.377919, 0.377919, 1)
 
 [node name="BackButton" type="Button" parent="."]
+use_parent_material = true
 layout_mode = 1
 offset_left = 5.0
 offset_top = 5.0
@@ -27,6 +30,7 @@ offset_bottom = 36.0
 text = "Back"
 
 [node name="Instructions" type="Label" parent="."]
+use_parent_material = true
 layout_mode = 1
 offset_left = 78.0
 offset_top = 3.0
@@ -38,6 +42,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="RemapButtonGroup" type="Control" parent="."]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 0
 offset_left = 2.0
@@ -46,6 +51,7 @@ offset_right = 319.0
 offset_bottom = 180.0
 
 [node name="ActionsList" type="VBoxContainer" parent="RemapButtonGroup"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,11 +66,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ActionRemapRow" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -75,6 +83,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow" instance=ExtResource("1")]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -82,11 +91,13 @@ theme_override_font_sizes/font_size = 8
 action = "move_up"
 
 [node name="ActionRemapRow2" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow2"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -96,6 +107,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow2" instance=ExtResource("1")]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -103,11 +115,13 @@ theme_override_font_sizes/font_size = 8
 action = "move_down"
 
 [node name="ActionRemapRow3" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow3"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -117,6 +131,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow3" instance=ExtResource("1")]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -124,11 +139,13 @@ theme_override_font_sizes/font_size = 8
 action = "move_left"
 
 [node name="ActionRemapRow4" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow4"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -138,6 +155,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow4" instance=ExtResource("1")]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -145,11 +163,13 @@ theme_override_font_sizes/font_size = 8
 action = "move_right"
 
 [node name="ActionRemapRow5" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow5"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -159,6 +179,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow5" instance=ExtResource("1")]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
