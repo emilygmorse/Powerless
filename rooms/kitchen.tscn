@@ -79,7 +79,6 @@ position = Vector2(204, 176)
 position = Vector2(17, 173)
 
 [node name="LightSourceCircle" parent="." instance=ExtResource("8_gt5nw")]
-visible = false
 position = Vector2(288, 176)
 
 [node name="Breaker" parent="." instance=ExtResource("9_j4iyn")]
