@@ -95,6 +95,7 @@ volume_db = -15.0
 
 [node name="SusNoises" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_yvn6s")
+volume_db = -2.0
 max_polyphony = 2
 
 [node name="SusTimer" type="Timer" parent="."]
