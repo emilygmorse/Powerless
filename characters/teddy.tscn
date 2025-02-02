@@ -374,13 +374,11 @@ visible = false
 z_index = 1
 
 [node name="Interact Area" type="Area2D" parent="Interact Components"]
-visible = false
 collision_layer = 0
 collision_mask = 32
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact Components/Interact Area"]
-visible = false
 shape = SubResource("CircleShape2D_rty8v")
 
 [node name="InteractLabel" type="Label" parent="Interact Components"]
@@ -395,7 +393,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="InteractArea" parent="." instance=ExtResource("3_t4a6a")]
-visible = false
 position = Vector2(-2.32458e-06, -7.45058e-09)
 collision_mask = 32
 interact_label = "Pick up Teddy"
