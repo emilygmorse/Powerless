@@ -12,5 +12,7 @@ func room_light_status(condition: bool) -> void:
 	if condition:
 		dark_canvas.hide()
 		SignalManager.light_check.emit(true)
+		print("Light status: true set in room_light_status")
 	else:
 		SignalManager.light_check.emit(false)
+		print("Light status: false set in room_light_status")

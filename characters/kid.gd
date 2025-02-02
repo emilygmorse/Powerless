@@ -67,12 +67,8 @@ func find_room(parent, type):
 
 #Fear/health methods
 func update_fear(damage: int) -> void:
-	print("Player fear before decrease {}", player_fear)
 	player_fear += damage
-	print("Player fear after decrease {}", player_fear)
-	print("Fear meter value before decrease {}", fear_meter.value)
 	fear_meter.value = player_fear
-	print("Fear meter value after decrease {}", fear_meter.value)
 	
 
 func light_check(standing_in_light : bool):	
@@ -130,5 +126,8 @@ func execute_interaction():
 
 func _on_timer_timeout() -> void:
 	player_fear += in_light_index
-	fear_meter.value = player_fear
+	if player_fear <= 0:
+		fear_meter.value = 0
+	else:
+		fear_meter.value = player_fear
 	$LightTimer.start()
