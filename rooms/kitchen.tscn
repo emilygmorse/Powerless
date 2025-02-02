@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cq2uwdyk74yjr"]
+[gd_scene load_steps=12 format=3 uid="uid://cq2uwdyk74yjr"]
 
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_ctpom"]
 [ext_resource type="Script" path="res://rooms/kitchen.gd" id="1_lfn1h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="7_b7up5"]
 [ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="8_gt5nw"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="9_j4iyn"]
+[ext_resource type="Texture2D" uid="uid://bwxaedkk1cpe1" path="res://images/objects/night_light_plugin.png" id="10_na6py"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7umbb"]
 size = Vector2(320, 20)
@@ -79,8 +80,7 @@ position = Vector2(204, 176)
 position = Vector2(17, 173)
 
 [node name="LightSourceCircle" parent="." instance=ExtResource("8_gt5nw")]
-visible = false
-position = Vector2(288, 176)
+position = Vector2(82, 71)
 
 [node name="Breaker" parent="." instance=ExtResource("9_j4iyn")]
 position = Vector2(55, 65)
@@ -114,6 +114,10 @@ interact_label = "Drawers"
 interact_type = "dialogue"
 interact_value = "res://dialogue/interact_dialogues/right_drawer.dialogue"
 puzzle_requirement = 1
+
+[node name="NightLight" type="Sprite2D" parent="."]
+position = Vector2(82, 73)
+texture = ExtResource("10_na6py")
 
 [connection signal="puzzle_start" from="Breaker" to="." method="_on_breaker_puzzle_start"]
 

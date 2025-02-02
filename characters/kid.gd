@@ -121,7 +121,7 @@ func return_to_checkpoint():
 		SignalManager.fear_reset_during_puzzle.emit()
 	door.emit(GameManager.checkpoint_dict.get(GameManager.current_checkpoint))
 	
-	
+
 
 func puzzle_mode_timer():
 	get_tree().create_timer(0.01).timeout.connect(puzzle_mode_activate)

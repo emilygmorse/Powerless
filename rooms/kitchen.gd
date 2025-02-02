@@ -8,15 +8,15 @@ extends ROOM
 func _ready() -> void:
 	room_light_status(GameManager.puzzle_1_solved)
 	SignalManager.mid_dialogue.connect(mid_dialogue)
-	#SignalManager.puzzle_mode.connect(puzzle_mode)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
-	
+	#SignalManager.puzzle_mode.connect(puzzle_mode)
+
 	if GameManager.puzzle_intro:
-		light_source_circle.hide()
+		light_source_circle.queue_free()
 		
 	if GameManager.puzzle_1_solved:
 		$EnemySpawner.queue_free()
-	else:
+	elif GameManager.puzzle_intro:
 		$EnemySpawner.spawn_enemy()
 	
 	if GameManager.kitchen_intro == false:    #UPDATE THIS LINE W/ CORRECT ROOM

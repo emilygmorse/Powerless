@@ -47,7 +47,7 @@ func inputs_disabled() -> void:
 		$AnimatedSprite2D.animation = "idle"
 
 func inputs_enabled() -> void:
-	get_tree().create_timer(0.01).timeout.connect(inputs_enabled_timer)
+	get_tree().create_timer(0.02).timeout.connect(inputs_enabled_timer)
 
 func inputs_enabled_timer() -> void:
 	inputs_allowed = true

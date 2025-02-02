@@ -8,7 +8,7 @@ radius = 17.0
 height = 48.0
 
 [node name="EnemySpider" instance=ExtResource("1_b461s")]
-damage = 15
+damage = 5
 speed_x = 18.0
 speed_y = 9.0
 pos_x_diff = 5
