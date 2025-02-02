@@ -11,7 +11,7 @@ extends Node2D
 
 
 var spawn_points: Array = []
-var spawn_time_diff: float = spawn_time/10
+var spawn_time_diff: float
 var first_spawn: bool = true
 var enemy_type: int
 var chosen_spawn
@@ -30,6 +30,7 @@ var new_enemy_list: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	spawn_time_diff = spawn_time/10
 	enemy_spawn_list()
 	for i in self.get_children():
 		spawn_points.insert(0, i)
@@ -65,7 +66,7 @@ func spawn_enemy() -> void:
 	var enemy_spawned = new_enemy_list[enemy_type].instantiate()
 	enemy_spawned.global_position = chosen_spawn.global_position
 	call_deferred("add_child", enemy_spawned)
-	get_tree().create_timer(randf_range(spawn_time-spawn_time_diff, spawn_time+spawn_time_diff)).timeout.connect(spawn_enemy)
+	get_tree().create_timer(randf_range(spawn_time - spawn_time_diff, spawn_time + spawn_time_diff)).timeout.connect(spawn_enemy)
 	prevent_repeat_spawn()
 	
 func prevent_repeat_spawn() -> void:

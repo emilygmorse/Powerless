@@ -11,6 +11,7 @@ func _ready() -> void:
 	SignalManager.mid_dialogue.connect(mid_dialogue)
 	SignalManager.puzzle_mode.connect(puzzle_mode)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
+	SignalManager.activate_enemy_spawner.emit()
 	
 	if GameManager.kitchen_intro == false:    #UPDATE THIS LINE W/ CORRECT ROOM
 		create_dialogue_balloon()
@@ -33,6 +34,8 @@ func puzzle_solved() -> void:
 	GameManager.puzzle_1_solved = true
 	SignalManager.destroy_enemies.emit()
 	room_light_status(GameManager.puzzle_1_solved)
+	#Dialogue entry. Now that we can see the padlock on the yard door, we can go out back
+	#Suggest we turn on the backyard power
 	#Yard door now accessible
 	#Checkpoint updated to Kitchen door entry to yard
 
