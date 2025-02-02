@@ -9,11 +9,12 @@ var inputs_allowed = true
 var attack_avail = true
 var kid
 
-enum TEDDY_MODE { SIT, FOLLOW, FIGHT, PAUSE }
+enum TEDDY_MODE { SIT, FOLLOW, FIGHT, END }
 var current_mode := TEDDY_MODE.SIT
 
 var teddy_just_picked_up = false
 var teddy_picked_up = false
+var start_position: Vector2
 
 @onready var animation_effect: AnimationPlayer = $TeddyAttackNode/AnimationEffect
 @onready var attack_glow: PointLight2D = $TeddyAttackNode/AttackGlow
@@ -27,6 +28,8 @@ func _ready() -> void:
 	SignalManager.puzzle_mode.connect(teddy_fight_mode_activate)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
 	SignalManager.fear_reset_during_puzzle.connect(puzzle_solved)
+	SignalManager.end_game.connect(game_end)
+	start_position = self.position
 
 	attack_area.monitoring = false
 	attack_area.monitorable = false
@@ -63,7 +66,10 @@ func puzzle_solved() -> void:
 	teddy_picked_up = true
 	self.current_mode = TEDDY_MODE.FOLLOW
 
-
+# called when game ends
+func game_end() -> void:
+	self.current_mode = TEDDY_MODE.END
+	
 	
 func _physics_process(delta: float) -> void:
 	
@@ -138,9 +144,19 @@ func _physics_process(delta: float) -> void:
 	elif self.current_mode == TEDDY_MODE.SIT:
 		# At the beginning of the game
 		pass
-	elif self.current_mode == TEDDY_MODE.PAUSE:
-		# When kid is actively doing puzzle
-		pass
+	elif self.current_mode == TEDDY_MODE.END:
+		# end of game cutscene
+		var direction:Vector2 = (start_position - self.position)
+		velocity = direction.normalized() * SPEED / 2.0
+		$AnimatedSprite2D.play() 
+		if velocity.x < 0:
+			$AnimatedSprite2D.animation = "walk_left"
+		elif velocity.x > 0:
+			$AnimatedSprite2D.animation = "walk_right"
+		else:
+			$AnimatedSprite2D.animation = "idle"
+		move_and_slide()
+		
 	else:
 		assert(false)
 	

@@ -5,6 +5,8 @@ var inputs_allowed = true
 var has_teddy = false
 var puzzle_mode = false
 var meter_pause = false
+var end = false
+var bed_pos = Vector2(75,100)
 
 @onready var all_interactions = []
 @onready var interact_label = $"Interaction Components/Interact Label"
@@ -22,6 +24,7 @@ func _ready() -> void:
 	SignalManager.light_check.connect(light_check)
 	SignalManager.puzzle_mode.connect(puzzle_mode_timer)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
+	SignalManager.end_game.connect(game_end)
 
 	$AnimatedSprite2D.play()
 	SignalManager.hit_player.connect(update_fear)
@@ -49,6 +52,9 @@ func inputs_enabled() -> void:
 func inputs_enabled_timer() -> void:
 	inputs_allowed = true
 
+func game_end() -> void:
+	end = true
+	$AnimatedSprite2D.animation = "walk_left"
 
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement
@@ -71,6 +77,15 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 	elif puzzle_mode == true:
 		$AnimatedSprite2D.animation = "puzzle"
+	elif end == true:
+		#End game cutscene logic
+		var dir = bed_pos - self.position
+		if dir.length() < 10:
+			SignalManager.credits.emit()
+		else:
+			velocity = dir.normalized() * SPEED / 2.0
+			move_and_slide()
+			
 	else:
 		$AnimatedSprite2D.animation = "idle"
 		

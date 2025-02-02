@@ -47,7 +47,7 @@ target_coords = Vector2(220, 90)
 
 [node name="Breaker3" parent="." instance=ExtResource("5_qg01c")]
 position = Vector2(119, 63)
-interact_label = "Kitchen Breaker"
+interact_label = "Attic Breaker"
 interact_type = "puzzle"
 
 [node name="Puzzle3" parent="." instance=ExtResource("6_pkwxw")]

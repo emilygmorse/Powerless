@@ -3,6 +3,7 @@ extends Control
 signal play_game
 signal goto_options
 signal quit_game
+signal title_credits
 
 func _on_play_button_pressed() -> void:
 	play_game.emit()
@@ -14,3 +15,7 @@ func _on_options_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	quit_game.emit()
+
+
+func _on_credits_button_pressed() -> void:
+	title_credits.emit()

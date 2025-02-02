@@ -1,0 +1,12 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Theodore: And the lights are back on.
+Amelia: Thank goodness. My nightlight. I'm tired.
+Amelia: Teddy . . . do you think those monsters are still out there?
+Theodore: Even if they are, I'll keep them away.
+Theodore: Sleep tight, Amelia.
+Amelia: [wave amp=15 freq=5]~Yawn~[/wave] . . . Thanks, Teddy.
+Amelia: Good night.
+do SignalManager.dialogue_ended.emit()
+do SignalManager.end_game.emit()
+=> END

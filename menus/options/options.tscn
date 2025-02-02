@@ -35,10 +35,10 @@ horizontal_alignment = 1
 
 [node name="VolumeSlider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 69.0
-offset_right = 257.0
-offset_bottom = 85.0
+offset_left = 68.0
+offset_top = 74.0
+offset_right = 256.0
+offset_bottom = 90.0
 max_value = 1.0
 step = 0.05
 value = 1.0
@@ -46,10 +46,10 @@ script = ExtResource("2_ycpjh")
 
 [node name="VolumeLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 118.0
-offset_top = 45.0
-offset_right = 202.0
-offset_bottom = 68.0
+offset_left = 117.0
+offset_top = 51.0
+offset_right = 201.0
+offset_bottom = 74.0
 text = "Volume"
 
 [node name="ControlsButton" type="Button" parent="."]

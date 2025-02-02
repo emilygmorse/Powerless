@@ -10,6 +10,7 @@ func _ready() -> void:
 	# Load the game after Godot starts up
 	ResourceLoader.load_threaded_request(GAME)
 	$TitleMusic.play()
+	SignalManager.credits.connect(goto_credits)
 
 func _on_title_screen_goto_options() -> void:
 	$Options.show()
@@ -27,6 +28,10 @@ func _on_title_screen_play_game() -> void:
 	else:
 		print("not loaded. loader status: ",load_status)
 		#TODO: Implement a loading screen here if necessary
+
+func _on_title_screen_title_credits() -> void:
+	$Credits.show()
+	$Credits.start_credits()
 
 
 func _on_title_screen_quit_game() -> void:
@@ -47,3 +52,14 @@ func _on_pause_quit_to_title() -> void:
 	gaming = false
 	ResourceLoader.load_threaded_request(GAME)
 	GameManager.reset_game()
+
+# Signal from within game.tscn
+func goto_credits() -> void:
+	game.queue_free()
+	self.remove_child(game)
+	GameManager.reset_game()
+	ResourceLoader.load_threaded_request(GAME)
+	gaming = false
+	$Credits.show()
+	$Credits.start_credits()
+	$TitleScreen.show()

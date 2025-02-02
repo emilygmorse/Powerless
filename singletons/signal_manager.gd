@@ -4,6 +4,8 @@ signal dialogue_ended()
 signal cutscene_started()
 signal cutscene_ended()
 signal mid_dialogue()
+signal end_game()
+signal credits()
 
 # Activate when kid is in or out of light ? -Andrew
 signal light_check(status: bool)

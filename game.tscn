@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bdngx7orlcqdx" path="res://characters/teddy.tscn" id="3_cjk31"]
 [ext_resource type="PackedScene" uid="uid://bpos8fneogbdf" path="res://rooms/bedroom.tscn" id="4_7jm3a"]
 [ext_resource type="PackedScene" uid="uid://n22bihxmbmjh" path="res://sounds/sound_manager.tscn" id="5_hrm60"]
-[ext_resource type="PackedScene" uid="uid://bfsga4c1cild8" path="res://characters/FearMeter.tscn" id="6_3258n"]
+[ext_resource type="PackedScene" path="res://characters/FearMeter.tscn" id="6_3258n"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -27,6 +27,7 @@ position = Vector2(99, 108)
 position = Vector2(34, 124)
 
 [node name="SoundManager" parent="." instance=ExtResource("5_hrm60")]
+visible = false
 
 [connection signal="door" from="Kid" to="." method="_on_kid_opens_door"]
 

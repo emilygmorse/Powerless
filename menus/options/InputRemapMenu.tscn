@@ -28,10 +28,10 @@ text = "Back"
 
 [node name="Instructions" type="Label" parent="."]
 layout_mode = 1
-offset_left = 80.0
-offset_top = 8.0
-offset_right = 319.0
-offset_bottom = 56.0
+offset_left = 78.0
+offset_top = 3.0
+offset_right = 317.0
+offset_bottom = 51.0
 text = "Click a button to reassign its key."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -40,11 +40,10 @@ autowrap_mode = 2
 [node name="RemapButtonGroup" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 56.0
-offset_right = 425.0
-offset_bottom = 224.0
-scale = Vector2(0.75, 0.75)
+offset_left = 2.0
+offset_top = 53.0
+offset_right = 319.0
+offset_bottom = 180.0
 
 [node name="ActionsList" type="VBoxContainer" parent="RemapButtonGroup"]
 layout_mode = 1
@@ -53,13 +52,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -87.3333
-offset_top = -85.3333
-offset_right = 232.667
-offset_bottom = 194.667
+offset_left = -149.5
+offset_top = -61.5
+offset_right = 148.5
+offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
 
 [node name="ActionRemapRow" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
 layout_mode = 2
@@ -69,8 +67,8 @@ size_flags_vertical = 3
 [node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 8
 text = "Move Up
 "
 horizontal_alignment = 1
@@ -80,7 +78,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 action = "move_up"
 
 [node name="ActionRemapRow2" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
@@ -92,7 +90,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 text = "Move Down"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -101,7 +99,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 action = "move_down"
 
 [node name="ActionRemapRow3" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
@@ -113,7 +111,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 text = "Move Left"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -122,7 +120,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 action = "move_left"
 
 [node name="ActionRemapRow4" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
@@ -134,7 +132,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 text = "Move Right"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -143,7 +141,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 action = "move_right"
 
 [node name="ActionRemapRow5" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
@@ -155,7 +153,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 text = "Interact"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -164,7 +162,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 8
 action = "interact"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

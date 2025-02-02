@@ -7,7 +7,7 @@ extends Node2D
 ## There should be a starting room scene as the first child node of this scene.
 # Currently Bedroom
 
-enum TRANSITION_STATE { NONE, IN, OUT }
+enum TRANSITION_STATE { NONE, IN, OUT, END }
 var transition := TRANSITION_STATE.NONE
 const TRANSITION_SPEED := 0.2 # between 0 and 1
 
@@ -23,6 +23,7 @@ var checkpoint_pos: Vector2
 func _ready() -> void:
 	# Set current room
 	current_room = self.get_child(0)
+	SignalManager.end_game.connect(game_end)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,6 +56,9 @@ func _process(_delta: float) -> void:
 		self.set_modulate(lerp(self.get_modulate(), Color(1,1,1,1), TRANSITION_SPEED))
 		if self.get_modulate().is_equal_approx(Color(1,1,1,1)):
 			transition = TRANSITION_STATE.NONE
+	elif transition == TRANSITION_STATE.END:
+		# Fade to credits
+		self.set_modulate(lerp(self.get_modulate(), Color(0,0,0,1), 0.006))
 	else:
 		assert(false)
 
@@ -95,3 +99,6 @@ func set_checkpoint() -> void:
 
 func goto_checkpoint() -> void:
 	load_room(checkpoint_path,checkpoint_pos)
+
+func game_end() -> void:
+	transition = TRANSITION_STATE.END

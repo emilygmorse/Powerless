@@ -2,16 +2,26 @@ extends Node2D
 
 const AVG_TIME := 90.0 #seconds
 const VAR_TIME := 30.0 #seconds
+var end:= false
+var vol := 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.outside.connect(went_outside)
 	SignalManager.ambient_music.connect(ambient)
 	SignalManager.theme_music.connect(theme)
+	SignalManager.end_game.connect(game_end)
 	prep_creak(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
 	prep_thump(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
 	prep_sus(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
 
+func _process(delta: float) -> void:
+	if end:
+		vol = vol - 0.0005
+		if vol > 0:
+			$ThemeMusic.set_volume_db(linear_to_db(vol))
+		else:
+			end = false
 
 func prep_creak(time:=0.0) -> void:
 	if time > 0:
@@ -72,3 +82,13 @@ func theme(on: bool):
 			$ThemeMusic.play()
 	else:
 		$ThemeMusic.stop()
+
+func stop_sounds() -> void:
+	stop_thump()
+	stop_creak()
+	$SusTimer.stop()
+
+func game_end() -> void:
+	end = true
+	vol = db_to_linear($ThemeMusic.get_volume_db())
+	stop_sounds()
