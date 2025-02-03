@@ -49,9 +49,17 @@ var dialogue_line: DialogueLine:
 
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
-		var portrait_path: String = "res://dialogue/portraits/%s.png" % dialogue_line.character.to_lower()
-		if FileAccess.file_exists(portrait_path):
-			portrait.texture = load(portrait_path)
+		
+		#var portrait_path: String = "res://dialogue/portraits/%s.png" % dialogue_line.character.to_lower()
+		#if FileAccess.file_exists(portrait_path):
+			#portrait.texture = load(portrait_path)
+		#else:
+			#portrait.texture = null
+		
+		if dialogue_line.character == "Amelia":
+			portrait.texture = ames_pic
+		elif dialogue_line.character == "Theodore":
+			portrait.texture = teddy_pic
 		else:
 			portrait.texture = null
 		
@@ -91,6 +99,8 @@ var dialogue_line: DialogueLine:
 ## The portrait and name of the currently speaking character
 @onready var character_label: RichTextLabel = %CharacterLabel
 @onready var portrait: TextureRect = %Portrait
+@onready var teddy_pic = preload("res://dialogue/portraits/theodore.png")
+@onready var ames_pic = preload("res://dialogue/portraits/amelia.png")
 
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
