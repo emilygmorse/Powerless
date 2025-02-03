@@ -2,28 +2,25 @@
 do SignalManager.cutscene_started.emit()
 Amelia: Here's the kitchen breaker box.
 Theodore: My fuzzy mitts won't work well with wires. You try to fix it.
-#show fake puzzle
 Theodore: The Instruction Panel has a few conditions to consider thanks to the terrible wiring job.
-# do show_fake/breaker_panel w/ switch click
 Theodore: Left click to flip breaker switches until they are properly set. 
-# do show_breaker_panel w/ switch click
 Theodore: The Master Switch is the last one that needs to be selected to get the wires ready for connections.
 Theodore: Each top wire has a matching bottom wire that needs to be connected up.
-Theodore: Left click the end of each wire to select/deselect that wire. Selecting another wire after that will make the connection.
+Theodore: Left click the end of each wire to select/deselect that wire. Selecting another wire after will make the connection.
 Theodore: If you see sparks flying, you’re on the right track! 
 Theodore: But if you make an incorrect connection, the wires will short and the breaker will trip…
-Theodore: That means you have to go reset the switches on the breaker before being able to take another go at connecting the wires.
-Theodore: If you can get all those wires connected up we should be able to get power back up in the Kitchen and Living Room!
+Theodore: That means you have to go reset the switches on the breaker before taking another go at the wires.
+Theodore: If you can get all those wires connected up we should be able to get power to the Kitchen and Living Room!
 Amelia: ... [wait = 1] Oh is that all?
 Theodore: Look, I know that sounds like a lot but don’t worry, I’ll be right here with you and we will go nice and slow-
-# do night light goes out
+do SignalManager.kitchen_night_light_out.emit()
 Theodore: Change of plans...
 Theodore: I'll hold off the shadows with my [wave amp=15 freq=5]POWERFUL[/wave] aura.
 Amelia: *His steely stare reassures you that he can now navigate freely and use the [wave amp=15 freq=5]INTERACT[/wave] key to blast away the shadows.*
 do GameManager.kitchen_puzzle = true
+do SignalManager.puzzle_mode.emit()
 do SignalManager.activate_enemy_spawner.emit()
 #Add puzzle start/teddy combat signal
 do SignalManager.cutscene_ended.emit()
-do SignalManager.puzzle_mode.emit()
 do SignalManager.dialogue_ended.emit()
 => END

@@ -16,6 +16,7 @@ var first_spawn: bool = true
 var enemy_type: int
 var chosen_spawn
 var previous_spawn
+var stop_spawn = false
 
 var all_enemy_scenes: Dictionary = { 
 ENEMY_SKELLY = preload("res://enemy/enemy_skelly.tscn"),
@@ -35,6 +36,10 @@ func _ready() -> void:
 		if i.get_class() == "Marker2D":
 			spawn_points.push_back(i)
 	SignalManager.activate_enemy_spawner.connect(spawn_enemy)
+	SignalManager.puzzle_3_solved.connect(stopping_spawn)
+
+func stopping_spawn():
+	stop_spawn = true
 
 func enemy_spawn_list() -> void:
 	var array_count: int = -1
@@ -60,14 +65,15 @@ func enemy_spawn_list() -> void:
 		push_error("No enemies selected to spawn! Location: ",self.get_parent().name)
 
 func spawn_enemy() -> void:
-	var spawn_num = randi_range(0, spawn_points.size()-1)
-	chosen_spawn = spawn_points[spawn_num]
-	enemy_type = randi_range(0, new_enemy_list.size()-1)
-	var enemy_spawned = new_enemy_list[enemy_type].instantiate()
-	enemy_spawned.global_position = chosen_spawn.global_position
-	call_deferred("add_child", enemy_spawned)
-	$SpawnTimer.start(randf_range(spawn_time - spawn_time_diff, spawn_time + spawn_time_diff))
-	prevent_repeat_spawn()
+	if stop_spawn == false:
+		var spawn_num = randi_range(0, spawn_points.size()-1)
+		chosen_spawn = spawn_points[spawn_num]
+		enemy_type = randi_range(0, new_enemy_list.size()-1)
+		var enemy_spawned = new_enemy_list[enemy_type].instantiate()
+		enemy_spawned.global_position = chosen_spawn.global_position
+		call_deferred("add_child", enemy_spawned)
+		$SpawnTimer.start(randf_range(spawn_time - spawn_time_diff, spawn_time + spawn_time_diff))
+		prevent_repeat_spawn()
 	
 func prevent_repeat_spawn() -> void:
 	spawn_points.erase(chosen_spawn)

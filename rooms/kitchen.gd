@@ -9,6 +9,8 @@ func _ready() -> void:
 	room_light_status(GameManager.puzzle_1_solved)
 	SignalManager.mid_dialogue.connect(mid_dialogue)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
+	SignalManager.kitchen_night_light_out.connect(kitchen_night_light_out)
+
 	#SignalManager.puzzle_mode.connect(puzzle_mode)
 	
 	# hack. TODO: fix. need light to know if room is lit
@@ -38,6 +40,9 @@ func intro_dialogue() -> void:
 func mid_dialogue() -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/mid_kitchen.dialogue"), "start")
 
+func kitchen_night_light_out():
+	light_source_circle.queue_free()
+
 #func puzzle_mode() -> void:
 	#print("puzzle 1 show!")
 	##add_puzzle(puzzle_1)
@@ -45,6 +50,7 @@ func mid_dialogue() -> void:
 
 func puzzle_solved() -> void:
 	enemy_spawner.queue_free()
+	win_jangle.play()
 	GameManager.puzzle_1_solved = true
 	GameManager.current_checkpoint = 1
 	SignalManager.destroy_enemies.emit()
@@ -62,7 +68,6 @@ func _on_breaker_puzzle_start() -> void:
 	if GameManager.puzzle_intro == true:
 		SignalManager.puzzle_mode.emit()
 	else:
-		light_source_circle.queue_free()
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen.dialogue"), "start")
 
 func got_key() -> void:

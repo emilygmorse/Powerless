@@ -12,6 +12,7 @@ func _ready() -> void:
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/intro_backyard.dialogue"), "start")
 
 func puzzle_solved() -> void:
+	win_jangle.play()
 	GameManager.puzzle_2_solved = true
 	$Breaker2.set_monitorable(false)
 	#Dialogue entry. 
