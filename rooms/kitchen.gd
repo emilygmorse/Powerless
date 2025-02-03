@@ -54,5 +54,5 @@ func _on_breaker_puzzle_start() -> void:
 	if GameManager.puzzle_intro == true:
 		SignalManager.puzzle_mode.emit()
 	else:
-		light_source_circle.hide()
+		light_source_circle.queue_free()
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen.dialogue"), "start")
