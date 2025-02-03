@@ -74,7 +74,7 @@ func game_end() -> void:
 	self.current_mode = TEDDY_MODE.END
 	
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	if self.current_mode == TEDDY_MODE.FOLLOW:
 		var direction:Vector2 = (kid.position - self.position)

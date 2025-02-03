@@ -52,7 +52,7 @@ func _ready() -> void:
 	$SoundTimer.start(sound_timer/2.0+randf_range(-sound_timer/4.0,sound_timer/4.0))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if enemy_collision == false:
 		horizontal_move()
 		vertical_move()
