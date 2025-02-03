@@ -15,7 +15,7 @@ func _ready() -> void:
 	prep_thump(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
 	prep_sus(AVG_TIME / 2.0 + randf_range(-1.0,1.0)*VAR_TIME)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if end:
 		vol = vol - 0.0005
 		if vol > 0:

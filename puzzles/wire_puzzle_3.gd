@@ -44,7 +44,7 @@ func toggle(display: bool) -> void:
 	else:
 		self.hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	win_condition()
 
 func click_delay_off() -> void:
@@ -119,7 +119,7 @@ func win_condition() -> void:
 
 
 
-func _on_bottom_wire_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_bottom_wire_1_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -127,7 +127,7 @@ func _on_bottom_wire_1_input_event(viewport: Node, event: InputEvent, shape_idx:
 		wire_updates(bottom_wire_1, spark_bw_1)
 
 
-func _on_bottom_wire_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_bottom_wire_2_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -135,7 +135,7 @@ func _on_bottom_wire_2_input_event(viewport: Node, event: InputEvent, shape_idx:
 		wire_updates(bottom_wire_2, spark_bw_2)
 
 
-func _on_bottom_wire_3_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_bottom_wire_3_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -143,7 +143,7 @@ func _on_bottom_wire_3_input_event(viewport: Node, event: InputEvent, shape_idx:
 		wire_updates(bottom_wire_3, spark_bw_3)
 
 
-func _on_top_wire_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_top_wire_1_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -151,7 +151,7 @@ func _on_top_wire_1_input_event(viewport: Node, event: InputEvent, shape_idx: in
 		wire_updates(top_wire_1, spark_tw_1)
 
 
-func _on_top_wire_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_top_wire_2_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -159,7 +159,7 @@ func _on_top_wire_2_input_event(viewport: Node, event: InputEvent, shape_idx: in
 		wire_updates(top_wire_2, spark_tw_2)
 
 
-func _on_top_wire_3_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_top_wire_3_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -167,7 +167,7 @@ func _on_top_wire_3_input_event(viewport: Node, event: InputEvent, shape_idx: in
 		wire_updates(top_wire_3, spark_tw_3)
 
 
-func _on_bottom_wire_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_bottom_wire_4_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -175,7 +175,7 @@ func _on_bottom_wire_4_input_event(viewport: Node, event: InputEvent, shape_idx:
 		wire_updates(bottom_wire_4, spark_bw_4)
 
 
-func _on_top_wire_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_top_wire_4_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -183,7 +183,7 @@ func _on_top_wire_4_input_event(viewport: Node, event: InputEvent, shape_idx: in
 		wire_updates(top_wire_4, spark_tw_4)
 
 
-func _on_bottom_wire_5_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_bottom_wire_5_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
@@ -191,7 +191,7 @@ func _on_bottom_wire_5_input_event(viewport: Node, event: InputEvent, shape_idx:
 		wire_updates(bottom_wire_5, spark_bw_5)
 
 
-func _on_top_wire_5_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_top_wire_5_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and click_delay == false
 	and GameManager.breaker_tripped_3 == false and GameManager.wire_puzzle_solved_3 == false):
 		click_delay = true
