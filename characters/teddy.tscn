@@ -180,8 +180,8 @@ size = Vector2(5, 16)
 radius = 15.9003
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k1kny"]
-radius = 12.0
-height = 34.0
+radius = 16.0
+height = 32.0
 
 [sub_resource type="Gradient" id="Gradient_fc86e"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -382,6 +382,7 @@ monitoring = false
 shape = SubResource("CircleShape2D_rty8v")
 
 [node name="InteractLabel" type="Label" parent="Interact Components"]
+visible = false
 offset_left = -18.0
 offset_top = -41.0
 offset_right = 15.0
@@ -393,6 +394,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="InteractArea" parent="." instance=ExtResource("3_t4a6a")]
+visible = false
 position = Vector2(-2.32458e-06, -7.45058e-09)
 collision_mask = 32
 interact_label = "Pick up Teddy"
