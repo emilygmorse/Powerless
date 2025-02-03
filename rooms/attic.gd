@@ -17,7 +17,9 @@ func puzzle_solved() -> void:
 	$Breaker3.set_monitorable(false)
 	SignalManager.destroy_enemies.emit()
 	room_light_status(GameManager.puzzle_3_solved)
+	$PuzzleSuccess.play()
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/attic_puzzle_done.dialogue"), "start")
+	
 
 func _on_breaker_3_puzzle_start() -> void:
 	SignalManager.puzzle_mode.emit()

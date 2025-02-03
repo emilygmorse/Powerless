@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bx1ianv7trwie"]
+[gd_scene load_steps=10 format=3 uid="uid://bx1ianv7trwie"]
 
 [ext_resource type="Script" path="res://rooms/attic.gd" id="1_7dten"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_lij55"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="5_qg01c"]
 [ext_resource type="PackedScene" uid="uid://df1c2bugxj8ej" path="res://puzzles/puzzle_3.tscn" id="6_pkwxw"]
 [ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="7_ll5gq"]
+[ext_resource type="AudioStream" uid="uid://fgjh30el2gg2" path="res://sounds/music/Spooccess.wav" id="8_ec52v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47lde"]
 size = Vector2(320, 20)
@@ -70,6 +71,9 @@ position = Vector2(243, 175)
 
 [node name="Spawn_4" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(38, 160)
+
+[node name="PuzzleSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ec52v")
 
 [connection signal="puzzle_start" from="Breaker3" to="." method="_on_breaker_3_puzzle_start"]
 

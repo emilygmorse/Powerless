@@ -14,6 +14,7 @@ func _ready() -> void:
 func puzzle_solved() -> void:
 	GameManager.puzzle_2_solved = true
 	$Breaker2.set_monitorable(false)
+	$PuzzleSuccess.play()
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_backyard_done.dialogue"), "start")
 	
 	

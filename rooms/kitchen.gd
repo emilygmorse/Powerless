@@ -50,6 +50,7 @@ func puzzle_solved() -> void:
 	SignalManager.destroy_enemies.emit()
 	room_light_status(GameManager.puzzle_1_solved)
 	$Breaker.set_monitorable(false)
+	$PuzzleSuccess.play()
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen_done.dialogue"), "start")
 	#TODO: Checkpoint updated to Kitchen door entry to yard
 

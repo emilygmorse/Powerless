@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd7xtya8g3e25"]
+[gd_scene load_steps=10 format=3 uid="uid://cd7xtya8g3e25"]
 
 [ext_resource type="Script" path="res://rooms/backyard.gd" id="1_2ce8l"]
 [ext_resource type="Texture2D" uid="uid://di434nqbjvdpd" path="res://images/scenes/backyard.png" id="1_r7fai"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://m1aw3eh3u2iv" path="res://enemy/enemy_spawner.tscn" id="5_o3ptq"]
 [ext_resource type="PackedScene" uid="uid://opmtiv6n3v6y" path="res://puzzles/puzzle_2.tscn" id="6_7h8bt"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="7_iaw5a"]
+[ext_resource type="AudioStream" uid="uid://fgjh30el2gg2" path="res://sounds/music/Spooccess.wav" id="8_a4a1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j13m"]
 size = Vector2(320, 20)
@@ -73,6 +74,9 @@ position = Vector2(206, 138)
 position = Vector2(107, 72)
 interact_label = "Generator Breaker"
 interact_type = "puzzle"
+
+[node name="PuzzleSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_a4a1c")
 
 [connection signal="puzzle_start" from="Breaker2" to="." method="_on_breaker_2_puzzle_start"]
 
