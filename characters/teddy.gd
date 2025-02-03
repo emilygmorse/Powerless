@@ -205,4 +205,5 @@ func _on_interact_area_pick_up_teddy(kid_node) -> void:
 
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
-		SignalManager.teddys_light_hit_enemy.emit()
+		#print("test success. Group Enemy?: ",area.is_in_group("Enemy"))
+		area.get_parent().lights_on_deleted()
