@@ -52,7 +52,7 @@ interact_type = "puzzle"
 [node name="Puzzle3" parent="." instance=ExtResource("6_pkwxw")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_ll5gq")]
-spawn_time = 2.5
+spawn_time = 2.0
 skelly_spawn = true
 tongue_spawn = true
 mouth_spawn = true
