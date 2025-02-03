@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bi6g1q5dkktjm"
+path="res://.godot/imported/attic_puzzle_done.dialogue-bbdf1bdcafcc545f3ec972e32cdc0e06.tres"
+
+[deps]
+
+source_file="res://dialogue/attic_puzzle_done.dialogue"
+dest_files=["res://.godot/imported/attic_puzzle_done.dialogue-bbdf1bdcafcc545f3ec972e32cdc0e06.tres"]
+
+[params]
+
+defaults=true

@@ -103,7 +103,7 @@ func all_wires_live() -> void:
 	spark_tw_5.show()
 
 func win_condition() -> void:
-	if GameManager.wire_puzzle_solved_2 == false:
+	if GameManager.wire_puzzle_solved_3 == false:
 		if bottom_wire_1.active:
 			if bottom_wire_2.active:
 				if bottom_wire_3.active:

@@ -10,10 +10,12 @@ func _ready() -> void:
 		enemy_spawner.spawn_enemy()
 
 func puzzle_solved() -> void:
+	enemy_spawner.queue_free()
 	GameManager.puzzle_3_solved = true
 	$Breaker3.set_monitorable(false)
 	SignalManager.destroy_enemies.emit()
 	room_light_status(GameManager.puzzle_3_solved)
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/attic_puzzle_done.dialogue"), "start")
 
 func _on_breaker_3_puzzle_start() -> void:
 	SignalManager.puzzle_mode.emit()
