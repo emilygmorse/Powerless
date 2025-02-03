@@ -115,7 +115,9 @@ func win_condition() -> void:
 										if top_wire_4.active:
 											if top_wire_5.active:
 												GameManager.wire_puzzle_solved_3 = true
+												SignalManager.puzzle_3_solved.emit()
 												SignalManager.puzzle_solved.emit()
+												print("win")
 
 
 

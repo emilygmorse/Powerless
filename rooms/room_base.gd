@@ -5,6 +5,7 @@ class_name ROOM
 var light_status
 var current_puzzle
 
+@onready var win_jangle: AudioStreamPlayer2D = $WinJangle
 @onready var dark_canvas: CanvasModulate = $dark_canvas
 
 func create_dialogue_balloon() -> void:
