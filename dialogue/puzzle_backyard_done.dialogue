@@ -1,0 +1,8 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: Oh no, the lights didn't turn on!
+Theodore: There aren't any outside lights here. The basement should be lit, though!
+Amelia: Ok, let's get away from these monsters.
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END

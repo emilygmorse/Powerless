@@ -32,12 +32,17 @@ var scale_var_y: float
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var area_2d: Area2D = $Area2D
 
+var enemy_paused:= false
+
 signal hit_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.destroy_enemies.connect(lights_on_deleted)
 	SignalManager.teddys_light_hit_enemy.connect( _on_area_2d_area_entered)
+	SignalManager.cutscene_started.connect(enemy_pause)
+	SignalManager.cutscene_ended.connect(enemy_unpause)
+	
 	player_ref = get_tree().get_first_node_in_group("Player")
 	
 	modulate = Color(0.43, 0.43, 0.43, 0.1)
@@ -56,7 +61,7 @@ func _physics_process(_delta: float) -> void:
 	if enemy_collision == false:
 		horizontal_move()
 		vertical_move()
-		move_and_slide()
+		if not enemy_paused: move_and_slide()
 		var overlapping_areas = area_2d.get_overlapping_areas()
 		if !overlapping_areas.is_empty():
 			_on_area_2d_area_entered(overlapping_areas[0])
@@ -166,3 +171,9 @@ func blink_back() -> void:
 func _on_sound_timer_timeout() -> void:
 	$MonsterSound.play()
 	$SoundTimer.start(sound_timer+randf_range(-sound_timer/2.0,sound_timer/2.0))
+
+func enemy_pause() -> void:
+	enemy_paused = true
+
+func enemy_unpause() -> void:
+	enemy_paused = false

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://crb8vrhrmagb7"
+path="res://.godot/imported/puzzle_backyard_done.dialogue-b2df04d052604b8956c457f6daed0653.tres"
+
+[deps]
+
+source_file="res://dialogue/puzzle_backyard_done.dialogue"
+dest_files=["res://.godot/imported/puzzle_backyard_done.dialogue-b2df04d052604b8956c457f6daed0653.tres"]
+
+[params]
+
+defaults=true
