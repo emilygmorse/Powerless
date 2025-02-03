@@ -201,3 +201,8 @@ func _on_interact_area_pick_up_teddy(kid_node) -> void:
 #func _on_teddy_picked_up_interact():
 	#teddy_picked_up = false
 	#teddy_just_picked_up = false
+
+
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		SignalManager.teddys_light_hit_enemy.emit()

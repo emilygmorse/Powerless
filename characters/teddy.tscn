@@ -422,7 +422,7 @@ texture = SubResource("GradientTexture2D_gw6ia")
 
 [node name="AttackArea" type="Area2D" parent="TeddyAttackNode/AttackGlow" groups=["Teddy Attack"]]
 collision_layer = 64
-collision_mask = 0
+collision_mask = 4
 monitoring = false
 monitorable = false
 
@@ -435,5 +435,6 @@ libraries = {
 }
 
 [connection signal="pick_up_teddy" from="InteractArea" to="." method="_on_interact_area_pick_up_teddy"]
+[connection signal="area_entered" from="TeddyAttackNode/AttackGlow/AttackArea" to="." method="_on_attack_area_area_entered"]
 
 [editable path="InteractArea"]

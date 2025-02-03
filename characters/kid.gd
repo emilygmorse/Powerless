@@ -124,7 +124,6 @@ func return_to_checkpoint():
 	door.emit(GameManager.checkpoint_dict.get(GameManager.current_checkpoint))
 	if show_reset_dialogue:
 		show_reset_dialogue = false
-		
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/interact_dialogues/first_checkpoint_reset.dialogue"), "start")
 	# TODO: Dialogue when going back to checkpoint
 	
