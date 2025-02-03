@@ -6,7 +6,7 @@ func _ready() -> void:
 	room_light_status(false)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
 	$EnemySpawner.spawn_enemy()
-	if GameManager.puzzle_2_solved:
+	if GameManager.puzzle_2_solved or not GameManager.puzzle_1_solved:
 		$Breaker2.set_monitorable(false)
 	if GameManager.backyard_intro == false:
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/intro_backyard.dialogue"), "start")

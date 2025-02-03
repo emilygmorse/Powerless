@@ -53,6 +53,8 @@ func reset_game() -> void:
 	attic_intro = false
 	kitchen_mid = false
 	puzzle_intro = false
+	basement_intro = false
+	final_pep_talk = true
 
 	#Keys
 	puzzle_1_solved = false
