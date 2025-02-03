@@ -6,9 +6,12 @@ func _ready() -> void:
 	room_light_status(false)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
 	$EnemySpawner.spawn_enemy()
+	if GameManager.puzzle_2_solved:
+		$Breaker2.set_monitorable(false)
 
 func puzzle_solved() -> void:
 	GameManager.puzzle_2_solved = true
+	$Breaker2.set_monitorable(false)
 	#Dialogue entry. 
 	#Interaction available to discover the key somewhere within the yard
 	

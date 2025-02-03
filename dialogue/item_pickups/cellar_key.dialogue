@@ -1,6 +1,7 @@
 ~ start
 do SignalManager.cutscene_started.emit()
 Amelia: Aha, I found the key to the cellar. It was in the bottom drawer.
+do SignalManager.got_key.emit()
 Theodore: Who the hay put it there??
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()

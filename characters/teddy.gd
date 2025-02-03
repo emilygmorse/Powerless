@@ -20,6 +20,7 @@ var start_position: Vector2
 @onready var attack_glow: PointLight2D = $TeddyAttackNode/AttackGlow
 @onready var attack_area: Area2D = $TeddyAttackNode/AttackGlow/AttackArea
 @onready var progress_bar: ProgressBar = $TeddyAttackNode/ProgressBar
+@onready var teddy_attack_node = $TeddyAttackNode
 
 
 func _ready() -> void:
@@ -56,12 +57,14 @@ func inputs_enabled_timer() -> void:
 func teddy_fight_mode_activate() -> void:
 	inputs_enabled()
 	progress_bar.show()
+	teddy_attack_node.show()
 	teddy_picked_up = false
 	self.current_mode = TEDDY_MODE.FIGHT
 
 func puzzle_solved() -> void:
 	inputs_disabled()
 	progress_bar.hide()
+	teddy_attack_node.hide()
 	teddy_just_picked_up = true
 	teddy_picked_up = true
 	self.current_mode = TEDDY_MODE.FOLLOW
@@ -198,3 +201,8 @@ func _on_interact_area_pick_up_teddy(kid_node) -> void:
 #func _on_teddy_picked_up_interact():
 	#teddy_picked_up = false
 	#teddy_just_picked_up = false
+
+
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		SignalManager.teddys_light_hit_enemy.emit()

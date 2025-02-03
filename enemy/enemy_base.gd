@@ -37,6 +37,7 @@ signal hit_player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.destroy_enemies.connect(lights_on_deleted)
+	SignalManager.teddys_light_hit_enemy.connect( _on_area_2d_area_entered)
 	player_ref = get_tree().get_first_node_in_group("Player")
 	
 	modulate = Color(0.43, 0.43, 0.43, 0.1)
@@ -56,6 +57,9 @@ func _physics_process(delta: float) -> void:
 		horizontal_move()
 		vertical_move()
 		move_and_slide()
+		var overlapping_areas = area_2d.get_overlapping_areas()
+		if !overlapping_areas.is_empty():
+			_on_area_2d_area_entered(overlapping_areas[0])
 
 func horizontal_move() -> void:
 	if player_ref.global_position.x > self.global_position.x and abs(player_ref.global_position.x - self.global_position.x) > 3:

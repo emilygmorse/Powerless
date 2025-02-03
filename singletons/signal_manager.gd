@@ -13,6 +13,8 @@ signal light_check(status: bool)
 # Spawn an enemy & continue spawning
 signal activate_enemy_spawner()
 
+signal teddys_light_hit_enemy()
+
 signal hit_player(damage: int)
 signal max_fear_reached()
 signal fear_reset_during_puzzle()

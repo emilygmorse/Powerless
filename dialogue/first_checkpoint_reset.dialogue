@@ -1,0 +1,8 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: It's too spooky out there!
+Theodore: It's ok to be scared Amelia. You can borrow some of my courage if you want. Let's try again.
+Amelia: Thanks Teddy.
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END

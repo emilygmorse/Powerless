@@ -180,8 +180,8 @@ size = Vector2(5, 16)
 radius = 15.9003
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k1kny"]
-radius = 12.0
-height = 34.0
+radius = 16.0
+height = 32.0
 
 [sub_resource type="Gradient" id="Gradient_fc86e"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -374,16 +374,15 @@ visible = false
 z_index = 1
 
 [node name="Interact Area" type="Area2D" parent="Interact Components"]
-visible = false
 collision_layer = 0
 collision_mask = 32
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact Components/Interact Area"]
-visible = false
 shape = SubResource("CircleShape2D_rty8v")
 
 [node name="InteractLabel" type="Label" parent="Interact Components"]
+visible = false
 offset_left = -18.0
 offset_top = -41.0
 offset_right = 15.0
@@ -424,8 +423,9 @@ energy = 2.0
 texture = SubResource("GradientTexture2D_gw6ia")
 
 [node name="AttackArea" type="Area2D" parent="TeddyAttackNode/AttackGlow" groups=["Teddy Attack"]]
+position = Vector2(0, 14)
 collision_layer = 64
-collision_mask = 0
+collision_mask = 4
 monitoring = false
 monitorable = false
 
@@ -438,5 +438,6 @@ libraries = {
 }
 
 [connection signal="pick_up_teddy" from="InteractArea" to="." method="_on_interact_area_pick_up_teddy"]
+[connection signal="area_entered" from="TeddyAttackNode/AttackGlow/AttackArea" to="." method="_on_attack_area_area_entered"]
 
 [editable path="InteractArea"]

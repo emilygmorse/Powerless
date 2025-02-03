@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://fuhmyr1d02ru"
+path="res://.godot/imported/first_checkpoint_reset.dialogue-9578aebdb9d95aa99d334cfb1d489edc.tres"
+
+[deps]
+
+source_file="res://dialogue/first_checkpoint_reset.dialogue"
+dest_files=["res://.godot/imported/first_checkpoint_reset.dialogue-9578aebdb9d95aa99d334cfb1d489edc.tres"]
+
+[params]
+
+defaults=true

@@ -12,10 +12,12 @@ var bed_pos = Vector2(75,100)
 @onready var interact_label = $"Interaction Components/Interact Label"
 @onready var hurt_box: Area2D = $HurtBox
 @onready var fear_meter = $"../FearMeter"
+@onready var show_reset_dialogue = true
 #@onready var current_room: ROOM = find_room(self.get_parent, ROOM)
 @export var player_fear: int = 0
 @export var in_light_index = 0
 
+# Signals that kid has gone through a door
 signal door(door_info: String)
 
 func _ready() -> void:
@@ -120,8 +122,12 @@ func return_to_checkpoint():
 		puzzle_solved()
 		SignalManager.fear_reset_during_puzzle.emit()
 	door.emit(GameManager.checkpoint_dict.get(GameManager.current_checkpoint))
+	if show_reset_dialogue:
+		show_reset_dialogue = false
+		DialogueManager.show_dialogue_balloon(load("res://dialogue/first_checkpoint_reset.dialogue"), "start")
 	
 
+#puzzle methods
 
 func puzzle_mode_timer():
 	get_tree().create_timer(0.01).timeout.connect(puzzle_mode_activate)
@@ -222,8 +228,6 @@ func execute_interaction():
 				DialogueManager.show_dialogue_balloon(load(cur_interactions.interact_value), "start")
 
 func _on_timer_timeout() -> void:
-	print("meter_pause: {}", meter_pause)
-	print("player_fear: {}", player_fear)
 	if meter_pause == false:
 		player_fear += in_light_index
 		if player_fear <= 0:

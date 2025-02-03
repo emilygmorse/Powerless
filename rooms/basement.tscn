@@ -83,7 +83,7 @@ tongue_spawn = true
 mouth_spawn = true
 spider_spawn = true
 
-[node name="Spawn_1" parent="EnemySpawner" index="0"]
+[node name="Spawn_1" parent="EnemySpawner" index="1"]
 position = Vector2(57, 98)
 
 [node name="Spawn_2" type="Marker2D" parent="EnemySpawner"]

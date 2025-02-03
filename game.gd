@@ -8,8 +8,8 @@ extends Node2D
 # Currently Bedroom
 
 enum TRANSITION_STATE { NONE, IN, OUT, END }
-var transition := TRANSITION_STATE.NONE
-const TRANSITION_SPEED := 0.2 # between 0 and 1
+var transition := TRANSITION_STATE.IN
+const TRANSITION_SPEED := 0.3 # between 0 and 1
 
 var current_room: Node
 var new_room_resource: Resource
@@ -24,6 +24,8 @@ func _ready() -> void:
 	# Set current room
 	current_room = self.get_child(0)
 	SignalManager.end_game.connect(game_end)
+	# Start black & fade in
+	self.set_modulate(Color(0,0,0,1))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,6 +58,8 @@ func _process(_delta: float) -> void:
 		self.set_modulate(lerp(self.get_modulate(), Color(1,1,1,1), TRANSITION_SPEED))
 		if self.get_modulate().is_equal_approx(Color(1,1,1,1)):
 			transition = TRANSITION_STATE.NONE
+			# Enable input
+			$Kid.inputs_enabled()
 	elif transition == TRANSITION_STATE.END:
 		# Fade to credits
 		self.set_modulate(lerp(self.get_modulate(), Color(0,0,0,1), 0.006))
@@ -79,6 +83,8 @@ func load_room(path, pos) -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(path)
 	# If the room has finished loading
 	if load_status == 3:
+		# Disable input
+		$Kid.inputs_disabled()
 		# Set up transition from current room to new room
 		new_room_resource = ResourceLoader.load_threaded_get(path)
 		room_path = path

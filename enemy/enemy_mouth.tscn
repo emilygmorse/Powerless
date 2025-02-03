@@ -3,16 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://ywgyqx2yggbd" path="res://enemy/enemy_base.tscn" id="1_jcl0f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36ncg"]
-radius = 14.0
-height = 34.0
+radius = 8.0
+height = 36.0
 
 [node name="EnemyMouth" instance=ExtResource("1_jcl0f")]
 damage = 5
 speed_x = 16.0
 speed_y = 8.0
 
+[node name="Sprite2D" parent="." index="0"]
+hframes = 8
+frame = 0
+
+[node name="Area2D" parent="." index="1"]
+position = Vector2(0, 0)
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(0, 6)
+position = Vector2(1, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_36ncg")
 

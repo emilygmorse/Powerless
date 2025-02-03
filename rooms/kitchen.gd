@@ -10,18 +10,27 @@ func _ready() -> void:
 	SignalManager.mid_dialogue.connect(mid_dialogue)
 	SignalManager.puzzle_solved.connect(puzzle_solved)
 	#SignalManager.puzzle_mode.connect(puzzle_mode)
+	
+	# hack. TODO: fix. need light to know if room is lit
+	$LightSourceCircle.room_is_lit = self.light_status
 
 	if GameManager.puzzle_intro:
 		light_source_circle.queue_free()
 		
 	if GameManager.puzzle_1_solved:
 		$EnemySpawner.queue_free()
+		$Breaker.set_monitorable(false)
 	elif GameManager.puzzle_intro:
 		$EnemySpawner.spawn_enemy()
 	
 	if GameManager.kitchen_intro == false:    #UPDATE THIS LINE W/ CORRECT ROOM
 		create_dialogue_balloon()
 		get_tree().create_timer(0.1).timeout.connect(intro_dialogue)
+	
+	if GameManager.cellar_key:
+		$LeftDrawers.set_monitorable(false)
+	else:
+		SignalManager.got_key.connect(got_key)
 
 func intro_dialogue() -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/intro_kitchen.dialogue"), "start")
@@ -48,7 +57,9 @@ func puzzle_solved() -> void:
 	get_tree().create_timer(0.1).timeout.connect(puzzle_done_dialogue)
 
 func puzzle_done_dialogue():
-		DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen_done.dialogue"), "start")
+  $Breaker.set_monitorable(false
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen_done.dialogue"), "start")
+
 
 func spawner_check() -> void: 
 	if GameManager.puzzle_intro or GameManager.puzzle_1_solved == false:
@@ -60,7 +71,8 @@ func _on_breaker_puzzle_start() -> void:
 		SignalManager.puzzle_mode.emit()
 	else:
 		light_source_circle.queue_free()
-		print(balloon)
+
+    print(balloon)
 		balloon = null
 		print(balloon)
 		create_tutorial_dialogue_balloon()
@@ -69,3 +81,6 @@ func _on_breaker_puzzle_start() -> void:
 
 func puzzle_dialogue() -> void:
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen.dialogue"), "start")
+
+func got_key() -> void:
+	$LeftDrawers.set_monitorable(false)
