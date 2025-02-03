@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://heyaf8gbqeo2"]
+[gd_scene load_steps=5 format=3 uid="uid://heyaf8gbqeo2"]
 
 [ext_resource type="Script" path="res://rooms/room_base.gd" id="1_5idvg"]
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_kek5n"]
+[ext_resource type="AudioStream" uid="uid://fgjh30el2gg2" path="res://sounds/music/Spooccess.wav" id="3_7g0lx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syyj7"]
 size = Vector2(320, 20)
@@ -28,3 +29,6 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2(160, 190)
 shape = SubResource("RectangleShape2D_syyj7")
+
+[node name="WinJangle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7g0lx")

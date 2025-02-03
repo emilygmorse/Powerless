@@ -10,6 +10,7 @@ func _ready() -> void:
 		$Breaker2.set_monitorable(false)
 
 func puzzle_solved() -> void:
+	win_jangle.play()
 	GameManager.puzzle_2_solved = true
 	$Breaker2.set_monitorable(false)
 	#Dialogue entry. 

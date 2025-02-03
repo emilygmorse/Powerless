@@ -109,7 +109,7 @@ func update_fear(damage: int) -> void:
 
 func light_check(standing_in_light : bool):	
 	if standing_in_light:
-		in_light_index = -15
+		in_light_index = -30
 	else:
 		in_light_index = 1
 		
@@ -133,10 +133,10 @@ func puzzle_mode_timer():
 	get_tree().create_timer(0.01).timeout.connect(puzzle_mode_activate)
 
 func puzzle_mode_activate():
+	puzzle_mode = true
 	print("puzzle mode")
 	inputs_disabled()
 	$AnimatedSprite2D.animation = "puzzle"
-	puzzle_mode = true
 
 func puzzle_solved():
 	puzzle_mode = false

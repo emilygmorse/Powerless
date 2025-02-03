@@ -51,7 +51,7 @@ interact_type = "puzzle"
 
 [node name="Puzzle3" parent="." instance=ExtResource("6_pkwxw")]
 
-[node name="EnemySpawner" parent="." instance=ExtResource("7_ll5gq")]
+[node name="EnemySpawner2" parent="." instance=ExtResource("7_ll5gq")]
 spawn_time = 2.5
 skelly_spawn = true
 tongue_spawn = true
@@ -59,18 +59,18 @@ mouth_spawn = true
 spider_spawn = true
 crawler_spawn = true
 
-[node name="Spawn_1" parent="EnemySpawner" index="1"]
+[node name="Spawn_1" parent="EnemySpawner2" index="1"]
 position = Vector2(191, 141)
 
-[node name="Spawn_2" type="Marker2D" parent="EnemySpawner"]
+[node name="Spawn_2" type="Marker2D" parent="EnemySpawner2"]
 position = Vector2(255, 90)
 
-[node name="Spawn_3" type="Marker2D" parent="EnemySpawner"]
+[node name="Spawn_3" type="Marker2D" parent="EnemySpawner2"]
 position = Vector2(243, 175)
 
-[node name="Spawn_4" type="Marker2D" parent="EnemySpawner"]
+[node name="Spawn_4" type="Marker2D" parent="EnemySpawner2"]
 position = Vector2(38, 160)
 
 [connection signal="puzzle_start" from="Breaker3" to="." method="_on_breaker_3_puzzle_start"]
 
-[editable path="EnemySpawner"]
+[editable path="EnemySpawner2"]

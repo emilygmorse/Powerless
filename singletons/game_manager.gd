@@ -22,8 +22,8 @@ var puzzle_1_solved = false
 var puzzle_2_solved = false
 var puzzle_3_solved = false
 
-var cellar_key = false
-var attic_key = false
+var cellar_key = true
+var attic_key = true
 
 #Checkpoints
 var checkpoint_dict = {

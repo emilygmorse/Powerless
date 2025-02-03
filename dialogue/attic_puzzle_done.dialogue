@@ -1,0 +1,7 @@
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: We did it!!!
+Theodore: Let's go back down to the room and embrace the light!
+do SignalManager.cutscene_ended.emit()
+do SignalManager.dialogue_ended.emit()
+=> END

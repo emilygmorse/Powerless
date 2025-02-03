@@ -22,7 +22,8 @@ signal puzzle_mode()
 signal puzzle_solved()
 signal destroy_enemies()
 signal got_key()
-
+signal kitchen_night_light_out()
+signal puzzle_3_solved()
 
 signal breaker_switches_set()
 signal wires_shorted()
