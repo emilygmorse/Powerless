@@ -188,6 +188,7 @@ func execute_interaction():
 					# Check for keys like so:
 					if key == "attic":
 						if GameManager.attic_key:
+							GameManager.current_checkpoint = 2
 							pass
 						else: 
 							DialogueManager.show_dialogue_balloon(load("res://dialogue/door_failures/no_attic_key.dialogue"), "start")
