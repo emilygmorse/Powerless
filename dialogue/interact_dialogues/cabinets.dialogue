@@ -1,7 +1,7 @@
 ~ start
 do SignalManager.cutscene_started.emit()
-Theodore: Nothing in here, huh?
-Amelia: Yeah, just a lot of boring stuff.
+Theodore: Any honey in here?
+Amelia: No, just a lot of boring stuff.
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()
 => END

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bke2i0ci8dcsb"
+path="res://.godot/imported/intro_attic.dialogue-21617cb3d336db9aea0262908248e620.tres"
+
+[deps]
+
+source_file="res://dialogue/intro_attic.dialogue"
+dest_files=["res://.godot/imported/intro_attic.dialogue-21617cb3d336db9aea0262908248e620.tres"]
+
+[params]
+
+defaults=true

@@ -1,7 +1,7 @@
 ~ start
 do SignalManager.cutscene_started.emit()
 Theodore: The world is so big.
-Amelia: Yeah, it's a little scary.
+Amelia: Yeah, it can be a littel grizzly.
 Theodore: Don't worry, I'm here for you.
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()

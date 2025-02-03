@@ -1,7 +1,9 @@
 ~ start
 do SignalManager.cutscene_started.emit()
-Amelia: Ahh reached a battery powered night light. Introduce fear meter regen
-Theodore: Lets hurry out to the back before this thing runs out of juice
+Amelia: A battery powered night light! Good, I was starting to get scared!
+Theodore: Let's hurry out to the Breaker box next to it before this thing runs out of juice. 
+Amelia: But what if i get too scared?
+Theodore: Just keep an eye on your Fear meter. If it fills up, the darkness may become UN-BEARABLE!
 do SignalManager.cutscene_ended.emit()
 do GameManager.kitchen_intro = true
 do SignalManager.dialogue_ended.emit()

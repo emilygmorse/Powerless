@@ -1,0 +1,12 @@
+##
+~ start
+do SignalManager.cutscene_started.emit()
+Amelia: Look! the last Breaker box in the house!
+Theodore: Don't worry. I'm sure this one will be easier than the others.
+Amelia: These puzzles are pretty hard. Maybe we should just start a fire?
+Theodore: And warm ourself by the em-bears?
+Amelia: I guess it's a bad idea. Nevermind.
+do SignalManager.cutscene_ended.emit()
+## do GameManager.attic_intro = true
+do SignalManager.dialogue_ended.emit()
+=> END
