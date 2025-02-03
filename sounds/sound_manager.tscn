@@ -60,7 +60,9 @@ stream_18/stream = ExtResource("15_r1n3a")
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yvn6s"]
 streams_count = 8
 stream_0/stream = ExtResource("25_5qbp1")
+stream_0/weight = 2.0
 stream_1/stream = ExtResource("26_ejfni")
+stream_1/weight = 2.0
 stream_2/stream = ExtResource("25_4mwc2")
 stream_3/stream = ExtResource("26_608qc")
 stream_4/stream = ExtResource("27_dx00o")
@@ -95,7 +97,7 @@ volume_db = -15.0
 
 [node name="SusNoises" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_yvn6s")
-volume_db = -2.0
+volume_db = -10.0
 max_polyphony = 2
 
 [node name="SusTimer" type="Timer" parent="."]

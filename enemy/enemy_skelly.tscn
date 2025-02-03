@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ywgyqx2yggbd" path="res://enemy/enemy_base.tscn" id="1_02jf1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pruv8"]
-radius = 8.0
-height = 40.0
+radius = 7.0
+height = 14.0
 
 [node name="EnemySkelly" instance=ExtResource("1_02jf1")]
 damage = 5
@@ -13,6 +13,9 @@ speed_y = 10.0
 shake_time = 2.0
 stretch_time = 1.0
 skew_diff = 15
+
+[node name="Area2D" parent="." index="1"]
+position = Vector2(0, 0)
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("CapsuleShape2D_pruv8")

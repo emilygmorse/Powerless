@@ -8,8 +8,8 @@ extends Node2D
 # Currently Bedroom
 
 enum TRANSITION_STATE { NONE, IN, OUT, END }
-var transition := TRANSITION_STATE.NONE
-const TRANSITION_SPEED := 0.2 # between 0 and 1
+var transition := TRANSITION_STATE.IN
+const TRANSITION_SPEED := 0.3 # between 0 and 1
 
 var current_room: Node
 var new_room_resource: Resource
@@ -24,6 +24,8 @@ func _ready() -> void:
 	# Set current room
 	current_room = self.get_child(0)
 	SignalManager.end_game.connect(game_end)
+	# Start black & fade in
+	self.set_modulate(Color(0,0,0,1))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
