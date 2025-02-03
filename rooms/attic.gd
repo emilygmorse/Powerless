@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func puzzle_solved() -> void:
 	GameManager.puzzle_3_solved = true
+	$Breaker3.set_monitorable(false)
 	SignalManager.destroy_enemies.emit()
 	room_light_status(GameManager.puzzle_3_solved)
 

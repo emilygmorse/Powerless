@@ -56,6 +56,8 @@ func _process(_delta: float) -> void:
 		self.set_modulate(lerp(self.get_modulate(), Color(1,1,1,1), TRANSITION_SPEED))
 		if self.get_modulate().is_equal_approx(Color(1,1,1,1)):
 			transition = TRANSITION_STATE.NONE
+			# Enable input
+			$Kid.inputs_enabled()
 	elif transition == TRANSITION_STATE.END:
 		# Fade to credits
 		self.set_modulate(lerp(self.get_modulate(), Color(0,0,0,1), 0.006))
@@ -79,6 +81,8 @@ func load_room(path, pos) -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(path)
 	# If the room has finished loading
 	if load_status == 3:
+		# Disable input
+		$Kid.inputs_disabled()
 		# Set up transition from current room to new room
 		new_room_resource = ResourceLoader.load_threaded_get(path)
 		room_path = path

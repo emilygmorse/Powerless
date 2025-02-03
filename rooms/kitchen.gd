@@ -16,6 +16,7 @@ func _ready() -> void:
 		
 	if GameManager.puzzle_1_solved:
 		$EnemySpawner.queue_free()
+		$Breaker.set_monitorable(false)
 	elif GameManager.puzzle_intro:
 		$EnemySpawner.spawn_enemy()
 	
@@ -40,6 +41,7 @@ func puzzle_solved() -> void:
 	GameManager.current_checkpoint = 1
 	SignalManager.destroy_enemies.emit()
 	room_light_status(GameManager.puzzle_1_solved)
+	$Breaker.set_monitorable(false)
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen_done.dialogue"), "start")
 	#TODO: Checkpoint updated to Kitchen door entry to yard
 

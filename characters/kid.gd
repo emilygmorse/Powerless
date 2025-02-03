@@ -16,6 +16,7 @@ var bed_pos = Vector2(75,100)
 @export var player_fear: int = 0
 @export var in_light_index = 0
 
+# Signals that kid has gone through a door
 signal door(door_info: String)
 
 func _ready() -> void:
@@ -120,6 +121,7 @@ func return_to_checkpoint():
 		puzzle_solved()
 		SignalManager.fear_reset_during_puzzle.emit()
 	door.emit(GameManager.checkpoint_dict.get(GameManager.current_checkpoint))
+	# TODO: Dialogue when going back to checkpoint
 	
 
 
