@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://heel467wgb23" path="res://images/scenes/large_monsters_cropped.png" id="2_khj1y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2siqx"]
-radius = 12.0
+radius = 9.0
 height = 58.0
 
 [node name="EnemyCrawler" instance=ExtResource("1_atraa")]
@@ -18,7 +18,7 @@ vframes = 2
 frame = 0
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(0, 7)
+position = Vector2(0, 15)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2siqx")
 

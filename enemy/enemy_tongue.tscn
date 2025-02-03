@@ -3,17 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://ywgyqx2yggbd" path="res://enemy/enemy_base.tscn" id="1_brxxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe1hf"]
-size = Vector2(22, 30)
+size = Vector2(29, 10)
 
 [node name="EnemyTongue" instance=ExtResource("1_brxxv")]
 speed_x = 24.0
 speed_y = 12.0
 
 [node name="Sprite2D" parent="." index="0"]
+hframes = 8
 frame = 3
 
+[node name="Area2D" parent="." index="1"]
+position = Vector2(0, 0)
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-1, -4)
+position = Vector2(-5.5, -2)
 shape = SubResource("RectangleShape2D_pe1hf")
 
 [node name="AnimationPlayer" parent="." index="2"]
