@@ -1,7 +1,9 @@
 ~ start
 do SignalManager.cutscene_started.emit()
 Amelia: Teddy, I'm gonna need your help.
-Theodore: No sweat, kiddo. Let's go!
+Theodore: No sweat, kiddo. If i see any monsters, i'll beat the stuffing out of them. Let's go!
+Amelia: Yea! chop them down like a tree!
+Theodore: Tim-bear!
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()
 => END

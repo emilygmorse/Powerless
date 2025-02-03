@@ -1,10 +1,12 @@
 ~ start
 do SignalManager.cutscene_started.emit()
 Amelia: Yay, the lights are back on!
-Theodore: And now the shadows have disappeared. Good job.
+Theodore: And now the shadows have disa-beared. Good job.
 Amelia: Ok, what next? This is not normal. Someone, or [shake rate=20 level=10]something[/shake], tore the wires up.
 Theodore: We'll get to the bottom of this. Where do you think the attic key is?
 Amelia: Last time Dad went up there, it was to move stuff to the basement . . . .
+Theodore: He threw out his back doing that. He wasn't very lim-bear.
+Amelia: ...I think the door is outside.
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()
 => END

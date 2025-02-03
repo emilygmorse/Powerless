@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dmx3v6jkkds37"
+path="res://.godot/imported/intro_backyard.dialogue-48f585381960df7675aaa5706025a092.tres"
+
+[deps]
+
+source_file="res://dialogue/intro_backyard.dialogue"
+dest_files=["res://.godot/imported/intro_backyard.dialogue-48f585381960df7675aaa5706025a092.tres"]
+
+[params]
+
+defaults=true

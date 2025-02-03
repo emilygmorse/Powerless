@@ -1,9 +1,9 @@
 ~ start
 do SignalManager.cutscene_started.emit()
 Amelia: What was that in the corner?? Those shadows are [shake rate=20 level=10]moving![/shake]
-Theodore: Don't worry Amelia, I'm here for you. Just keep walking. Is there another breaker?
+Theodore: Don't worry Amelia, You can stand under my un-bearella. Just keep walking. Is there another breaker?
 Amelia: Yeah, there's one in the kitchen.
-Theodore: Then let's make our way there.
+Theodore: Then let's make our way there. I'm sure you can bear it. 
 do SignalManager.cutscene_ended.emit()
 do GameManager.living_room_intro = true
 do SignalManager.activate_enemy_spawner.emit()
