@@ -2,13 +2,18 @@ extends Node2D
 
 class_name ROOM
 
+var balloon
 var light_status
 var current_puzzle
 
 @onready var dark_canvas: CanvasModulate = $dark_canvas
 
+func create_tutorial_dialogue_balloon() -> void:
+	balloon = load("res://dialogue/balloon_tutorial.tscn").instantiate()
+	get_tree().current_scene.add_child.call_deferred(balloon)
+	
 func create_dialogue_balloon() -> void:
-	var balloon = load("res://dialogue/balloon.tscn").instantiate()
+	balloon = load("res://dialogue/balloon.tscn").instantiate()
 	get_tree().current_scene.add_child.call_deferred(balloon)
 
 #func add_puzzle(puzzle: Node2D) -> void:

@@ -49,9 +49,17 @@ func puzzle_solved() -> void:
 	GameManager.current_checkpoint = 1
 	SignalManager.destroy_enemies.emit()
 	room_light_status(GameManager.puzzle_1_solved)
-	$Breaker.set_monitorable(false)
+	
+	print(balloon)
+	balloon = null
+	print(balloon)
+	create_dialogue_balloon()
+	get_tree().create_timer(0.1).timeout.connect(puzzle_done_dialogue)
+
+func puzzle_done_dialogue():
+  $Breaker.set_monitorable(false
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen_done.dialogue"), "start")
-	#TODO: Checkpoint updated to Kitchen door entry to yard
+
 
 func spawner_check() -> void: 
 	if GameManager.puzzle_intro or GameManager.puzzle_1_solved == false:
@@ -63,6 +71,15 @@ func _on_breaker_puzzle_start() -> void:
 		SignalManager.puzzle_mode.emit()
 	else:
 		light_source_circle.queue_free()
+
+    print(balloon)
+		balloon = null
+		print(balloon)
+		create_tutorial_dialogue_balloon()
+		print(balloon)
+		get_tree().create_timer(0.1).timeout.connect(puzzle_dialogue)
+
+func puzzle_dialogue() -> void:
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/puzzle_kitchen.dialogue"), "start")
 
 func got_key() -> void:
