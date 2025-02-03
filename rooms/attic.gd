@@ -8,6 +8,8 @@ func _ready() -> void:
 	SignalManager.puzzle_solved.connect(puzzle_solved)
 	if GameManager.puzzle_3_solved == false:
 		enemy_spawner.spawn_enemy()
+	if GameManager.attic_intro == false:
+		DialogueManager.show_dialogue_balloon(load("res://dialogue/intro_attic.dialogue"), "start")
 
 func puzzle_solved() -> void:
 	enemy_spawner.queue_free()
