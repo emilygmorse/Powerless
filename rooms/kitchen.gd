@@ -44,6 +44,7 @@ func mid_dialogue() -> void:
 	#light_source_circle.hide()
 
 func puzzle_solved() -> void:
+	play_win()
 	enemy_spawner.queue_free()
 	GameManager.puzzle_1_solved = true
 	GameManager.current_checkpoint = 1

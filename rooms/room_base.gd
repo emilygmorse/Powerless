@@ -4,13 +4,18 @@ class_name ROOM
 
 var light_status
 var current_puzzle
+const SPOOCCESS = preload("res://sounds/music/Spooccess.wav")
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var dark_canvas: CanvasModulate = $dark_canvas
 
 func create_dialogue_balloon() -> void:
 	var balloon = load("res://dialogue/balloon.tscn").instantiate()
 	get_tree().current_scene.add_child.call_deferred(balloon)
 
+func play_win():
+	audio_stream_player_2d.set_stream(SPOOCCESS)
+	audio_stream_player_2d.play()
 #func add_puzzle(puzzle: Node2D) -> void:
 	#puzzle.show()
 	#
