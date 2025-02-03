@@ -51,7 +51,7 @@ target_coords = Vector2(280, 115)
 spawn_time = 2.0
 skelly_spawn = true
 
-[node name="Spawn_1" parent="EnemySpawner" index="0"]
+[node name="Spawn_1" parent="EnemySpawner" index="1"]
 position = Vector2(265, 65)
 
 [node name="Spawn_2" type="Marker2D" parent="EnemySpawner"]

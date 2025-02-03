@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq2uwdyk74yjr"]
+[gd_scene load_steps=13 format=3 uid="uid://cq2uwdyk74yjr"]
 
 [ext_resource type="PackedScene" uid="uid://b6ounnmmw6js8" path="res://lighting/dark_canvas.tscn" id="1_ctpom"]
 [ext_resource type="Script" path="res://rooms/kitchen.gd" id="1_lfn1h"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://vnw45iwrc5e6" path="res://lighting/light_source_circle.tscn" id="8_gt5nw"]
 [ext_resource type="PackedScene" uid="uid://bfdywxegc1iui" path="res://Game Components/InteractArea/interact_area.tscn" id="9_j4iyn"]
 [ext_resource type="Texture2D" uid="uid://bwxaedkk1cpe1" path="res://images/objects/night_light_plugin.png" id="10_na6py"]
+[ext_resource type="PackedScene" uid="uid://d3em6cd27c0ve" path="res://puzzles/tutorial_puzzle_1.tscn" id="11_t6yfb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7umbb"]
 size = Vector2(320, 20)
@@ -64,13 +65,14 @@ offset = Vector2(0, -20)
 polygon = PackedVector2Array(-34, 0, -27, -21, 26, -21, 34, 0)
 
 [node name="Puzzle1" parent="." instance=ExtResource("6_28on2")]
+visible = false
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_b7up5")]
 spawn_time = 5.0
 skelly_spawn = true
 mouth_spawn = true
 
-[node name="Spawn_1" parent="EnemySpawner" index="0"]
+[node name="Spawn_1" parent="EnemySpawner" index="1"]
 position = Vector2(211, 99)
 
 [node name="Spawn_2" type="Marker2D" parent="EnemySpawner"]
@@ -118,6 +120,8 @@ puzzle_requirement = 1
 [node name="NightLight" type="Sprite2D" parent="."]
 position = Vector2(82, 73)
 texture = ExtResource("10_na6py")
+
+[node name="TutorialPuzzle1" parent="." instance=ExtResource("11_t6yfb")]
 
 [connection signal="puzzle_start" from="Breaker" to="." method="_on_breaker_puzzle_start"]
 
