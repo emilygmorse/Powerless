@@ -28,3 +28,5 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2(160, 190)
 shape = SubResource("RectangleShape2D_syyj7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
