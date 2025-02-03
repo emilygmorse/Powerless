@@ -8,6 +8,8 @@ func _ready() -> void:
 	$EnemySpawner.spawn_enemy()
 	if GameManager.puzzle_2_solved:
 		$Breaker2.set_monitorable(false)
+	if GameManager.backyard_intro == false:
+		DialogueManager.show_dialogue_balloon(load("res://dialogue/intro_backyard.dialogue"), "start")
 
 func puzzle_solved() -> void:
 	GameManager.puzzle_2_solved = true

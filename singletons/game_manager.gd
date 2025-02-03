@@ -12,6 +12,8 @@ var breaker_tripped_3: bool = false
 var bedroom_intro = false
 var living_room_intro = false
 var kitchen_intro = false
+var backyard_intro = false
+var attic_intro = false
 var kitchen_mid = false
 var puzzle_intro = false
 var basement_intro = false
@@ -47,6 +49,8 @@ func reset_game() -> void:
 	bedroom_intro = false
 	living_room_intro = false
 	kitchen_intro = false
+	backyard_intro = false
+	attic_intro = false
 	kitchen_mid = false
 	puzzle_intro = false
 

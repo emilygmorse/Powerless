@@ -1,12 +1,10 @@
-##
 ~ start
 do SignalManager.cutscene_started.emit()
 Amelia: Look! Another Breaker box near the generator!
 Theodore: Are you sure it isn't a bear-ker box?
 Amelia: Can you even box?
 Theodore: Let's just get to the basement, we probably don't have to mess with this one.
-
 do SignalManager.cutscene_ended.emit()
-## do GameManager.kitchen_intro = true
+do GameManager.backyard_intro = true
 do SignalManager.dialogue_ended.emit()
 => END
