@@ -1,7 +1,7 @@
 ~ start
 do SignalManager.cutscene_started.emit()
 Amelia: It's too dark, I can't see anything.
-Theadore: we will need to turn on a light to get out bear-ings.
+Theadore: We will need to turn on a light to get our bear-ings.
 do SignalManager.cutscene_ended.emit()
 do SignalManager.dialogue_ended.emit()
 => END

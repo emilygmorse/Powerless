@@ -1,7 +1,7 @@
 ~ start
 do SignalManager.cutscene_started.emit()
 Theodore: And the lights are back on.
-Amelia: Thank goodness. My nightlight. I'm tired.
+Amelia: Thank goodness. My nightlight's back. I'm tired.
 Amelia: Teddy . . . do you think those monsters are still out there?
 Theodore: Even if they are, I'll keep them away.
 Theodore: Remem-bear that. Sleep tight, Amelia.

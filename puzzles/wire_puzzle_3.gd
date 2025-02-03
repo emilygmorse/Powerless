@@ -8,16 +8,16 @@ var current_wire = null
 
 var bottom_wire_1 = {"name": "BW1", "solution": "TW1", "active": false}
 var bottom_wire_2 = {"name": "BW2", "solution": "TW3", "active": false}
-var bottom_wire_3 = {"name": "BW3", "solution": "TW5", "active": false}
-var bottom_wire_4 = {"name": "BW4", "solution": "TW2", "active": false}
+var bottom_wire_3 = {"name": "BW3", "solution": "TW2", "active": false}
+var bottom_wire_4 = {"name": "BW4", "solution": "TW5", "active": false}
 var bottom_wire_5 = {"name": "BW5", "solution": "TW4", "active": false}
 
 
 var top_wire_1 = {"name": "TW1", "solution": "BW1", "active": false}
-var top_wire_2 = {"name": "TW2", "solution": "BW4", "active": false}
+var top_wire_2 = {"name": "TW2", "solution": "BW3", "active": false}
 var top_wire_3 = {"name": "TW3", "solution": "BW2", "active": false}
 var top_wire_4 = {"name": "TW4", "solution": "BW5", "active": false}
-var top_wire_5 = {"name": "TW5", "solution": "BW3", "active": false}
+var top_wire_5 = {"name": "TW5", "solution": "BW4", "active": false}
 
 @onready var spark_bw_1: AnimatedSprite2D = $BottomWire1/SparkBW1
 @onready var spark_bw_2: AnimatedSprite2D = $BottomWire2/SparkBW2
@@ -103,7 +103,7 @@ func all_wires_live() -> void:
 	spark_tw_5.show()
 
 func win_condition() -> void:
-	if GameManager.wire_puzzle_solved_2 == false:
+	if GameManager.wire_puzzle_solved_3 == false:
 		if bottom_wire_1.active:
 			if bottom_wire_2.active:
 				if bottom_wire_3.active:

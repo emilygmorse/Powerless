@@ -59,8 +59,19 @@ func game_end() -> void:
 	$AnimatedSprite2D.animation = "walk_left"
 
 func _physics_process(_delta: float) -> void:
+	
+	if end == true:
+		#End game cutscene logic
+		var dir = bed_pos - self.position
+		if dir.length() < 10:
+			SignalManager.credits.emit()
+		else:
+			velocity = dir.normalized() * SPEED / 2.0
+			move_and_slide()
+			
+	
 	# Get the input direction and handle the movement
-	if inputs_allowed == true:
+	elif inputs_allowed == true:
 		var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		
 		velocity = input_dir * SPEED
@@ -79,15 +90,6 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 	elif puzzle_mode == true:
 		$AnimatedSprite2D.animation = "puzzle"
-	elif end == true:
-		#End game cutscene logic
-		var dir = bed_pos - self.position
-		if dir.length() < 10:
-			SignalManager.credits.emit()
-		else:
-			velocity = dir.normalized() * SPEED / 2.0
-			move_and_slide()
-			
 	else:
 		$AnimatedSprite2D.animation = "idle"
 		

@@ -3,7 +3,8 @@ do SignalManager.cutscene_started.emit()
 Amelia: There it is! The key to the attic!
 Theodore: A-bear-antly. Wait, it's up there? How are we going to get it?
 Amelia: If we can just shake the cabinet a bit . . .
-Theodore: [wave amp=15 freq=5]~With my bear arsm!~[/wave]
+Theodore: [wave amp=10 freq=4]With my bear arms![/wave]
+Theodore: [wave amp=15 freq=5]~Oomph~[/wave]
 do SignalManager.got_key.emit()
 Amelia: I got it! Thanks Teddy, I can always count on you.
 do SignalManager.cutscene_ended.emit()

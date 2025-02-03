@@ -1,7 +1,7 @@
 ~ start
 do SignalManager.cutscene_started.emit()
 Amelia: It's too dark... I can't see any of the padlock numbers
-Theodore: What a poorly designed door. I think we need to fix that circuit breaker to get some light]
+Theodore: What a poorly designed door. I think we need to fix that circuit breaker to get some light
 do SignalManager.cutscene_ended.emit()
 do GameManager.kitchen_mid = true
 

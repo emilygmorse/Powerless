@@ -19,7 +19,7 @@ Theodore: Look, I know that sounds like a lot but don’t worry, I’ll be right
 # do night light goes out
 Theodore: Change of plans...
 Theodore: I'll hold off the shadows with my [wave amp=15 freq=5]POWERFUL[/wave] aura.
-Amelia: *His stealy stare reassures you that he can now navigate freely and use the [wave amp=15 freq=5]INTERACT[/wave] key to blast away the shadows*
+Amelia: *His steely stare reassures you that he can now navigate freely and use the [wave amp=15 freq=5]INTERACT[/wave] key to blast away the shadows.*
 do GameManager.kitchen_puzzle = true
 do SignalManager.activate_enemy_spawner.emit()
 #Add puzzle start/teddy combat signal

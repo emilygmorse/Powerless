@@ -2,8 +2,8 @@
 do SignalManager.cutscene_started.emit()
 Amelia: A battery powered night light! Good, I was starting to get scared!
 Theodore: Let's hurry out to the Breaker box next to it before this thing runs out of juice. 
-Amelia: But what if i get too scared?
-Theodore: Just keep an eye on your Fear meter. If it fills up, the darkness may become UN-BEARABLE!
+Amelia: But what if I get too scared?
+Theodore: Just keep an eye on your Fear meter. If it fills up, the darkness may become [wave amp=15 freq=5]UN-BEARABLE![/wave]
 do SignalManager.cutscene_ended.emit()
 do GameManager.kitchen_intro = true
 do SignalManager.dialogue_ended.emit()
