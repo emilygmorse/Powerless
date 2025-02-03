@@ -1,5 +1,6 @@
 extends PointLight2D
 
+var room_is_lit = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	SignalManager.light_check.emit(true)
@@ -7,5 +8,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	SignalManager.light_check.emit(false)
-	print("Light signal: false set in PointLight")
+	if not room_is_lit:
+		SignalManager.light_check.emit(false)
+		print("Light signal: false set in PointLight")

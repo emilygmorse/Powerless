@@ -5,7 +5,11 @@ extends ROOM
 
 func _ready() -> void:
 	room_light_status(GameManager.puzzle_2_solved)
-	SignalManager.got_key.connect(got_key)
+	if GameManager.attic_key:
+		$LeftCabinets.set_monitorable(false)
+		cover_key.show()
+	else:
+		SignalManager.got_key.connect(got_key)
 	
 	if GameManager.puzzle_2_solved:
 		$EnemySpawner.queue_free()
@@ -21,4 +25,5 @@ func intro_dialogue() -> void:
 
 func got_key():
 	cover_key.show()
-	GameManager.attic_key = true
+	$LeftCabinets.set_monitorable(false)
+	GameManager.attic_key = true # careful, this is also in kid.gd -Andrew
