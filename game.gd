@@ -16,6 +16,7 @@ var new_room_resource: Resource
 var new_room: Node
 var target_position: Vector2
 var room_path: String
+var game_has_disabled_input:= false
 var checkpoint_path: String
 var checkpoint_pos: Vector2
 
@@ -48,9 +49,6 @@ func _process(_delta: float) -> void:
 			# Update Kid & Teddy Position
 			$Kid.position = target_position
 			$Teddy.position = target_position + Vector2.UP*2
-			# Reset checkpoint load just in case
-			if checkpoint_path:
-				ResourceLoader.load_threaded_request(checkpoint_path)
 			# Transition back in
 			transition = TRANSITION_STATE.IN
 	elif transition == TRANSITION_STATE.IN:
@@ -59,7 +57,9 @@ func _process(_delta: float) -> void:
 		if self.get_modulate().is_equal_approx(Color(1,1,1,1)):
 			transition = TRANSITION_STATE.NONE
 			# Enable input
-			$Kid.inputs_enabled()
+			if game_has_disabled_input:
+				$Kid.inputs_enabled()
+				game_has_disabled_input = false
 	elif transition == TRANSITION_STATE.END:
 		# Fade to credits
 		self.set_modulate(lerp(self.get_modulate(), Color(0,0,0,1), 0.006))
@@ -85,6 +85,7 @@ func load_room(path, pos) -> void:
 	if load_status == 3:
 		# Disable input
 		$Kid.inputs_disabled()
+		game_has_disabled_input = true
 		# Set up transition from current room to new room
 		new_room_resource = ResourceLoader.load_threaded_get(path)
 		room_path = path
